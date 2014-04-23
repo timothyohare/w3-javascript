@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html id="yui_3_9_1_2_1397475603184_20" class="yui3-js-enabled js textshadow cssanimations csstransitions" dir="ltr" xml:lang="en" lang="en"><div class="" id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important"></div><head>
+    <title>JS_Mar14: Presentation HTML5 audio API </title>
+    <link rel="shortcut icon" href="http://classroom.w3devcampus.com/theme/image.php/essential/theme/1396531643/favicon">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="moodle, JS_Mar14: Presentation HTML5 audio API ">
+<script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"http:\/\/classroom.w3devcampus.com","sesskey":"RjqDKshKUA","loadingicon":"http:\/\/classroom.w3devcampus.com\/theme\/image.php\/essential\/core\/1396531643\/i\/loading_small","themerev":"1396531643","slasharguments":1,"theme":"essential","jsrev":"1395326071","svgicons":true};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin');}};
+var yui2ConfigFn = function(me) {var p = me.path, b = me.name.replace(/^moodle-/,'').split('-', 3), n = b.pop();if (/(skin|core)/.test(n)) {n = b.pop();me.type = 'css';};me.path = b.join('-')+'/'+n+'/'+n;if(me.type !== 'css'){me.path=me.path+'-min';};me.path=me.path+'.'+me.type;};
+YUI_config = {"debug":false,"base":"http:\/\/classroom.w3devcampus.com\/lib\/yuilib\/3.9.1\/build\/","comboBase":"http:\/\/classroom.w3devcampus.com\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"http:\/\/classroom.w3devcampus.com\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"http:\/\/classroom.w3devcampus.com\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"http:\/\/classroom.w3devcampus.com\/theme\/yui_combo.php?moodle\/1395326071\/","combine":true,"comboBase":"http:\/\/classroom.w3devcampus.com\/theme\/yui_combo.php?","ext":false,"root":"moodle\/1395326071\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"modules":{"moodle-core-formautosubmit":{"requires":["base","event-key"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification","json-parse","widget-position","widget-position-align","event-outside","cache"]},"moodle-core-formchangechecker":{"requires":["base","event-focus"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-notification":{"requires":["base","node","panel","event-key","dd-plugin"]},"moodle-calendar-eventmanager":{"requires":["base","node","event-mouseenter","overlay","moodle-calendar-eventmanager-skin"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-block_navigation-navigation":{"requires":["base","core_dock","io-base","node","dom","event-custom","event-delegate","json-parse"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-notification"]},"moodle-editor_tinymce-collapse":{"requires":["base","node","dom"]},"moodle-theme_bootstrapbase-bootstrap":{"requires":["node","selector-css3"]}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"http:\/\/classroom.w3devcampus.com\/lib\/javascript.php\/1395326071\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker"]},"core_dock":{"name":"core_dock","fullpath":"http:\/\/classroom.w3devcampus.com\/lib\/javascript.php\/1395326071\/blocks\/dock.js","requires":["base","node","event-custom","event-mouseenter","event-resize","escape"]}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/yui_combo_005.php"></script><script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/jquery-1.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/cslider_1.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/custom_1.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/alert_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/carousel_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/collapse_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/modal_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/scrollspy_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/tab_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/tooltip_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/transition_2.js"></script>
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/modernizr_2.js"></script>
+<script async="" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/yui_combo_006.php" id="yui_3_9_1_2_1397475603184_2" charset="utf-8"></script><script async="" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/yui_combo_002.php" id="yui_3_9_1_2_1397475603184_6" charset="utf-8"></script><script async="" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/dock.js" id="yui_3_9_1_3_1397475603184_5" charset="utf-8"></script><script async="" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/yui_combo_003.php" id="yui_3_9_1_3_1397475603184_6" charset="utf-8"></script><link href="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/yui_combo.css" id="yui_3_9_1_3_1397475603184_143" rel="stylesheet" charset="utf-8"><script async="" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/yui_combo_004.php" id="yui_3_9_1_3_1397475603184_144" charset="utf-8"></script><script async="" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/yui_combo.php" id="yui_3_9_1_3_1397475603184_145" charset="utf-8"></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/all.css">
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/javascript-static.js"></script>
+
+<style type="text/css">
+a {
+  text-decoration: underline !important;
+}
+
+a:visited {
+  color: purple;
+}
+</style>
+<meta name="description" content="W3DevCampus is the official W3C online training program for Web developers and designers the world over. Learn HTML5, CSS3 and mobile Web the right way!">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google web fonts -->
+    	<link href="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/css.css" rel="stylesheet" type="text/css">
+	<link href="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/css_002.css" rel="stylesheet" type="text/css">
+    <!-- iOS Homescreen Icons -->
+    
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://classroom.w3devcampus.com/theme/image.php/essential/theme/1396531643/homeicon/iphone">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://classroom.w3devcampus.com/theme/image.php/essential/theme/1396531643/homeicon/ipad">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://classroom.w3devcampus.com/theme/image.php/essential/theme/1396531643/homeicon/iphone_retina">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://classroom.w3devcampus.com/theme/image.php/essential/theme/1396531643/homeicon/ipad_retina"></head>
+
+<body id="page-mod-page-view" class="format-weeks  path-mod path-mod-page gecko dir-ltr lang-en yui-skin-sam yui3-skin-sam classroom-w3devcampus-com pagelayout-incourse course-66 context-16026 cmid-1507 category-24 has-region-side-pre used-region-side-pre has-region-side-post empty-region-side-post has-region-footer-left empty-region-footer-left has-region-footer-middle empty-region-footer-middle has-region-footer-right empty-region-footer-right jsenabled">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+
+
+    <header id="page-header" class="clearfix">
+
+    <div class="container-fluid">
+    <div class="row-fluid">
+    <!-- HEADER: LOGO AREA -->
+                	<div class="span6">
+                                    
+                <a class="logo" href="http://classroom.w3devcampus.com/" title="Home"></a>
+                    </div>
+                <div class="span1 pull-right" id="profilepic">
+            <p id="socialheading">Timothy</p>
+            <ul class="socials unstyled">
+                <li>
+                    <a href="http://classroom.w3devcampus.com/user/profile.php?id=13590">
+                        </a><a href="http://classroom.w3devcampus.com/user/view.php?id=13590&amp;course=66"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/f2.png" alt="Picture of Timothy O'Hare" title="Picture of Timothy O'Hare" class="userpicture defaultuserpic" height="35" width="35"></a>                    
+                </li>
+            </ul>            
+
+        </div>
+                <div class="span3 pull-right">
+        <p id="socialheading">Social Networks</p>
+            <ul class="socials unstyled">
+                                                <li><a href="https://plus.google.com/+W3devcampus" class="googleplus"><i class="icon-google-plus-sign"></i></a></li>
+                                                <li><a href="https://twitter.com/W3Training" class="twitter"><i class="icon-twitter-sign"></i></a></li>
+                                                <li><a href="https://www.facebook.com/w3devcampus" class="facebook"><i class="icon-facebook-sign"></i></a></li>
+                                                <li><a href="http://www.linkedin.com/company/W3DevCampus" class="linkedin"><i class="icon-linkedin-sign"></i></a></li>
+                                                <li><a href="https://www.youtube.com/W3DevCampus" class="youtube"><i class="icon-youtube-sign"></i></a></li>
+                                                                                                	    </ul>
+        </div>
+            </div>
+</div></header>
+
+<header role="banner" class="navbar">
+    <nav role="navigation" class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="http://classroom.w3devcampus.com/"><i class="icon-home"></i>&nbsp;Home</a>
+            <a class="btn btn-navbar" data-toggle="workaround-collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="nav-collapse collapse">
+            <ul class="nav"><li><a title="W3DevCampus " href="http://w3devcampus.com/">W3DevCampus </a></li><li><a title="W3C " href="http://www.w3.org/">W3C </a></li><li><a title="Blog " href="http://www.w3devcampus.com/category/news/">Blog </a></li><li class="dropdown langmenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="English">English (en)<b class="caret"></b></a><ul class="dropdown-menu"><li><a title="English (en)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=en">English (en)</a></li><li><a title="Español - Internacional (es)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=es">Español - Internacional (es)</a></li><li><a title="Français (fr)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=fr">Français (fr)</a></li><li><a title="Nederlands (nl)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=nl">Nederlands (nl)</a></li><li><a title="Português - Brasil (pt_br)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=pt_br">Português - Brasil (pt_br)</a></li><li><a title="한국어 (ko)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=ko">한국어 (ko)</a></li><li><a title="日本語 (ja)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=ja">日本語 (ja)</a></li><li><a title="简体中文 (zh_cn)" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507&amp;lang=zh_cn">简体中文 (zh_cn)</a></li></ul></li><li class="dropdown"><a href="http://classroom.w3devcampus.com/my/index.php" class="dropdown-toggle" data-toggle="dropdown" title="My Dashboard"><i class="icon-dashboard"></i>My Dashboard<b class="caret"></b></a><ul class="dropdown-menu"><li><a title="Profile" href="http://classroom.w3devcampus.com/user/profile.php"><em><i class="icon-user"></i>Profile</em></a></li><li><a title="Calendar" href="http://classroom.w3devcampus.com/calendar/view.php"><em><i class="icon-calendar"></i>Calendar</em></a></li><li><a title="Messages" href="http://classroom.w3devcampus.com/message/index.php"><em><i class="icon-envelope"></i>Messages</em></a></li><li><a title="Badges" href="http://classroom.w3devcampus.com/badges/mybadges.php"><em><i class="icon-certificate"></i>Badges</em></a></li><li><a title="Private files" href="http://classroom.w3devcampus.com/user/files.php"><em><i class="icon-file"></i>Private files</em></a></li><li><a title="Logout" href="http://classroom.w3devcampus.com/login/logout.php"><em><i class="icon-signout"></i>Logout</em></a></li></ul></li><li class="dropdown"><a href="http://classroom.w3devcampus.com/my/index.php" class="dropdown-toggle" data-toggle="dropdown" title="My Courses"><i class="icon-briefcase"></i>My Courses<b class="caret"></b></a><ul class="dropdown-menu"><li><a title="JS_Mar14" href="http://classroom.w3devcampus.com/course/view.php?id=66">JavaScript - March 2014</a></li></ul></li></ul>            <ul class="nav pull-right">
+            <li></li>
+            <li class="navbar-text"><div class="logininfo">You are logged in as <a href="http://classroom.w3devcampus.com/user/profile.php?id=13590" title="View profile">Timothy O'Hare</a> (<a href="http://classroom.w3devcampus.com/login/logout.php?sesskey=RjqDKshKUA">Logout</a>)</div></li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Start Main Regions -->
+<div id="page" class="container-fluid">
+	<div id="page-content" class="row-fluid">
+        <div id="region-bs-main-and-pre" class="span9">
+            <div id="yui_3_9_1_2_1397475603184_19" class="row-fluid">
+                                	<div id="region-main-essential" class="span9">
+                                    <section id="region-main" class="row-fluid">
+                    	<div id="page-navbar" class="clearfix">
+            				<nav class="breadcrumb-button"></nav>
+            				<div class="breadcrumb-nav"><span class="accesshide">Page path</span><ul class="breadcrumb"><li><a href="http://classroom.w3devcampus.com/">Home</a> <span class="divider"> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> </span></li><li><a href="http://classroom.w3devcampus.com/my/">My courses</a> <span class="divider"> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> </span></li><li><a href="http://classroom.w3devcampus.com/course/index.php?categoryid=24">JavaScript</a> <span class="divider"> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> </span></li><li><a title="JavaScript - March 2014" href="http://classroom.w3devcampus.com/course/view.php?id=66">JS_Mar14</a> <span class="divider"> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> </span></li><li><span tabindex="0">31 March - 6 April</span> <span class="divider"> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> </span></li><li><a title="Page" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507">Presentation HTML5 audio API </a></li></ul></div>
+        				</div>
+                        <div id="yui_3_9_1_2_1397475603184_18" role="main"><span id="maincontent"></span><h2 id="pageheading" class="main">Presentation HTML5 audio API </h2><div id="yui_3_9_1_2_1397475603184_17" class="box generalbox center clearfix"><div id="yui_3_9_1_2_1397475603184_16" class="no-overflow"><p style="background: #dedede;">This following chapter present the HTML5 audio API, it is a part of the course<strong>&nbsp;<a href="http://www.w3devcampus.com/html5-w3c-training/" target="_blank">"HTML5: Web Design Fundamentals"</a></strong>&nbsp;by Michel Buffa.&nbsp;</p>
+<h1></h1>
+<h1>Introduction</h1>
+<p>HTML5 audio defines several layers:</p>
+<ul id="yui_3_9_1_2_1397475603184_15">
+<li id="yui_3_9_1_2_1397475603184_14">The <span style="font-family: 'courier new', courier, monospace;">&lt;audio&gt;</span> element, similar to the<span style="font-family: 'courier new', courier, monospace;"> &lt;video&gt;</span> element in its use and API.</li>
+<li>The "Audio data and Web Audio API" dedicated to musical applications
+ defines real-time sound processing, real time effects, access to 
+samples, etc. Still experimental, presented briefly in this course.</li>
+<li>Audio for games, still very experimental: addresses problems such as
+ "low cpu and ram use", "uncompressed shot sounds that can loop", 
+etc.&nbsp;</li>
+</ul>
+<p>This course will not talk about the third point.</p>
+<p>The JavaScript API (properties, methods, events) of the <span style="font-family: 'courier new', courier, monospace;">&lt;audio&gt;</span>
+ element is just a "reduced" version of the the &lt;video&gt; element 
+one, and we'll only address the differences and peculiarities.</p>
+<h1>The <span style="font-family: 'courier new', courier, monospace;">&lt;audio&gt;</span> element</h1>
+<p><strong>Resources:</strong></p>
+<ul>
+<li>Specification:&nbsp;<a href="http://www.w3.org/TR/html5/the-audio-element.html#audio" target="_blank">http://www.w3.org/TR/html5/the-audio-element.html#audio</a></li>
+</ul>
+<h2>Typical example</h2>
+<p><span face="courier new, courier, monospace" style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;">You can try a typical example online: <a href="http://jsbin.com/itaros/8/edit" target="_blank">http://jsbin.com/itaros/8/edit</a><a href="http://jsbin.com/itaros/4/edit" target="_blank"><br></a></span></p>
+<p><span face="courier new, courier, monospace" style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/AudioElement.jpg" alt="Audio element" style="border: 1px solid black;" height="75" width="315"></span></p>
+<p><strong>Source code for the example:</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html5" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table class="html5" style="border-collapse: collapse; width: 100%;">
+<tbody>
+<tr class="li1">
+<td style="width: 1px; background: #f0f0f0; vertical-align: top; color: #676f73; border-right: 1px dotted #dddddd; font-size: 12px; text-align: right;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre>
+</td>
+<td style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/html.html"><span style="color: #000000; font-weight: bold;">html</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/audio.html"><span style="color: #000000; font-weight: bold;">audio</span></a> controls<span style="color: #66cc66;">=</span><span style="color: #ff0000;">"controls"</span>&gt;</span>
+&nbsp;<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/source.html"><span style="color: #000000; font-weight: bold;">source</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"http://www.w3schools.com/html/horse.ogg"</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"audio/ogg"</span> <span style="color: #66cc66;">/</span>&gt;</span>
+&nbsp;<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/source.html"><span style="color: #000000; font-weight: bold;">source</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"http://www.w3schools.com/html/horse.mp3"</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"audio/mp3"</span> <span style="color: #66cc66;">/</span>&gt;</span>
+&nbsp;Your browser does not support the audio element.
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/audio.html"><span style="color: #000000; font-weight: bold;">audio</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/html.html"><span style="color: #000000; font-weight: bold;">html</span></a>&gt;</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p></p>
+<p><span style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;">Just as for the video element, in this example we used the <span style="font-family: 'courier new', courier, monospace;">controls</span>
+ attribute so that the play/stop, time, volume and progress widgets will
+ render. Notice the other similarities: between the 
+&lt;audio&gt;...&lt;/audio&gt; <span>we added&nbsp;</span>a text message
+ that is displayed if the web browser doesn't support the &lt;audio&gt; 
+element, and we used several &lt;source&gt;..&lt;/source&gt; 
+elements&nbsp;<span>that link to different audio formats for the same file. The browser will use the first format it recognizes.</span></span></p>
+<p></p>
+<h2>The&nbsp;<span>&lt;audio&gt;</span>&nbsp;element and the DOM</h2>
+<p></p>
+<div id="gt-res-c" class="g-unit">
+<div id="gt-res-p">
+<div id="gt-res-data">
+<div id="gt-res-wrap">
+<div id="gt-res-content" class="almost_half_cell">
+<div dir="ltr"><span lang="en">The&nbsp;<span>&lt;audio&gt;</span>&nbsp;element has methods, properties/attributes, and events that can be manipulated from JavaScript and the DOM API:<br></span>
+<ul>
+<li><span class="hps">Methods for controlling the behavior - like</span><span class="hps">&nbsp;play()</span>, pause(),&nbsp;<span class="hps">etc.</span>.</li>
+<li><span class="hps">Properties</span>&nbsp;<span class="hps">(duration,</span>&nbsp;<span class="hps">current position</span>, etc.), some that we can read/write (like volume), and others that are read only (like encoding, duration, etc)</li>
+<li><span class="hps">Events are generated</span>&nbsp;<span class="hps">during the</span>&nbsp;<span class="hps">life cycle</span>&nbsp;of the element&nbsp;<span class="hps">and can be processed using JavaScript callbacks</span><span class="hps">. We</span><span class="hps">&nbsp;can also&nbsp;</span><span class="hps">send events</span>&nbsp;<span class="hps">to control</span>&nbsp;<span class="hps">the audio player.</span></li>
+</ul>
+<div>Just as any HTML element, the<span style="font-family: 'courier new', courier, monospace;"> &lt;audio&gt;</span> element can be manipulated / created using the DOM JavaScript API:</div>
+<div></div>
+</div>
+<div>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table class="javascript" style="border-collapse: collapse; width: 100%;">
+<tbody>
+<tr class="li1">
+<td style="width: 1px; background: #f0f0f0; vertical-align: top; color: #676f73; border-right: 1px dotted #dddddd; font-size: 12px; text-align: right;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">1
+2
+3
+4
+</pre>
+</td>
+<td style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #000066; font-weight: bold;">var</span> audio <span style="color: #339933;">=</span> document.<span style="color: #660066;">createElement</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'audio'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+audio.<span style="color: #660066;">src</span> <span style="color: #339933;">=</span> <span style="color: #3366cc;">'audio.oga'</span><span style="color: #339933;">;</span>
+audio.<span style="color: #660066;">controls</span> <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">;</span>
+document.<span style="color: #660066;">body</span>.<span style="color: #660066;">appendChild</span><span style="color: #009900;">(</span>audio<span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;"><span>Or using a constructor like this:</span></span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table class="javascript" style="border-collapse: collapse; width: 100%;">
+<tbody>
+<tr class="li1">
+<td style="width: 1px; background: #f0f0f0; vertical-align: top; color: #676f73; border-right: 1px dotted #dddddd; font-size: 12px; text-align: right;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">1
+</pre>
+</td>
+<td style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #000066; font-weight: bold;">var</span> audio <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Audio<span style="color: #009900;">(</span><span style="color: #3366cc;">'audio.oga'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p></p>
+<p><span>Or also using a simpler method:</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table class="javascript" style="border-collapse: collapse; width: 100%;">
+<tbody>
+<tr class="li1">
+<td style="width: 1px; background: #f0f0f0; vertical-align: top; color: #676f73; border-right: 1px dotted #dddddd; font-size: 12px; text-align: right;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">1
+2
+</pre>
+</td>
+<td style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #000066; font-weight: bold;">var</span> audio <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Audio<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+audio.<span style="color: #660066;">src</span> <span style="color: #339933;">=</span> <span style="color: #3366cc;">'audio.oga'</span><span style="color: #339933;">;</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p></p>
+<h2><span>Attributes of the&nbsp;<span>&lt;audio&gt;</span>&nbsp;element</span></h2>
+<p><span>There are different attributes you can use with the html <span style="font-family: 'courier new', courier, monospace;">&lt;audio&gt;</span> element. They are a subset of those available for the <span style="font-family: 'courier new', courier, monospace;">&lt;video&gt;</span> element.</span></p>
+<p></p>
+<ul>
+<li><strong><span>src</span></strong>: source of an audio stream</li>
+<li><strong>controls</strong>: if this boolean attribute is present, the browser displays its own controls for audio playback and volume.</li>
+<li><strong>autoplay:&nbsp;</strong>tells the browser to start playing the audio stream automatically as soon as the page is ready.</li>
+<li><strong><span>autobuffer</span></strong>: tells the browser to begin
+ downloading the audio stream immediately, anticipating that the user 
+will play the audio stream (this part of the specification is currently 
+evolving and subject to change.)</li>
+<li><strong><span>loop</span></strong>: another boolean attribute that indicates to play the audio stream in loop mode (start again when finished).</li>
+</ul>
+<p></p>
+<p>Not all the attributes are supported by all browsers yet, but the most common ones are. The <span style="font-family: 'courier new', courier, monospace;">autoplay</span> and <span style="font-family: 'courier new', courier, monospace;">autobuffer</span>
+ attributes are not recommended if your web site targets mobile 
+applications, as it may consume bandwidth even if the user is not 
+interested in listening&nbsp;to the proposed audio stream.</p>
+<p><span style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;"><span>&nbsp;</span></span></p>
+<h2><span face="Trebuchet MS, Verdana, Arial, Helvetica, sans-serif" style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;">Support in current browsers / codec support</span></h2>
+<p><span face="Trebuchet MS, Verdana, Arial, Helvetica, sans-serif" style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;">The &lt;audio&gt; element is-well supported in all major browsers, including on smart phones/tablets.</span></p>
+<p><span face="Trebuchet MS, Verdana, Arial, Helvetica, sans-serif" style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/audioSupport.jpg" alt="audio element support" height="375" width="950"></span></p>
+<p><span face="Trebuchet MS, Verdana, Arial, Helvetica, sans-serif" style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;">See an up-to-date version of this table:&nbsp;<a href="http://caniuse.com/#feat=audio" target="_blank">http://caniuse.com/#feat=audio</a></span></p>
+<p><span face="Trebuchet MS, Verdana, Arial, Helvetica, sans-serif" style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;">&nbsp;</span></p>
+<p><span style="font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;"><span>Just
+ as for the &lt;video&gt; element, support for the different audio 
+codecs is not the same in all browsers. There is a popular test page for
+ audio formats you can try with different browsers:&nbsp;<a href="http://textopia.org/androidsoundformats.html" target="_blank">http://textopia.org/androidsoundformats.html</a>, and a nearly up-to-date table available here:&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Media_formats_supported_by_the_audio_and_video_elements" target="_blank">https://developer.mozilla.org/en-US/docs/Media_formats_supported_by_the_audio_and_video_elements</a>.&nbsp;</span></span></p>
+<h2>Javascript API for the &lt;audio&gt; element</h2>
+<p><span>The JavaScript API gives you powerful tools to manipulate the 
+audio element. Indeed the audio object that can be manipulated through 
+JavaScript provides many properties, methods, and events.</span></p>
+<p><span>The complete list of events can be found at<a href="http://www.w3.org/TR/html5/media-elements.html#mediaevents" target="_blank">&nbsp;the W3C specification page</a>.
+ Another interesting resource is this blog post that explains in details
+ how each event works (and indicates when an event is audio or video 
+only):&nbsp;<a href="http://www.htmlgoodies.com/primers/html/article.php/3883356" target="_blank">http://www.htmlgoodies.com/primers/html/article.php/3883356</a>.</span></p>
+<p><span>The list of properties for the <span style="font-family: 'courier new', courier, monospace;">&lt;audio&gt;</span> element is similar to that of the <span style="font-family: 'courier new', courier, monospace;">&lt;video&gt;</span> element and can be found at&nbsp;<a href="http://www.w3.org/2010/05/video/mediaevents.html" target="_blank">the&nbsp;</a></span><a href="http://www.w3.org/2010/05/video/mediaevents.html" target="_blank">HTML5 Video Events and API of the W3C</a>.&nbsp;</p>
+<p>Most of the examples provided in the section about the <span style="font-family: 'courier new', courier, monospace;">&lt;video&gt;</span> element API can be directly adapted for<span style="font-family: 'courier new', courier, monospace;"> &lt;audio&gt;</span> elements, like the examples that show how to manage a playlist, detect the end of a video, etc. Since both <span style="font-family: 'courier new', courier, monospace;">&lt;audio&gt;</span> and <span style="font-family: 'courier new', courier, monospace;">&lt;video&gt;</span>
+ share the Media Events specification, they also share the same API for 
+controlling behavior (play, pause, etc). As a result, adapting the video
+ examples to audio is straightforward.</p>
+<h2><strong><span>Another example that uses custom controls through the JavaScript API:</span></strong></h2>
+<p><span>You can try this example online:&nbsp;<a href="http://jsbin.com/uvusob/9/edit" target="_blank">http://jsbin.com/uvusob/9/edit</a></span></p>
+<p><span><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/audioElement2.jpg" alt="audio element with custom controls" height="99" width="310"></span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html5" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<table class="html5" style="border-collapse: collapse; width: 100%;">
+<tbody>
+<tr class="li1">
+<td style="width: 1px; background: #f0f0f0; vertical-align: top; color: #676f73; border-right: 1px dotted #dddddd; font-size: 12px; text-align: right;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre>
+</td>
+<td style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/html.html"><span style="color: #000000; font-weight: bold;">html</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/audio.html"><span style="color: #000000; font-weight: bold;">audio</span></a> <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"player"</span> controls<span style="color: #66cc66;">=</span><span style="color: #ff0000;">"controls"</span>&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/source.html"><span style="color: #000000; font-weight: bold;">source</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"http://www.w3schools.com/html/horse.ogg"</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"audio/ogg"</span> <span style="color: #66cc66;">/</span>&gt;</span>
+&nbsp;<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/source.html"><span style="color: #000000; font-weight: bold;">source</span></a> <span style="color: #000066;">src</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"http://www.w3schools.com/html/horse.mp3"</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"audio/mp3"</span> <span style="color: #66cc66;">/</span>&gt;</span>
+&nbsp;Your browser does not support the audio element.
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/audio.html"><span style="color: #000000; font-weight: bold;">audio</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/div.html"><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span> 
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">onclick</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"document.getElementById('player').play()"</span>&gt;</span>Play<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span> 
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">onclick</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"document.getElementById('player').pause()"</span>&gt;</span>Pause<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span> 
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">onclick</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"document.getElementById('player').volume += 0.1"</span>&gt;</span>Vol+ <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span> 
+<span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">onclick</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"document.getElementById('player').volume -= 0.1"</span>&gt;</span>Vol- <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/button.html"><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span> 
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/div.html"><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/body.html"><span style="color: #000000; font-weight: bold;">body</span></a>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/html.html"><span style="color: #000000; font-weight: bold;">html</span></a>&gt;</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p></p>
+<p><span>This example uses the JavaScript API for controlling the play/pause/volume of the audio stream being played.</span></p>
+<div>&nbsp;</div></div></div><div class="modified">Last modified: Wednesday, 30 October 2013, 3:57 PM</div></div>                    </section>
+                </div>
+                <aside id="block-region-side-pre" class="span3 pull-right block-region" data-blockregion="side-pre" data-droptarget="1"><a href="#sb-1" class="skip-block">Skip Navigation</a><div id="inst1905" class="block_navigation  block" role="navigation" aria-labelledby="instance-1905-header"><div class="header"><div id="yui_3_9_1_3_1397475603184_160" class="title"><div class="block_action"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/switch_minus.svg" class="block-hider-hide" tabindex="0" alt="Hide Navigation block" title="Hide Navigation block"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/switch_plus.svg" class="block-hider-show" tabindex="0" alt="Show Navigation block" title="Show Navigation block"></div><h2 id="instance-1905-header">Navigation</h2></div></div><div class="content"><ul class="block_tree list"><li class="type_unknown depth_1 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand navigation_node"><a href="http://classroom.w3devcampus.com/">Home</a></p><ul><li class="type_setting depth_2 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/my/"><i class="icon-circle-blank" id="icon"></i>My home</a></p></li>
+<li class="type_course depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span title="Classrooms - Online training for Web developers" tabindex="0">Site pages</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/badges/view.php?type=1"><i class="icon-circle-blank" id="icon"></i>Site badges</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/tag/search.php"><i class="icon-circle-blank" id="icon"></i>Tags</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/calendar/view.php?view=month"><i class="icon-circle-blank" id="icon"></i>Calendar</a></p></li></ul></li>
+<li class="type_user depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">My profile</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/user/profile.php?id=13590"><i class="icon-circle-blank" id="icon"></i>View profile</a></p></li>
+<li class="type_custom depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/mod/forum/user.php?id=13590"><i class="icon-circle-blank" id="icon"></i>Posts</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/mod/forum/user.php?id=13590&amp;mode=discussions"><i class="icon-circle-blank" id="icon"></i>Discussions</a></p></li></ul></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/message/index.php"><i class="icon-circle-blank" id="icon"></i>Messages</a></p></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/user/files.php"><i class="icon-circle-blank" id="icon"></i>My private files</a></p></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/badges/mybadges.php"><i class="icon-circle-blank" id="icon"></i>My badges</a></p></li></ul></li>
+<li class="type_system depth_2 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0">Current course</span></p><ul><li class="type_course depth_3 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><a title="JavaScript - March 2014" href="http://classroom.w3devcampus.com/course/view.php?id=66">JS_Mar14</a></p><ul><li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a href="http://classroom.w3devcampus.com/user/index.php?id=66">Participants</a></p><ul><li class="type_user depth_5 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a href="http://classroom.w3devcampus.com/user/view.php?id=13590&amp;course=66">Timothy O'Hare</a></p><ul><li class="type_custom depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/user/view.php?id=13590&amp;course=66"><i class="icon-circle-blank" id="icon"></i>View profile</a></p></li>
+<li class="type_custom depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/mod/forum/user.php?id=13590&amp;course=66"><i class="icon-circle-blank" id="icon"></i>Posts</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/mod/forum/user.php?id=13590&amp;course=66&amp;mode=discussions"><i class="icon-circle-blank" id="icon"></i>Discussions</a></p></li></ul></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/message/index.php"><i class="icon-circle-blank" id="icon"></i>Messages</a></p></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/user/files.php"><i class="icon-circle-blank" id="icon"></i>My private files</a></p></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/badges/mybadges.php"><i class="icon-circle-blank" id="icon"></i>My badges</a></p></li></ul></li></ul></li>
+<li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Badges</span></p><ul><li class="type_setting depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://classroom.w3devcampus.com/badges/view.php?type=2&amp;id=66"><img alt="Course badges" class="smallicon navicon" title="Course badges" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/badge.svg">Course badges</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p data-loaded="0" data-expandable="1" class="tree_item branch" id="expandable_branch_30_510"><span tabindex="0">General</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p data-loaded="0" data-expandable="1" class="tree_item branch" id="expandable_branch_30_511"><span tabindex="0">17 March - 23 March</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p data-loaded="0" data-expandable="1" class="tree_item branch" id="expandable_branch_30_512"><span tabindex="0">24 March - 30 March</span></p></li>
+<li class="type_structure depth_4 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0">31 March - 6 April</span></p><ul><li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Book" href="http://classroom.w3devcampus.com/mod/book/view.php?id=1506"><img alt="Book" class="smallicon navicon" title="Book" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/icon_003.svg">Week 3: JavaScript in the Browser</a></p></li>
+<li class="type_activity depth_5 item_with_icon current_branch"><p class="tree_item leaf hasicon active_tree_node"><a title="Page" href="http://classroom.w3devcampus.com/mod/page/view.php?id=1507"><img alt="Page" class="smallicon navicon" title="Page" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/icon.svg">Presentation HTML5 audio API </a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Assignment" href="http://classroom.w3devcampus.com/mod/assign/view.php?id=1508"><img alt="Assignment" class="smallicon navicon" title="Assignment" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/icon_002.svg">...lay sounds with JavaScript through HTML5 audio API</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p data-loaded="0" data-expandable="1" class="tree_item branch" id="expandable_branch_30_514"><span tabindex="0">7 April - 13 April</span></p></li></ul></li></ul></li>
+<li class="type_system depth_2 collapsed contains_branch" aria-expanded="false"><p data-loaded="0" data-expandable="1" class="tree_item branch" id="expandable_branch_0_mycourses"><a href="http://classroom.w3devcampus.com/my/">My courses</a></p></li></ul></li></ul></div></div><span id="sb-1" class="skip-block-to"></span><a href="#sb-2" class="skip-block">Skip Administration</a><div id="inst1906" class="block_settings  block" role="navigation" aria-labelledby="instance-1906-header"><div class="header"><div id="yui_3_9_1_3_1397475603184_180" class="title"><div class="block_action"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/switch_minus.svg" class="block-hider-hide" tabindex="0" alt="Hide Administration block" title="Hide Administration block"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/switch_plus.svg" class="block-hider-show" tabindex="0" alt="Show Administration block" title="Show Administration block"></div><h2 id="instance-1906-header">Administration</h2></div></div><div class="content"><div id="settingsnav" class="box block_tree_box"><ul class="block_tree list"><li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch root_node" id="usersettings"><span tabindex="0">My profile settings</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="http://classroom.w3devcampus.com/user/edit.php?id=13590&amp;course=66"><i class="icon-circle-blank" id="icon"></i>Edit profile</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="http://classroom.w3devcampus.com/login/change_password.php?id=66"><i class="icon-circle-blank" id="icon"></i>Change password</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="http://classroom.w3devcampus.com/message/edit.php?id=13590"><i class="icon-circle-blank" id="icon"></i>Messaging</a></p></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Badges</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="http://classroom.w3devcampus.com/badges/preferences.php"><i class="icon-circle-blank" id="icon"></i>Preferences</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="http://classroom.w3devcampus.com/badges/mybackpack.php"><i class="icon-circle-blank" id="icon"></i>Backpack settings</a></p></li></ul></li></ul></li></ul></div></div></div><span id="sb-2" class="skip-block-to"></span></aside>            </div>
+        </div>
+        <aside id="block-region-side-post" class="span3 block-region" data-blockregion="side-post" data-droptarget="1"></aside>    </div>
+</div>
+<!-- End Main Regions --> 
+ 
+<a style="display: none;" href="#top" class="back-to-top"><i class="icon-chevron-sign-up"></i><p>Back to top</p></a>
+
+<footer id="page-footer" class="container-fluid">
+            	<div class="row-fluid">
+		<aside id="block-region-footer-left" class="span4 block-region" data-blockregion="footer-left" data-droptarget="1"></aside><aside id="block-region-footer-middle" class="span4 block-region" data-blockregion="footer-middle" data-droptarget="1"></aside><aside id="block-region-footer-right" class="span4 block-region" data-blockregion="footer-right" data-droptarget="1"></aside> 	</div>
+
+	<div class="footerlinks row-fluid">
+    	<hr>
+    	<p class="helplink"></p>
+        
+    	</div>
+	
+
+</footer>
+
+
+<script type="text/javascript" src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/footer"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","viewallcourses":"View all courses","morehelp":"More help","loadinghelp":"Loading...","cancel":"Cancel","yes":"Yes"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source","select":"Select"},"block":{"addtodock":"Move this to the dock","undockitem":"Undock this item","dockblock":"Dock {$a} block","undockblock":"Undock {$a} block","undockall":"Undock all","hidedockpanel":"Hide the dock panel","hidepanel":"Hide panel"},"langconfig":{"thisdirectionvertical":"btt"},"admin":{"confirmation":"Confirmation"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var navtreeexpansions1905 = [{"id":"expandable_branch_30_510","key":"510","type":30},{"id":"expandable_branch_30_511","key":"511","type":30},{"id":"expandable_branch_30_512","key":"512","type":30},{"id":"expandable_branch_30_514","key":"514","type":30},{"id":"expandable_branch_0_mycourses","key":"mycourses","type":0}];
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+YUI().use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"1905","instance":"1905","candock":false,"courselimit":"20","expansionlimit":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"1906","instance":"1906","candock":false});
+});
+M.util.help_popups.setup(Y);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-core-popuphelp",function() {M.core.init_popuphelp();
+});
+M.util.init_block_hider(Y, {"id":"inst1905","title":"Navigation","preference":"block1905hidden","tooltipVisible":"Hide Navigation block","tooltipHidden":"Show Navigation block"});
+M.util.init_block_hider(Y, {"id":"inst1906","title":"Administration","preference":"block1906hidden","tooltipVisible":"Hide Administration block","tooltipHidden":"Show Administration block"});
+
+});
+//]]>
+</script><div id="dock" role="menubar" class="dock dock_left_vertical nothingdocked"><div id="yui_3_9_1_3_1397475603184_28" class="buttons_container"><div class="dockeditem_container"></div><div class="controls"><img src="JS_Mar14%20%20Presentation%20HTML5%20audio%20API_files/dock_to_block.svg" alt="Undock all" title="Undock all" tabindex="0"></div></div></div><div style="display: none;"></div>
+
+<!-- Start Google Analytics -->
+<!-- End Google Analytics -->
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    var offset = 220;
+    var duration = 500;
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > offset) {
+            jQuery('.back-to-top').fadeIn(duration);
+        } else {
+            jQuery('.back-to-top').fadeOut(duration);
+        }
+    });
+    
+    jQuery('.back-to-top').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, duration);
+        return false;
+    })
+});
+</script>
+
+
+</body></html>

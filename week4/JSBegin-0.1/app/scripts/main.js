@@ -1,0 +1,1 @@
+console.assert(window.jQuery, 'jQuery not loaded');

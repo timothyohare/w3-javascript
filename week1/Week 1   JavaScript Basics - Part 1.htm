@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html><head>
+      <title>Week 1 : JavaScript Basics - Part 1</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="description" content="Week 1 : JavaScript Basics - Part 1">
+      <link rel="stylesheet" type="text/css" href="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/print.css">
+    </head>
+    <body>
+    <a onclick="window.print();return false;" class="book_no_print" href="#"><img class="book_print_icon" alt="Print book" title="Print book" src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/book.svg">Print book</a>    <a name="top"></a>
+    <h1 class="book_title">Week 1 : JavaScript Basics - Part 1</h1>
+    <p class="book_summary"></p><p>Fundamental JavaScript concepts, variables, expressions, operators, loops, etc.<a title="3 JavaScript fundamental concepts" href="http://classroom.w3devcampus.com/mod/book/view.php?id=1503&amp;chapterid=1929"><br></a></p>
+<p></p>
+<p></p><p></p>
+    <div class="book_info"><table>
+    <tbody><tr>
+    <td>Site:</td>
+    <td><a href="http://classroom.w3devcampus.com/">Classrooms - Online training for Web developers</a></td>
+    </tr><tr>
+    <td>Course:</td>
+    <td>JavaScript - March 2014</td>
+    </tr><tr>
+    <td>Book:</td>
+    <td>Week 1 : JavaScript Basics - Part 1</td>
+    </tr><tr>
+    <td>Printed by:</td>
+    <td>Timothy O'Hare</td>
+    </tr><tr>
+    <td>Date:</td>
+    <td>Monday, 14 April 2014, 12:39 PM</td>
+    </tr>
+    </tbody></table></div>
+
+    <div class="book_toc_numbered"><a name="toc"></a><h2 class="book_chapter_title">Table of contents</h2><ul><li><a title="1 Introduction" href="#ch1927">1 Introduction</a></li><li><a title="2 Tools" href="#ch1928">2 Tools</a></li><li><a title="3 JavaScript fundamental concepts" href="#ch1929">3 JavaScript fundamental concepts</a></li><li><a title="4 Values and variables" href="#ch1930">4 Values and variables</a></li><li><a title="5 Expressions and operators" href="#ch1931">5 Expressions and operators</a></li><li><a title="6 Conditional statements and loops" href="#ch1932">6 Conditional statements and loops</a></li></ul></div><div class="book_chapter"><a name="ch1927"></a><h2 class="book_chapter_title">1 Introduction</h2><div class="no-overflow"><h2><strong>Introduction</strong></h2>
+<h3>A bit of history</h3>
+<p>JavaScript was born in 1995 as part of the work of Brendan Eich's 
+team at Netscape. At that time, Netscape, in association with Sun 
+MicroSystems (Java), provided popular server and client-oriented 
+solutions (Netscape Navigator) which depended on Java.</p>
+<p style="text-align: right;"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/logo_netscape.png" alt="netscape logo" style="vertical-align: text-top;" height="57" width="204">&nbsp; &nbsp; &nbsp; &nbsp;<img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/logo_sun.png" alt="sun microsystems logo" style="vertical-align: text-top;" height="47" width="107"><span style="line-height: 1.4;" data-mce-mark="1"><br></span></p>
+<p>But Netscape realized that Java wasn't a suitable language for 
+in-browser use.&nbsp;Netscape thought of JavaScript, at the beginning, 
+as a lightweight Java. JavaScript was initially inspired by Java, but in
+ fact only some naming conventions remained the same. We highly 
+recommend, though, not even trying to look for similarities - this is 
+actually a bad way to start learning JavaScript! We'd rather 
+just&nbsp;say that the only real resemblance between these two languages
+ is their names. If you are coming from&nbsp;Java, during this course, 
+leave the Java thinking behind!</p>
+<p>After the first appearance of JavaScript in Netscape Navigator 2, 
+JavaScript was real success, and it was quickly integrated into other 
+popular browsers. Microsoft also created its own version named JScript 
+(and shipped it with Internet Explorer 3).</p>
+<p><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/logo_ecma.gif" height="62" width="149"><br>In
+ 1996, JavaScript was standardized by ECMA as the EcmaScript standard. 
+So no matter whether you see it called JavaScript or EcmaScript, don't 
+worry, it's the same thing. EcmaScript has continued to be released 
+right up to the present. The third version is the basis for the current 
+version of JavaScript. The fourth version was quickly dropped because it
+ was too different from the initial concepts. The current working 
+EcmaScript (the fifth version) is an improvement on the third. The sixth
+ is now in development and some new features are still in discussion.</p>
+<h3>The present</h3>
+<p>JavaScript is now integrated into nearly every popular Web browser 
+and is probably the most frequently used language in the world. Every 
+computer, smartphone, and tablet uses JavaScript many times a day within
+ the browser and even as native code, for example in the new Firefox OS.</p>
+<p>In the beginning, JavaScript was invented to work not only on the 
+client side but also on the server side. From the server side, 
+JavaScript has been a great success, especially in the past few years 
+thanks to the appearance of Node.js, which is based on the V8 JavaScript
+ engine.</p>
+<p>JavaScript is an interpreted (or just-in-time compiled) language, 
+which means that the code is converted into a machine language at 
+runtime (or just before). And the V8 engine is one of the runtime 
+environments for JavaScript. Most popular JavaScript engines are:</p>
+<ul>
+<li><span style="line-height: 1.4;" data-mce-mark="1">SpiderMonkey (Mozilla Firefox)</span></li>
+<li><span style="line-height: 1.4;" data-mce-mark="1">JavaScriptCore (Apple Safari)</span></li>
+<li><span style="line-height: 1.4;" data-mce-mark="1">V8 (Google Chrome, Node.js)</span></li>
+<li><span style="line-height: 1.4;" data-mce-mark="1">Carakan (Opera)</span></li>
+<li><span style="line-height: 1.4;" data-mce-mark="1">Chakra (Microsoft Internet Explorer)</span></li>
+<li><span style="line-height: 1.4;" data-mce-mark="1">Tamarin (Adobe Flash)</span></li>
+</ul>
+<p>In this first chapter, we'll study the basics of JavaScript and its 
+founding principles. If you already have &nbsp;some JavaScript 
+experience, it's still a good idea to review these basics. We will see 
+today's good practices and the fundamental knowledge you need to have 
+before starting to program.</p>
+<p>We assume that you have the following basic background skills:</p>
+<ul>
+<li>Some programming experience</li>
+<li>Some working knowledge of HTML.</li>
+</ul>
+<p>In this first chapter, we will work with Node.js, which is based on the V8 engine.&nbsp;</p></div></div><div class="book_chapter"><a name="ch1928"></a><h2 class="book_chapter_title">2 Tools</h2><h2>Node.js<img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/logo_nodejs.png" alt="logo nodejs" style="float: right;" height="68" width="200"></h2>
+<p>Node.js is available at: <a href="http://nodejs.org/" target="_blank">http://nodejs.org/</a></p>
+<h5>How to:</h5>
+<p>Installing Node.js is straightforward, whatever the platform. After 
+installing Node.js, open your command-line interface (Terminal on macOS,
+ or CMD on Windows) then type node and enter.<br>You should see this:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_dos" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="dos" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">node
+&gt;</pre>
+</div>
+</div>
+</div>
+<p><br>Type "Ctrl-C" twice to quit the node command line interface.<br>If you see the error "Command not found", it could be that the executable of Node.js isn't in your path.</p>
+<h3>Jsbin.com<img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/logo_jsbin.png" alt="Jsbin logo" style="float: right;" height="119" width="119"></h3>
+<p><em>"JS Bin is a webapp specifically designed to help JavaScript and 
+CSS folk test snippets of code, within some context, and debug the code 
+collaboratively.</em><br><em>JS Bin allows you to edit and test 
+JavaScript and HTML (reloading the URL also maintains the state of your 
+code - new tabs doesn't). Once you're happy you can save, and send the 
+URL to a peer for review or help. They can then make further changes 
+saving anew if required."&nbsp;</em></p>
+<p><em> <a href="http://jsbin.tumblr.com/about">http://jsbin.tumblr.com/about</a> </em></p>
+<p>Throughout this course, you'll be seeing some jsbin links.<br>In those links, you will find a lot of commented code examples.<br>With Jsbin you will be able to:</p>
+<ul>
+<li>See live results of all examples</li>
+<li>Edit all examples however you like (we think this is the best way to improve your skills)</li>
+<li>Try out code</li>
+</ul>
+<p><strong>Usage</strong></p>
+<p>In jsbin you will see 5 buttons: HTML, CSS, JavaScript, Console, and 
+Output.&nbsp;By clicking on one of those buttons, you can hide or show 
+the corresponding panel.&nbsp;In this chapter, we'll test some snippets 
+of JavaScript code, so most of the time we will only be using the 
+JavaScript and Console panels.&nbsp;</p>
+<p>On the JavaScript panel, you will&nbsp;often find this instruction:&nbsp;</p>
+<p><em>console.log(expr)</em></p>
+<p>This is a common method provided by debuggers (Chrome/IE/Firefox, 
+etc.) that allows a script to log data (or objects) to the JavaScript 
+console.&nbsp;It is used for debugging, and all the popular tools have a
+ console built in (this also works on Node.js).</p>
+<p>Console.log will be used to print the values of variables or function
+ returns. The JavaScript panel will contain the JavaScript code, the 
+Console panel will show the results of console.log, and the other panels
+ can be hidden (for better visibility).</p>
+<p><a href="http://jsbin.com/oducow/3/edit" title="jsbin " target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/display_jsbin.png" alt="jsbin screenshot" style="vertical-align: baseline;" height="163" width="800"></a></p>
+<p></p>
+<p>And finally, one essential jsbin shortcut: <strong>Ctrl-L</strong> to clear the console panel!&nbsp;</p>
+<p><strong>FAQ&nbsp;</strong><br><a href="http://jsbin.tumblr.com/faq" title="Jsbin faq" target="_blank">http://jsbin.tumblr.com/faq</a></p>
+<p><strong>JSBIN TIPS AND BITS</strong><br><a href="http://jsbin.tumblr.com/" title="jsbin tips" target="_blank">http://jsbin.tumblr.com</a></p>
+<p><strong>EXAMPLE&nbsp;</strong></p>
+<p>An example that will be studied during the week 4:&nbsp;<br><a href="http://jsbin.com/unUhEsIK/1/edit?html,css,js,output" target="_blank">http://jsbin.com/unUhEsIK/1/edit?html,css,js,output</a></p>
+<p></p>
+<h3>SlowmoJS</h3>
+<p>SlowmoJS is a webapp that lets you see your JavaScript in slow motion!&nbsp;</p>
+<p><em style="line-height: 1.4;">"</em><em style="line-height: 1.4;">SlomoJS
+ is an attempt to make learning JavaScript and computational thinking 
+easier by making the execution of JS code more transparent."</em></p>
+<p><em style="line-height: 1.4;"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/logo_slowmoJS.png" alt="logo slowmoJS" height="190" width="600"></em></p>
+<p></p>
+<p><strong>LINK<br></strong><a href="http://toolness.github.io/slowmo-js/" target="_blank">http://toolness.github.io/slowmo-js/</a><a href="http://toolness.github.io/slowmo-js/" target="_blank"><em style="line-height: 1.4;"><br></em></a></p>
+<p><strong>GITHUB readme<a href="http://toolness.github.io/slowmo-js/" target="_blank"><br></a></strong><a href="http://toolness.github.io/slowmo-js/" target="_blank" style="line-height: 1.4;">https://github.com/toolness/slowmo-js#readme</a></p>
+<p><strong>Throughout this course, you will see these buttons:</strong></p>
+<p><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/boutons-jsbin-slowmo.jpg" alt="jsbin and slowmo links" height="45" width="519"></p>
+<p>Click on them to display jsbin or a slowmojs.</p>
+<h2>For the next few chapters</h2>
+<h3>A high-performance web browser</h3>
+<p>We recommend Google Chrome, which has developer tools included. And 
+we will illustrate some examples with screenshots of Chrome dev tools. 
+But some other browsers also have great developer tools that you can use
+ if you are more comfortable with them.</p>
+<h2>Recommended tools</h2>
+<h3>A text editor&nbsp;</h3>
+<p><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/logo_sublimetext.png" alt="sublime text logo" style="float: right;" height="119" width="119"></p>
+<p>We recommend Sublime Text 2 which is high-performance and has some very powerful features.<br>You can download Sublime Text 2 here: <a href="http://www.sublimetext.com/" target="_blank">http://www.sublimetext.com/</a></p>
+<p></p>
+<p></p>
+<p></p>
+<p>To see some examples of&nbsp;<a href="http://classroom.w3devcampus.com/mod/page/view.php?id=1616">"Writing and executing JavaScript efficiently"</a>&nbsp;with different editors, take a look at <a href="http://classroom.w3devcampus.com/mod/page/view.php?id=1616">this page</a>.&nbsp;</p>
+<p></p></div><div class="book_chapter"><a name="ch1929"></a><h2 class="book_chapter_title">3 JavaScript fundamental concepts</h2><p><span><span>First of all, the name of this language is&nbsp;<strong>JavaScript</strong>, not javascript or Javascript, or even worse, java script!</span></span></p>
+<p>JavaScript is a script language, meaning that it is interpreted 
+within an environment that hides the complexity of the underlying 
+systems. You know that JavaScript is one of the programming languages of
+ your browser, that is, when you write some lines of JavaScript they 
+have the same effect in any browser and on any operating system.</p>
+<p>JavaScript was created in order to be easy to use for 
+non-programmers. It is lightweight and has a simple syntax which was 
+inspired by C. Its design is inspired by Scheme and its naming 
+conventions by Java. It is an object-oriented programming language.</p>
+<p>So, we can sum up its concepts with the following:</p>
+<p>JavaScript is <span style="color: #0000ff;"><strong>object-oriented</strong></span> (uses prototypes instead of classes for inheritance)<br>JavaScript is an <span style="color: #0000ff;"><strong>imperative</strong></span> (C) and <span style="color: #0000ff;"><strong>functional</strong></span> (Scheme) programming language<br>JavaScript is a language with <span style="color: #0000ff;"><strong>runtime </strong><span style="color: #000000;">evaluation</span></span><br>JavaScript is a <span style="color: #0000ff;"><strong>dynamically</strong></span> typed language</p>
+<p>It is object-oriented, imperative and also functional, and 
+dynamically typed. So all in all, it is a very free-form language 
+compared to other languages, right? Probably, but this doesn't mean that
+ there are no rules in JavaScript! For example, playing with types will 
+very often result in non-optimization of the interpreted code by 
+JavaScript engines. And let's not even talk about code readability...</p>
+<h2>More about imperative and functional programming</h2>
+<p>An imperative programming language is composed of a set of 
+statements, sometimes contained within blocks. Unlike other imperative 
+languages such as C, JavaScript has no block scope. This means that 
+declared things are visible everywhere in the entire program. Actually, 
+this is not true - the scope is limited to functions. Which brings us to
+ the functional programming side of JavaScript.</p>
+<p>Most beginners in JavaScript write imperative code. But this is 
+missing out on one of the most powerful features of JavaScript, its 
+functions.&nbsp;In a functional language, all the work is done by 
+functions. First, a function has a state defined by the outer state or 
+arguments. Then, the function computes (it "does") something, modifying 
+its state or the entire program state. It can call other functions or 
+itself (this is recursivity).</p>
+<p>In JavaScript, we have all the features of a functional language: 
+lambda functions (anonymous functions), closures (a function knowing its
+ outer state), callbacks (functions as arguments of other functions), 
+and nested functions (functions defined within a function).</p>
+<p>Moreover, functions are themselves objects, which have properties and methods.</p>
+<h2>More about object-oriented programming</h2>
+<p>In JavaScript, nearly everything is an object. If you are not 
+comfortable with object-oriented concepts, we should define exactly what
+ an object is. An object is something... Something which has properties 
+and can interact with itself or its environment using its methods. For 
+example, we could define a simple object "car" which has the following 
+properties: tires, engine, color, speed, and driver (which could be an 
+object "person"). The car has also some methods: accelerate, brake, 
+turnLeft, turnRight, and so on.</p>
+<p>Objects are created from a template. In other languages such as Java,
+ this template is called a class. This concept does not exist in 
+JavaScript, but we do have prototypes. Objects created are called 
+instances in those other languages. In JavaScript, this concept does not
+ exist - objects are just objects, and the prototype of an object is 
+also an object.</p>
+<p>Objects can be constructed. For example, you can create a constructor
+ which will create objects with some properties filled in (such as a car
+ with slick tires and a red color). In JavaScript, a constructor is just
+ a function. We call these functions "constructor functions", but they 
+are no different from other functions.</p>
+<p>Finally, an object can be derived from another object (that is, one 
+object has the same properties and methods of another). This is called 
+inheritance. For example, the object campingCar inherits from the object
+ "car". Moreover, it has another property: beds. In JavaScript 
+inheritance is implemented using prototypes.</p>
+<p>Functions and objects are probably the most difficult concepts to 
+assimilate. But an understanding of these features is the only way to 
+master JavaScript. We will be accurate and clear about these points in 
+the text to come, giving you plenty of examples and illustrations.</p>
+<h2>Executing Javascript</h2>
+<p>You probably know JavaScript as a programming language for websites. 
+In order to be executed by web browsers, JavaScript programs must be 
+included within web pages. However, there are other ways to execute a 
+program written in JavaScript.</p>
+<h3>Browser</h3>
+<p>To run a JavaScript script within a webpage, the first solution is to
+ include the script directly in the html source, wrapped in a script 
+tag.</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html5" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html5" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #009900;" data-mce-mark="1">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;" data-mce-mark="1">script</span></a> <span style="color: #000066;" data-mce-mark="1">type</span><span style="color: #66cc66;" data-mce-mark="1">=</span><span style="color: #ff0000;" data-mce-mark="1">"text/javascript"</span>&gt;</span>
+// Your script written in JavaScript
+<span style="color: #009900;" data-mce-mark="1">&lt;<span style="color: #66cc66;" data-mce-mark="1">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;" data-mce-mark="1">script</span></a>&gt;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>With HTML5, the attribute type is optional.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html5" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html5" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span> // Your script written in JavaScript <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;">script</span></a>&gt;</span></pre>
+</div>
+</div>
+</div>
+<p><br>The second solution is to attach the script to the webpage with 
+an external file which has the extension ".js". You only need to add an 
+attribute "src" with the path (relative or absolute) to the JavaScript 
+file as value. The browser will download the file with the html page.</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html5" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html5" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #009900;" data-mce-mark="1">&lt;<a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;" data-mce-mark="1">script</span></a> <span style="color: #000066;" data-mce-mark="1">src</span><span style="color: #66cc66;" data-mce-mark="1">=</span><span style="color: #ff0000;" data-mce-mark="1">"main.js"</span>&gt;&lt;<span style="color: #66cc66;" data-mce-mark="1">/</span><a href="http://december.com/html/4/element/script.html"><span style="color: #000000; font-weight: bold;" data-mce-mark="1">script</span></a>&gt;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The second solution is preferred because it allows us to separate the
+ structure of the web page from the scripts. The script tag can be 
+inserted within the head or the body tags of the web page. A good 
+practice is to insert script tags at the end of the page (just before 
+the closing body tag) in order to display the page before downloading 
+and executing the script.</p>
+<h3>Node</h3>
+<p>On the server side, you can a execute a JavaScript file using node.js with the command "node".</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_dos" style="overflow: auto; width: 80%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="dos" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #33cc33;" data-mce-mark="1">&gt;</span> node server.js</pre>
+</div>
+</div>
+</div>
+<p></p>
+<h3>Shebang (unix)</h3>
+<p>You can also add a shebang at the top of a JavaScript file to 
+indicate to the operating system what interpreter should be used to 
+execute the script.</p>
+<p>A shebang is placed at the first line of a script and its syntax is: #! interpreter</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">#<span style="color: #339933;" data-mce-mark="1">!/</span>usr<span style="color: #339933;" data-mce-mark="1">/</span>bin<span style="color: #339933;" data-mce-mark="1">/</span>env node
+console.<span style="color: #660066;" data-mce-mark="1">log</span><span style="color: #009900;" data-mce-mark="1">(</span><span style="color: #3366cc;" data-mce-mark="1">'JavaScript script interpreted by node.js'</span><span style="color: #009900;" data-mce-mark="1">)</span><span style="color: #339933;" data-mce-mark="1">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Or for spidermonkey:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">#<span style="color: #339933;">!/</span>usr<span style="color: #339933;">/</span>bin<span style="color: #339933;">/</span>env js
+print<span style="color: #009900;">(</span><span style="color: #3366cc;">'JavaScript script interpreted by spidermonkey'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p></p>
+<p><span id="docs-internal-guid-39fdf88a-7908-3d2a-7d5c-1243313845a2"><span>&nbsp;</span></span></p></div><div class="book_chapter"><a name="ch1930"></a><h2 class="book_chapter_title">4 Values and variables</h2><p>JavaScript has a small set of primitive data types:</p>
+<ul>
+<li><strong>number</strong>: 1,2,105,3.14 ...</li>
+<li><strong>string</strong>: 'a', "one", 'two' , 'World Wide Web' ...</li>
+<li><strong>boolean</strong>: true / false</li>
+<li><strong>undefined</strong>: absent or unknown value</li>
+<li><strong>null</strong>: special keyword, meaning no value or empty. The difference from undefined is that when a variable is null, it is still defined</li>
+</ul>
+<p></p>
+<p>These are the simplest forms of data we can use in programming.<br>Anything
+ that is not listed above is an object. All of the primitives listed 
+above, except null and undefined, have their object equivalent (Number, 
+String, Boolean).&nbsp;</p>
+<p></p>
+<p>Try the next few values in the node command line interface (type node in your shell).</p>
+<p></p>
+<h2>Numbers</h2>
+<p><a href="http://jsbin.com/isazuy/1/edit?js,console" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-tryit%25201.jpg" alt="try it" style="margin-left:20px" height="30" width="160"></a><a href="http://jsbin.com/isazuy/1/edit" target="_blank"><br></a>Open
+ the console tab, and run the example, or just type in a space somewhere
+ in the code, this will run the code and display a set of messages in 
+the console tab.<a href="http://jsbin.com/isazuy/1/edit" target="_blank"><br></a></p>
+<p>Number values can be:<br>- <strong>Integer</strong>: 1, 4, 274929<br>Type 343 in Node, and it will display the value (343)</p>
+<p>- <strong>Signed integer</strong>: -17</p>
+<p>- <strong>Decimal</strong>: 3.46, -466.8770<br>Decimals are indicated with a dot (.), not a comma (,).</p>
+<p>- <strong>Scientific notation</strong>: 3.46e4, 5.3e+6, 5344000e-5<br>3.46e4 equals 3.46 x 10^4 equals 34600</p>
+<p>- <strong>Octal</strong>: 010<br>Be careful with this, <strong>don't start an integer with 0</strong>, JavaScript will understand it as an octal value.<br>010 equals 8 which means 1 * 8^1 + 0 * 8^0<br>The number 0456 means 4 * 8^2 + 5 * 8^1 + 6 * 8^0</p>
+<p><strong>Question</strong>: What's the result as an integer of the operation: 24 - 024?<br><em>Explanation: 24 is an integer which equals 24 but 024 is an octal value which equals 20.</em></p>
+<p><strong>Question</strong>: Which value will Node display if you type 098?<br><em>Explication: 9 and 8 don't exist in base 8 (only 0 to 7), so it is considered to be an integer.</em></p>
+<p>- <strong>Hexadecimal</strong>: 0xF3<br>0xFF equals 255, 0xF3 means 15 * 16^1 + 3 * 16^0 and equals 243</p>
+<p>-<strong> Special values</strong>:<br>+Infinity<br>-Infinity<br>NaN</p>
+<p>In JavaScript, numbers are represented with a double-precision 64-bit format (IEEE 754). These 64 bits are used with this table:</p>
+<p></p>
+<table style="width: 492px; height: 38px; border: 0px solid #999999; background-color: #dddddd;" frame="box" border="0">
+<tbody>
+<tr>
+<td>
+<p>Total bits</p>
+</td>
+<td>
+<p>Sign</p>
+</td>
+<td>
+<p>Exponent</p>
+</td>
+<td>
+<p>Significand</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>64</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>11</p>
+</td>
+<td>
+<p>52</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p>What does this mean?</p>
+<p>First, each number is represented as a float. For example, 1 equals 
+1.0. But there are approximation errors that are well-known in float 
+calculations.&nbsp;One common example of errors due to the approximation
+ of floating point numbers is that 0.1 + 0.2 does not equal 0.3.</p>
+<p>Second, an integer has 2^52 relevant bits, so the <strong>biggest integer is 2^53</strong>. There is one bit that determines the sign of the number, so the smallest signed integer is -2^53.</p>
+<p>The value Infinity (or +Infinity) represents all number values 
+greater than 1.79769313486231570e+308 and -Infinity represents values 
+smaller than -1.79769313486231570e+308.</p>
+<p>Finally, Nan represents not-a-number values, for example if you try to divide 0 by 0 (type 0/0 in node).</p>
+<p></p>
+<p>Note: Some arithmetic functions use only numbers with a 32-bit format. Larger numbers will be converted...</p>
+<p dir="ltr">(Advanced) For more information about floating point numbers, follow this link:&nbsp;<a href="http://en.wikipedia.org/wiki/IEEE_floating_point" style="line-height: 1.4;">http://en.wikipedia.org/wiki/IEEE_floating_point</a></p>
+<h2>Variables</h2>
+<p>In order to keep a value around, you can create a variable and assign the value to it.</p>
+<p>JavaScript is weakly typed. Each variable is declared with the keyword "<strong>var</strong>".
+ So&nbsp;it is not required that you specify&nbsp;the type of the 
+variable you are creating. After the keyword "var" and a space, just 
+give the name of the variable.</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> myVar<span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The first letter of a variable can only be "$", "_", "a" to "z", or 
+"A" to "Z". The other characters in a name must be any of these, or 
+numeric digits. The name is case sensitive. So variables "myVar" and 
+"MyVar" are different variables.</p>
+<p>There are some reserved names that you can't use as a variable name.<br>Examples: boolean, if, delete, var, etc...</p>
+<p></p>
+<p>A value can be assigned to a declared variable, or even directly in the variable declaration.<br>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var myValue;<br>myValue = 78;<br>var myNumber = 1.34</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>You can also declare many variables at once&nbsp;by separating them with a comma.<br>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var myNumber1, myNumber2 = 34, myNumber3</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Later, if we type myNumber2, node will display 34 (the other variables have an undefined value).</p>
+<p></p>
+<p>The JavaScript community has some conventions about naming variable:<br>The <strong>camelCase notation is preferred</strong>.<br>For a variable, the first letter is lowercase and each first letter of each word is capitalized. Example: var myVariableName<br>For a constructor function, the first letter is capitalized.</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> MyModel<span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Constants are uppercase with underscores.</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> TIME_LIMIT<span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Most JavaScript libraries are written in the camelCase format. For 
+harmony in the code source, it is a good idea to keep this convention. 
+Sometimes, you will see the snake_case naming convention, which 
+separates each word of a variable with an underscore.</p>
+<p>Here's an interesting article:&nbsp;<a href="http://whathecode.wordpress.com/2011/02/10/camelcase-vs-underscores-scientific-showdown/" target="_blank">CamelCase vs underscores: Scientific showdown&nbsp;</a></p>
+<p></p>
+<h2>Strings</h2>
+<p>To declare or manipulate strings you must write them with single <strong>quotes ' or double quotes "</strong>
+ around them. Single quotes or double quotes are both accepted, and 
+there is no difference between them in JavaScript. However, the 
+community prefers to use single quote for string - this is not a 
+convention, but a recommendation.</p>
+<p>And finally, you cannot start a string with a single and end with a double quotes, or the opposite.</p>
+<p>There are many reasons:<br>Double quotes are used in html<br>You must hold the Shift key to type "<br>Single quotes are easier to read and to type<br>To output HTML in JavaScript, single quotes are more useful</p>
+<p>type in node:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #339933;">&gt;</span> <span style="color: #3366cc;">"Hello Word"</span><span style="color: #339933;">;</span>
+<span style="color: #3366cc;">'Hello Word'</span>
+<span style="color: #339933;">&gt;</span> <span style="color: #3366cc;">'Hello Word'</span><span style="color: #339933;">;</span>
+<span style="color: #3366cc;">'Hello Word'</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>(node uses single quotes for string )</p>
+<p>To declare a string, simply use:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> s1 <span style="color: #339933;">=</span> <span style="color: #3366cc;">'124'</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> s2 <span style="color: #339933;">=</span> <span style="color: #3366cc;">'foo'</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> s3 <span style="color: #339933;">=</span> <span style="color: #3366cc;">'this is a line'</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> s4 <span style="color: #339933;">=</span> <span style="color: #3366cc;">''</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// a empty string</span>
+<span style="color: #000066; font-weight: bold;">var</span> s5 <span style="color: #339933;">=</span> <span style="color: #3366cc;">'Hello number 5'</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>JavaScript use the UTF-16 format for strings, which means that <strong>each character is represented by 16 bits</strong>.
+ Before execution, strings without this format will be converted. So, if
+ you use characters represented as more than 16 bits, it will result 
+mistakes in the string length. Results can also differ between 
+JavaScript engines.</p>
+<h2>Booleans</h2>
+<p>The Boolean type represents a logical entity having two values, called <strong>true</strong> and <strong>false</strong>.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> b <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">;</span> 
+<span style="color: #000066; font-weight: bold;">var</span> b <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #339933;">;</span>
+Variable type <span>Boolean</span> should not have any quotes.
+<span style="color: #000066; font-weight: bold;">var</span> b <span style="color: #339933;">=</span> <span style="color: #3366cc;">'true'</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// b is not a boolean but a string</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<h2>Undefined and null</h2>
+<h3>Undefined</h3>
+<p>Undefined is returned when a variable has not been assigned:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> foo<span style="color: #339933;">;</span>
+<span style="color: #339933;">&gt;</span> foo
+<span style="color: #003366; font-weight: bold;">undefined</span>
+<span style="color: #339933;">&gt;</span> <span style="color: #000066; font-weight: bold;">typeof</span> foo<span style="color: #339933;">;</span>
+<span style="color: #3366cc;">'undefined'</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The keyword "undefined" is a variable of the global scope. Its 
+initial value is undefined. So you can define a variable and assign the 
+undefined value:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_4cs" style="overflow: auto; width: 80%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="_4cs" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000080;">&gt;</span> var foo <span style="color: #000080;">=</span> undefined; <span style="color: #008000;">// equivalent to var foo;</span>
+undefined
+<span style="color: #000080;">&gt;</span> foo;
+undefined
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>var foo; and var foo = undefined; are equivalent but it is 
+recommended to use the first version to declare variable (it is shorter,
+ and that reduces the code)</p>
+<p>If you try to access a variable that has not been declared before, a 
+ReferenceError will raise. But the typeof operator will return 
+"undefined":</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 80%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #339933;">&gt;</span> bar<span style="color: #339933;">;</span>
+ReferenceError
+<span style="color: #339933;">&gt;</span> <span style="color: #000066; font-weight: bold;">typeof</span> bar<span style="color: #339933;">;</span>
+<span style="color: #3366cc;">'undefined'</span></pre>
+</div>
+</div>
+</div>
+<h3>Null</h3>
+<p>[ES5 4.3.11]<em> "null primitive value that represents the intentional absence of any object value"</em></p>
+<p>So null cannot be assigned by JavaScript.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #339933;">&gt;</span> <span style="color: #000066; font-weight: bold;">var</span> bar <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #339933;">;</span>
+<span style="color: #003366; font-weight: bold;">undefined</span>
+<span style="color: #339933;">&gt;</span> bar<span style="color: #339933;">;</span>
+<span style="color: #003366; font-weight: bold;">null</span>
+<span style="color: #339933;">&gt;</span> <span style="color: #000066; font-weight: bold;">typeof</span> bar<span style="color: #339933;">;</span>
+<span style="color: #3366cc;">'object'</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<h3>Null vs undefined</h3>
+<p>null and undefined are primitive values.</p>
+<p>null is used by programmers to indicate "no value", for example as a parameter to a function.</p>
+<p>undefined: used by JavaScript and means "no value". Uninitialized 
+variables, missing parameters and unknown variables have that value.</p>
+<p>Watch out! When a variable is null, it is still defined!</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">&gt; var i = 1 + undefined; i;
+NaN
+&gt; var i = 1 + null; i;
+1</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>This is due to implicit conversion of null and undefined:<br><a href="http://www.ecma-international.org/ecma-262/5.1/#sec-9.3" target="_blank">http://www.ecma-international.org/ecma-262/5.1/#sec-9.3</a></p>
+<p></p>
+<p></p></div><div class="book_chapter"><a name="ch1931"></a><h2 class="book_chapter_title">5 Expressions and operators</h2><p dir="ltr"><span data-mce-mark="1"><strong>An expression</strong> is a small piece of code used to produce a value.</span></p>
+<p dir="ltr"><span data-mce-mark="1"> For example the expression 3 + 5 
+produces the value 8, and the value 11 alone is also an expression. 
+Within an expression, we can find values, variables, operators, and 
+expressions. The first two have been already described above, so all 
+that's left are operators.</span></p>
+<p dir="ltr"><span style="line-height: 1.4;" data-mce-mark="1">In JavaScript, <strong>an operator</strong> can be unary or binary (plus one ternary operator).&nbsp;</span><span style="line-height: 1.4;" data-mce-mark="1">A unary operator is applied to one expression.&nbsp;It can be prefixed or suffixed.</span></p>
+<p dir="ltr"><em><span style="line-height: 1.4;" data-mce-mark="1">Example: typeof 'world';</span><span style="color: #339933;" data-mce-mark="1"></span></em></p>
+<p><span style="line-height: 1.4;" data-mce-mark="1">The operator "<span style="line-height: 1.4;" data-mce-mark="1">typeof"</span><span style="line-height: 1.4;" data-mce-mark="1"> </span></span><span style="line-height: 1.4;" data-mce-mark="1">is a unary operator.&nbsp;</span><span style="line-height: 1.4;" data-mce-mark="1">A binary operator is applied to two different expressions, and is both prefixed and suffixed.</span></p>
+<p dir="ltr"><span data-mce-mark="1"><em>Example:</em>&nbsp;</span><span style="line-height: 1.4;" data-mce-mark="1">45 / 32;</span></p>
+<p dir="ltr"><span data-mce-mark="1">The division operator is binary.</span></p>
+<p dir="ltr"><span data-mce-mark="1">Within an expression, we can also 
+use parentheses to force the execution of the expression inside. 
+Parentheses can be used to indicate precedence. </span></p>
+<p dir="ltr"><span style="line-height: 1.4;" data-mce-mark="1">For example, this is an expression: (3 + 2).&nbsp;</span><span style="line-height: 1.4;" data-mce-mark="1">And the expression (3 + 2) * 4, which equals 20, depends on the expression within the parentheses.</span></p>
+<p dir="ltr"><span style="line-height: 1.4;" data-mce-mark="1">In 
+JavaScript, expressions can evaluate to four types, which are: numbers, 
+strings, booleans, and objects. For example, an expression with the 
+operator - will evaluate to a number. But an expression with the 
+operator + can evaluate to a number or a string (for addition or 
+concatenation).</span></p>
+<h3 dir="ltr"></h3>
+<h3 dir="ltr"><span data-mce-mark="1">Number operators</span></h3>
+<p><span style="line-height: 1.4;" data-mce-mark="1">The following operators are </span><strong style="line-height: 1.4;">binary</strong><span style="line-height: 1.4;" data-mce-mark="1">:</span></p>
+<p dir="ltr"><span style="line-height: 1.4;" data-mce-mark="1"><span style="color: #0000ff;" data-mce-mark="1"><strong>+</strong></span>,<span style="color: #0000ff;" data-mce-mark="1"><strong> -</strong></span> ,<span style="color: #0000ff;" data-mce-mark="1"><strong> /</strong></span>, <span style="color: #0000ff;" data-mce-mark="1"><strong>*</strong></span>, <span style="color: #0000ff;" data-mce-mark="1"><strong>%</strong></span> (modulo)</span></p>
+<p dir="ltr"><em>Example:&nbsp;</em><span data-mce-mark="1">7 % 5&nbsp;equals 2, which is the remainder of the integer division of 7 by 5 (7 / 5 = 5 * 1 + 2 ).</span></p>
+<p dir="ltr"><span data-mce-mark="1">And there are also <strong>unary</strong> operators:</span></p>
+<p dir="ltr"><span data-mce-mark="1"><span style="color: #0000ff;" data-mce-mark="1"><strong>++</strong></span>,<span style="color: #0000ff;" data-mce-mark="1"><strong> --</strong></span>, <span style="color: #0000ff;" data-mce-mark="1"><strong>-</strong></span> (the opposite of a number)</span></p>
+<p dir="ltr"><strong>++</strong> and <strong>--</strong> operators increment or decrement the value of a variable. They can be both prefixed or suffixed, which have different effects:</p>
+<ul>
+<li><span style="line-height: 1.4;" data-mce-mark="1">Suffixed ++ adds one to the value of the variable, then returns the new value. </span></li>
+<li><span style="line-height: 1.4;" data-mce-mark="1">Prefixed ++ also adds one to the value, but returns the old value. Both of these must be used with variables.</span></li>
+</ul>
+<p dir="ltr"><em style="line-height: 1.4;">Example:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #000066; font-weight: bold;" data-mce-mark="1">var</span> x <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #cc0000;" data-mce-mark="1">2</span><span style="color: #339933;" data-mce-mark="1">;</span>
+x<span style="color: #339933;" data-mce-mark="1">++;</span> <span style="color: #006600; font-style: italic;" data-mce-mark="1">//return 2, the value of x is now 3</span>
+x<span style="color: #339933;" data-mce-mark="1">; </span><span style="color: #006600; font-style: italic;" data-mce-mark="1">//return 3</span>
+&nbsp;
+<span style="color: #339933;" data-mce-mark="1">++</span>x<span style="color: #339933;" data-mce-mark="1">; </span><span style="color: #006600; font-style: italic;" data-mce-mark="1">//return 4, the value of x is now 4 </span></pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p dir="ltr"></p>
+<h3 dir="ltr"><span data-mce-mark="1">Logical Operators</span></h3>
+<p><span style="line-height: 1.4;" data-mce-mark="1">The logical operators are as follows:&nbsp;</span></p>
+<ul>
+<li>&amp;&amp; (AND) &nbsp;usage:&nbsp;expr1 &amp;&amp; expr2&nbsp;</li>
+<li>|| (OR) usage &nbsp;:expr1 ||expr2</li>
+<li>! (NOT) usage : !expr1</li>
+</ul>
+<p>&amp;&amp;, !! operators are binary, ! is unary.&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #000066; font-weight: bold;" data-mce-mark="1">var</span> b <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #339933;" data-mce-mark="1">!</span><span style="color: #003366; font-weight: bold;" data-mce-mark="1">true</span><span style="color: #339933;" data-mce-mark="1">;</span> 
+b<span style="color: #339933;" data-mce-mark="1">;</span> <span style="color: #006600; font-style: italic;" data-mce-mark="1">//false</span>
+<span style="color: #000066; font-weight: bold;" data-mce-mark="1">var</span> b <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #339933;" data-mce-mark="1">!!</span><span style="color: #003366; font-weight: bold;" data-mce-mark="1">true</span><span style="color: #339933;" data-mce-mark="1">;</span>
+b<span style="color: #339933;" data-mce-mark="1">;</span> <span style="color: #006600; font-style: italic;" data-mce-mark="1">//true</span>
+&nbsp;
+<span style="color: #000066; font-weight: bold;" data-mce-mark="1">var</span> b <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #3366cc;" data-mce-mark="1">"one"</span><span style="color: #339933;" data-mce-mark="1">;</span> 
+<span style="color: #339933;" data-mce-mark="1">!</span>b<span style="color: #339933;" data-mce-mark="1">;</span> &nbsp; <span style="color: #003366; font-weight: bold;" data-mce-mark="1">false</span>
+<span style="color: #000066; font-weight: bold;" data-mce-mark="1">var</span> b <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #3366cc;" data-mce-mark="1">"one"</span><span style="color: #339933;" data-mce-mark="1">;</span>
+<span style="color: #339933;" data-mce-mark="1">!!</span>b<span style="color: #339933;" data-mce-mark="1">;</span> <span style="color: #006600; font-style: italic;" data-mce-mark="1">//true</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><span data-mce-mark="1">&nbsp;</span><span style="line-height: 1.4;" data-mce-mark="1">In an expression with logical operators, non-boolean values are implicitly converted to boolean.</span></p>
+<p></p>
+<p dir="ltr"><strong>Lazy evaluation or short-circuit evaluation: </strong></p>
+<p dir="ltr">Logical expressions are evaluated left to right. JavaScript<span style="line-height: 1.4;" data-mce-mark="1">&nbsp;uses a mechanism known as "short-circuit evaluation" t</span><span style="line-height: 1.4;" data-mce-mark="1">o prevent the second, third, and nth conditions from being tested in certain cases:&nbsp;</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr"><span data-mce-mark="1"><em>false &amp;&amp; expr</em>&nbsp; is always false and expr is not tested.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr"><span data-mce-mark="1"></span><span style="line-height: 1.4;" data-mce-mark="1"><em>true || expr</em>&nbsp;</span><span style="line-height: 1.4;" data-mce-mark="1">is evaluated to true and expr is not tested.</span></p>
+</li>
+</ul>
+<p></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #000066; font-weight: bold;" data-mce-mark="1">var</span> b <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #cc0000;" data-mce-mark="1">5</span><span style="color: #339933;" data-mce-mark="1">;</span>
+<span style="color: #003366; font-weight: bold;" data-mce-mark="1">true</span> <span style="color: #339933;" data-mce-mark="1">||</span> <span style="color: #009900;" data-mce-mark="1">(</span>b <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #cc0000;" data-mce-mark="1">6</span><span style="color: #009900;" data-mce-mark="1">)</span><span style="color: #339933;" data-mce-mark="1">; </span><span style="color: #006600; font-style: italic;" data-mce-mark="1">//the second part is never tested</span>
+b<span style="color: #339933;" data-mce-mark="1">;</span>
+<span style="color: #006600; font-style: italic;" data-mce-mark="1">//&gt;&gt;5</span>
+&nbsp;
+<span style="color: #003366; font-weight: bold;" data-mce-mark="1">true</span> <span style="color: #339933;" data-mce-mark="1">&amp;&amp;</span> <span style="color: #009900;" data-mce-mark="1">(</span>b <span style="color: #339933;" data-mce-mark="1">=</span> <span style="color: #cc0000;" data-mce-mark="1">6</span><span style="color: #009900;" data-mce-mark="1">)</span> &nbsp; <span style="color: #006600; font-style: italic;" data-mce-mark="1">// second part is evaluated</span>
+b<span style="color: #339933;" data-mce-mark="1">;</span>
+<span style="color: #006600; font-style: italic;" data-mce-mark="1">//&gt;&gt;6</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><span data-mce-mark="1">&nbsp;</span></p>
+<p dir="ltr"><span data-mce-mark="1"><strong>A peculiarity of JavaScript :</strong></span></p>
+<p dir="ltr"><span data-mce-mark="1">If you are coming from most other 
+languages, you may expect these operators to return a boolean (true, 
+false) value. In JavaScript this is not always the case.&nbsp;</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;"><span style="color: #003366; font-weight: bold;" data-mce-mark="1">true</span> <span style="color: #339933;" data-mce-mark="1">||</span> <span style="color: #3366cc;" data-mce-mark="1">'something'</span><span style="color: #339933;" data-mce-mark="1">;</span> 
+<span style="color: #006600; font-style: italic;" data-mce-mark="1">//return true &nbsp;</span>
+<span style="color: #006600; font-style: italic;" data-mce-mark="1">//because JavaScript interpreter found true, <br>//then ||, so it return true and doesn’t look the second part (lazy evaluation)</span>
+&nbsp;
+<span style="color: #003366; font-weight: bold;" data-mce-mark="1">false</span> <span style="color: #339933;" data-mce-mark="1">||</span> <span style="color: #3366cc;" data-mce-mark="1">'something'</span>
+<span style="color: #006600; font-style: italic;" data-mce-mark="1">//return 'something'</span>
+&nbsp;
+<span style="color: #003366; font-weight: bold;" data-mce-mark="1">true</span> <span style="color: #339933;" data-mce-mark="1">&amp;&amp;</span> <span style="color: #3366cc;" data-mce-mark="1">'something'</span>
+<span style="color: #006600; font-style: italic;" data-mce-mark="1">//return'something'</span>
+&nbsp;
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p dir="ltr"></p>
+<h3 dir="ltr"><span data-mce-mark="1">False values</span></h3>
+<p><span style="line-height: 1.4;" data-mce-mark="1">Used with logical 
+operators or within statements, non-boolean values are implicitly 
+converted as booleans. They are not equal (==) to each other!&nbsp;</span><span style="line-height: 1.4;" data-mce-mark="1">All the following values are evaluated as false :</span></p>
+<div>
+<ul>
+<li>false</li>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>NaN</li>
+<li>the empty string ''</li>
+</ul>
+<p dir="ltr">Everything else is evaluated as true!</p>
+<p dir="ltr"><em>Examples:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var boo = 'hello' &amp;&amp; 'world';</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"><strong style="line-height: 1.4;">boo</strong> equals ‘world’ because ‘hello’ is a string value evaluated as true.</p>
+<p dir="ltr"></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var boo2 = (0/0) || 43.2 ;</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"><strong style="line-height: 1.4;">&nbsp;boo2</strong>&nbsp;equals 43.2 because the expression 0/0 equals NaN, which is evaluated as false.</p>
+<p></p>
+<p><em style="line-height: 1.4;">Question:</em></p>
+<p dir="ltr">What is the value of the variable myNumber after the execution of this code?&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var myNumber = !1;
+if(myNumber == null){
+   myNumber = 3;
+}
+myNumber = myNumber || 2;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr"><strong>Explanation:</strong> after the first line, 
+myNumber equals false. In the if statement, false does not equal null. 
+Therefore, the value 3 is not assigned to the var myNumber. In the last 
+line, myNumber is evaluated as false, then the value 2 is given to the 
+variable myNumber.</p>
+<p dir="ltr"></p>
+<h3 dir="ltr">Comparison Operators</h3>
+<p></p>
+<ul>
+<li>Equal (==)</li>
+<li>Not equal (!=)</li>
+<li>Greater than (&gt;)</li>
+<li>Greater than or equal (&gt;=)</li>
+<li>Less than (&lt;)</li>
+<li>Less than or equal to (&lt;=)</li>
+<li>Strict equal (===)</li>
+<li>Strict not equal (!==)</li>
+</ul>
+<p dir="ltr">The&nbsp;difference&nbsp;between == and === in JavaScript:</p>
+<ul>
+<li>Equal (==)</li>
+</ul>
+<p dir="ltr">Returns true if the operands are strictly equal<strong> with type conversion.</strong></p>
+<ul>
+<li>Strict equal (===)</li>
+</ul>
+<p dir="ltr">Returns true if the operands are strictly equal <strong>with no type conversion.</strong></p>
+<p dir="ltr">The triple-equals operator never does type coercion. It 
+returns true if&nbsp;both operands reference the same object, or in case
+ of value types, have the same value.</p>
+<p dir="ltr"><em>Some examples :</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">1 == 1 ;
+//true
+&nbsp;
+1==2 ; 
+//false
+&nbsp;
+1=='1';
+//true : 
+/*Here, the interpreter will try to convert the string ‘1’ 
+into a number before doing the comparison*/
+&nbsp;
+&nbsp;
+//with strict equal:
+1===1;
+//true
+&nbsp;
+1==='1';
+//false
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p>Depending on the context, generally strict equal (or strict not equal) should be preferred.&nbsp;</p>
+<p>Here's an interesting article about this question:</p>
+<p>"Why you should use strict equal":&nbsp;<a href="http://www.impressivewebs.com/why-use-triple-equals-javascipt/" style="line-height: 1.4;">http://www.impressivewebs.com/why-use-triple-equals-javascipt/</a></p>
+<p>&nbsp;</p>
+<p><strong>Specific case of NaN</strong></p>
+<p>As we have seen before, JavaScript has some special values. One of them is NaN:&nbsp;“Not-a-Number”.&nbsp;</p>
+<p>NaN has this special property :&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">NaN == NaN;
+//false
+&nbsp;
+NaN === NaN;
+//false</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">&nbsp;Nan&nbsp;is equal to nothing even not to itself! 
+&nbsp;But you do have a function to check the NaN value: 
+&nbsp;isNaN(expr)&nbsp;</p>
+<p dir="ltr"><strong>isNaN</strong>: Returns&nbsp;<b>true</b>&nbsp;if the argument coerces to&nbsp;<b>NaN</b>, and otherwise returns&nbsp;<b>false</b>.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">isNaN(NaN);
+//true
+&nbsp;
+isNaN(0/0);
+//true
+&nbsp;
+isNaN(12);
+//false
+&nbsp;
+isNaN('foo');
+//false
+&nbsp;
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>"A reliable way for ECMAScript code to test if a value&nbsp;X&nbsp;is a&nbsp;<b style="line-height: 1.4;">NaN</b>&nbsp;is an expression of the form&nbsp;X !== X. The result will be&nbsp;<b style="line-height: 1.4;">true</b>&nbsp;if and only if&nbsp;X&nbsp;is a&nbsp;<b style="line-height: 1.4;">NaN</b>.&nbsp;"&nbsp;<a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.1.2.4" style="line-height: 1.4;">http://www.ecma-international.org/ecma-262/5.1/#sec-15.1.2.4</a></p>
+<p>A complete example with isNaN:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var num =0/0;
+if(isNaN(num)){
+&nbsp; &nbsp;num = 0;
+}
+&nbsp;
+//shortened version with the conditional operator
+var num = isNaN(num) ? 0 : num
+&nbsp;
+//version with logical operator (implicit conversion) 
+var num = num || 0; &nbsp;
+/*
+&lt;=&gt; num = NaN || 0 &nbsp;
+&lt;=&gt; num = false || 0
+*/
+&nbsp;
+num;
+//returns 0 in this three cases
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p dir="ltr">Of course 0/0 rarely happens, but there are other cases where NaN can appear, for example:</p>
+<ul>
+<li>parseInt('foo') returns NaN &nbsp; //parseInt try to convert a String to a Number&nbsp;</li>
+<li>Math.sqrt(-1) return NaN &nbsp;</li>
+</ul>
+<h3 dir="ltr"></h3>
+<h3 dir="ltr">String operators</h3>
+<p dir="ltr"></p>
+<p dir="ltr">The operator (+) used with strings is called the concatenation operator, and it allows you to concatenate strings.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">//the operator (+)
+var s1 = 'one';
+var s2= 'two';
+var s = s1 + s2;
+&nbsp;
+s;
+// returns 'onetwo'
+&nbsp;
+typeof s; 
+//'string'
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p dir="ltr">The shorthand assignment operator (+=) can also be used to concatenate strings</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">//the assignment operator (+=)
+var s1 = 'one';
+var s2 = 'two';
+s1+= s2; // or directly s1+='two'
+s1; 
+//returns 'onetwo'</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Another way to concatenate strings: the method concat().</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">//the 'concat' method
+var s1 = 'one';
+var s2 ='two';
+var s = s1.concat(s2); 
+s;
+//returns 'onetwo'</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>These methods can be used with a variable number of arguments :</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var s1 = 'Hello'; 
+s1 = s1 + ' World' + ' JavaScript'; 
+&nbsp;
+var s2 = 'Hello'; 
+s2+= ' World' + ' JavaScript'; 
+&nbsp;
+var s3 = 'Hello'; 
+s3.concat(' World' , ' JavaScript' );
+&nbsp;
+//s1,s2 and s3 return 'Hello World JavaScript'</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<h3 dir="ltr">Bitwise operators</h3>
+<p dir="ltr">When used with bitwise operators, numbers are converted to 
+their binary representation as 32 bits (the most significant bit sets 
+the sign). For example the number 11 equals 1011 (the 28 other bits are 
+set to 0).</p>
+<p dir="ltr">These operators are:</p>
+<ul>
+<li>a &amp; b (and)</li>
+<li>a | b (or)</li>
+<li>a ^ b (xor)</li>
+<li>~ a (not)</li>
+<li>a &lt;&lt; b (left shift)</li>
+<li>a &gt;&gt; b (sign-filling right shift)</li>
+<li>a &gt;&gt;&gt; b (zero-filling right shift)</li>
+</ul>
+<p dir="ltr"><em>Examples:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">11 &amp; 7; //equals 3
+&nbsp;
+~11; //equals -12 (the bit of sign is also inverted)
+&nbsp;
+11 &lt;&lt; 3; //equals 88 (1011000)
+&nbsp;
+11 &gt;&gt; 2; //equals 2 (10)
+&nbsp;
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<h3>Assignment operators</h3>
+<p dir="ltr"></p>
+<h3 class="r"></h3>
+<p dir="ltr">An assignment operator assigns the right operand value to 
+the left operand. We already used the basic assignment operator which is
+ “=”. Example: var a = 4.</p>
+<h3 class="r"></h3>
+<p dir="ltr">But there are more:</p>
+<ul>
+<li>x += y (x = x + y)</li>
+<li>x -= y&nbsp;</li>
+<li>x *= y</li>
+<li>x /= y</li>
+<li>x %= y</li>
+<li>x &lt;&lt;= y</li>
+<li>x &gt;&gt;= y</li>
+<li>x &gt;&gt;&gt;= y</li>
+<li>x &amp;= y</li>
+<li>x |= y</li>
+<li>x ^= y</li>
+</ul>
+<h3 class="r"></h3>
+<p dir="ltr"><em>Examples: </em></p>
+<h3 class="r"></h3>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var x = 3;
+x *= 2; // equivalent to x = x * 2;
+&nbsp;
+//x equals 6</pre>
+</div>
+</div>
+</div>
+<p></p>
+<h3 class="r"></h3>
+<p>&nbsp;</p>
+<p>Other operators</p>
+<h3 dir="ltr"></h3>
+<h3></h3>
+<p dir="ltr"><strong>Conditional operator</strong></p>
+<p dir="ltr">This is the only one <strong>ternary</strong> operator.&nbsp;The syntax of this operator is:</p>
+<p dir="ltr">condition ? value1 : value2</p>
+<p dir="ltr">This means that if the first expression (condition) a is 
+evaluated as true, the value of the second expression (value1) is 
+produced. Otherwise, the value of the third (value2) is produced.</p>
+<p dir="ltr"><em>Example:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var y = (x == 3) ? 2 : 5;</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p dir="ltr">if x equals 3, then y equals 2, else y equals 5</p>
+<p dir="ltr"><em>Question:</em></p>
+<p dir="ltr">What is the value of title after the execution of this unit of code?</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var label = '';
+var title = label ? &nbsp;('--- ' + label + ' ---') : 'empty';</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><span style="text-decoration: underline;">Exercise:</span></p>
+<p>In this exercise, we are going to create a small node.js application 
+that takes two numbers as input and displays if the first is strictly 
+greater than the second.<br>Download the incomplete file <a href="http://www.53js.org/w3devcampus/week1/nodeGT/ex.node.gt.js" target="_blank">here</a>.&nbsp;Then complete the two variable assignments missing. To execute the app, type in the command line:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 80%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&gt; node ex.node.gt.js 19 67</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Hint: use the comparison, concatenation and conditional operators.</p>
+<p>(Advanced) Unix users can add a shebang at the top of the file.</p>
+<p>You can download the solution <a href="http://www.53js.org/w3devcampus/week1/nodeGT/node.gt.js" target="_blank">here</a>.</p>
+<p><strong>Comma operator</strong></p>
+<p dir="ltr">The comma operator takes two operands. It evaluates both operands, then returns the value of the second.<br class="kix-line-break"><em></em></p>
+<p dir="ltr"><em>Example</em>:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">x &nbsp;= 2 + 4, 5; //returns 5 and x equals 6</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr"><strong>Typeof</strong></p>
+<p dir="ltr">typeof is an suffixed&nbsp;unary operator. It returns the primitive type of the operand.</p>
+<p dir="ltr">The syntax is: &nbsp;typeof something</p>
+<p dir="ltr"><em>Example: </em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">typeof 2; &nbsp;//equals 'number'
+&nbsp;
+typeof 'hello world'; //equals 'string'
+&nbsp;
+typeof null; //equals 'object' (this is a convention)
+&nbsp;
+typeof undefined; //equals 'undefined'
+&nbsp;
+typeof undefined === 'undefined' // true
+typeof undefined == undefined // false</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><strong style="line-height: 1.4;">Instanceof</strong></p>
+<p dir="ltr">Unlike typeof, instanceof is a binary operator. It returns a
+ boolean value according the equality of the type of the specified 
+object and the object type of the second operand.</p>
+<p dir="ltr">Syntax: myobject instanceof MyModel</p>
+<p dir="ltr"><em>Example:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var hello = new String(‘Hello World’);
+hello instanceof String // returns true</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><strong style="line-height: 1.4;">New</strong></p>
+<p dir="ltr">This operator is used to create an object. We will see further information about creating objects in the objects section.</p>
+<p dir="ltr">The syntax is: new MyModel(arguments)</p>
+<p dir="ltr"><em>Example:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var hello = new String(‘hello world’);</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><strong style="line-height: 1.4;">In</strong></p>
+<p dir="ltr">This operator returns true if the value of the first operand is a property of the object specified as the second operand.</p>
+<p dir="ltr">Syntax: name in object</p>
+<p dir="ltr"><em>Example</em>:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var car = { driver: 'John' };
+'driver' in car; //returns true</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p><strong style="line-height: 1.4;">Void</strong></p>
+<p dir="ltr">This operator forces an expression to return undefined after its execution. Its syntax is: void expression</p>
+<p dir="ltr"><em>Example:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">void(x = 4 + 5); //returns nothing</pre>
+</div>
+</div>
+</div>
+<p></p>
+</div>
+<p><span style="line-height: 1.4;" data-mce-mark="1">&nbsp;</span></p></div><div class="book_chapter"><a name="ch1932"></a><h2 class="book_chapter_title">6 Conditional statements and loops</h2><p>JavaScript
+ source code is a set of statements. There are a couple of different 
+statement types. We have already seen one of them, the variable 
+statement:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var myVar = 'hello ' + 'world';</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>We've also seen the expression statement:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">3 + 4;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">A statement closes with a semicolon, but we will see later that missing semicolons are automatically inserted.&nbsp;</p>
+<p dir="ltr">Statements are generally executed sequentially from top to 
+bottom of the script. However, this flow can be modified by statements 
+such as conditional statements and iteration statements.</p>
+<p dir="ltr">The block statement is a simple statement which allows us to group a set of statements wrapped in curly braces.&nbsp;</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 350px; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">Block statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">{
+&nbsp; &nbsp; var i = 0;
+&nbsp; &nbsp; var result = false;
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The block statement is used by other statements such as the if-statement or for-statement. We will see these statements below.</p>
+<h2>Conditional statements</h2>
+<p>All the examples for this section are in this jsbin link:&nbsp;</p>
+<p><a href="http://jsbin.com/azedov/1/edit?html,js,console" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><br>(you can look, edit, try whatever you want)</p>
+<p>Conditional statements are used to execute a unit of code only if a condition is evaluated as true</p>
+<h3>The if statement</h3>
+<p>Syntax<br>if ( Expression ) Statement else Statement<br>if ( Expression ) Statement</p>
+<p>The expression may include :</p>
+<ul>
+<li>logical operators ( ! &amp;&amp; || )</li>
+<li>comparison operators ( =, ==, &gt;, &gt;=, &lt;, &lt;= )</li>
+<li>any values or expressions which can be converted to boolean</li>
+</ul>
+<p>Example: if-statement</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">if-statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var num = 10;
+if (num == 10) {
+&nbsp; &nbsp; num = 20;
+}
+// num equals 20</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Example: if-else statement</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">if-else statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var num = 10;
+if (num &gt; 10) {
+&nbsp; &nbsp; num = 20;
+} else {
+&nbsp; &nbsp; num = 0;
+}
+// num equals 0</pre>
+</div>
+</div>
+</div>
+<p></p>
+<table style="position: absolute; right: 30px; margin-top: 60px; width: 269px; height: 234px; background-color: rgba(150, 207, 242, 0.8); border-width: 1px; border-style: dashed;" align="right" border="0">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;"><strong>Reminder</strong></p>
+<p>The following values will evaluate to false:<br>false<br>undefined<br>null<br>0<br>NaN<br>"" (empty string)</p>
+<p>All other values, including all objects evaluate to true&nbsp;when passed to a conditional statement.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Question</strong>: how do we replace this code by an expression including one operator?</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">Question 1</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var max;
+if (min) {
+&nbsp; &nbsp; max = min + 10;
+} else {
+&nbsp; &nbsp; max = 10;
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><em>Explanation: You can replace this if statement with the ternary operator.</em></p>
+<p>Curly braces</p>
+<p>Two versions of the same code:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">Version 1</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">if (a &gt; 2)
+&nbsp; &nbsp; result = 'a is bigger than 2';
+else
+&nbsp; &nbsp; result = 'a is not bigger than 2';</pre>
+</div>
+</div>
+</div>
+<p></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">Version 2</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">if (a &gt; 2) {
+&nbsp; &nbsp; result = 'a is bigger than 2';
+} else {
+&nbsp; &nbsp; result = 'a is not bigger than 2';
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Version 1 and version 2 are equivalent.<br>But version 2 is cleaner 
+and more readable, and it is especially much better for maintainability 
+(because you can add a statement just by pressing the enter key).<br>So it is strongly&nbsp;<strong>recommended to always use if-statements enclosed in curly braces</strong>. (like version 2 )<br>Of course, one-line if-statements like this :<br>if (true) doSomething();<br>are really fast to write, but later if you want to add a second statement, you will end up losing time.<br>So always use curly braces.</p>
+<h3>The switch statement</h3>
+<p>In order to avoid having a series of ifs and elses, it is possible to use a switch statement.&nbsp;<br>The syntax of the switch statement is:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">switch statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">switch (expression) {
+&nbsp; &nbsp; case value1: statement
+&nbsp; &nbsp; &nbsp; &nbsp; [break;]
+&nbsp; &nbsp; case value2: statement
+&nbsp; &nbsp; &nbsp; &nbsp; [break;]
+&nbsp; &nbsp; default: statement
+&nbsp; &nbsp; &nbsp; &nbsp; [break;]
+&nbsp; &nbsp; case value3: statement
+&nbsp; &nbsp; &nbsp; &nbsp; [break;]
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>If the value of expression equals one of the cases (the <strong>equality operator evaluated is ===</strong>), all the statements next to this case block are executed sequentially until the keyword break is<span id="docs-internal-guid-7b10c32d-5ce9-0726-60f2-01e9f61a17df"><span id="docs-internal-guid-7b10c32d-5ce9-0726-60f2-01e9f61a17df">&nbsp;reached.</span></span></p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var gear = '';
+switch (cloudColor) {
+&nbsp; &nbsp; case 'green': gear += 'spacesuit';
+&nbsp; &nbsp; &nbsp; &nbsp; break;
+&nbsp; &nbsp; case 'black': gear += 'boots, ';
+&nbsp; &nbsp; case 'grey': gear += 'umbrella, ';
+&nbsp; &nbsp; case 'white': gear += 'jacket, ';
+&nbsp; &nbsp; default: gear += 'watch';
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Explanation: if the clouds are black, then my gear will be 'boots, 
+umbrella, jacket, watch'. If the clouds are green, my gear is a 
+spacesuit. If the cloud colors are not in the listed colors, then my 
+gear is only a watch.</p>
+<p>To finish up this section, here is a complete example: three ways to do condition statements.&nbsp;</p>
+<p><a href="http://jsbin.com/eqijaj/1/edit?js,console" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<h2>Loops</h2>
+<p dir="ltr">A loop is used to run the same block of code several times 
+while a condition is satisfied. The do-while statement is the most 
+representative of this definition. If you have trouble with the 
+loops,&nbsp;<a href="http://toolness.github.io/slowmo-js/" title="slowmoJS" target="_blank">slowmoJS </a>can be really useful, you just have to copy and paste an example.</p>
+<h3>The while statement</h3>
+<p>With a while statement, a block of code is executed repeatedly while the specified condition is satisfied (evaluates to true).</p>
+<p dir="ltr">Syntax:<br>while ( <em style="line-height: 1.4;">condition</em> ) statement</p>
+<p dir="ltr">The condition is an expression, and the statement can be a block statement.</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">while statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var i = 1, j = 1;
+while ( i &lt; 4 ) {
+&nbsp; &nbsp; j *= i++;
+&nbsp; &nbsp; //This block will be executed 3 times
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Of course, if the condition never evaluates to false, the block will be executed infinitely until the machine crashes...</p>
+<p dir="ltr"><strong>Exercise</strong>: we have a function named 
+readline which reads a line of a file then returns this line as a 
+string. Each time a line is read, the cursor is placed before the next 
+line. Write the code to read and log each line of the file.</p>
+<p dir="ltr"></p>
+<p dir="ltr"><span id="docs-internal-guid-7b10c32d-5ce9-0726-60f2-01e9f61a17df" data-mce-mark="1"><a href="http://jsbin.com/uxowah/1/edit" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/uxowah/2/edit" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-solution.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></span></p>
+<h3>The do-while statement</h3>
+<p>The do-while statement is very similar to the while statement, but its syntax is different:</p>
+<p>do statement while ( <em style="line-height: 1.4;">condition</em> )</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">do-while statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">do {
+&nbsp; &nbsp; i++;
+} while(i &lt; 20);
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The&nbsp;do-while statement&nbsp;executes the content of the loop once<strong> before checking</strong> the condition of the while, whereas a&nbsp;<strong style="line-height: 1.4;">while </strong>statement&nbsp; will <strong>check the condition first before</strong> executing the content.&nbsp;.<br>
+ A do-while is used for a block&nbsp;of code that must be executed at 
+least once.These situations tend to be relatively rare, thus the simple 
+while statement is more commonly used.&nbsp;</p>
+<p>If you want to "see" the difference, look at the "do-while" statement&nbsp;<a href="http://toolness.github.io/slowmo-js/?code=var%20condition%3D%20false%3B%0Avar%20foo%20%3D%200%3B%0Ado%7B%0A%20foo%2B%2B%3B%0A%7D%20while%28condition%20%3D%3D%20true%29%3B%0A%0Afoo%3B&amp;filterrange=80-80" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-slowmo.jpg" alt="slowmo" style="vertical-align: middle;" height="30" width="160"></a>&nbsp;and the "while" statement&nbsp;<a href="http://toolness.github.io/slowmo-js/?code=var%20condition%3D%20false%3B%0Avar%20foo%20%3D%200%3B%0Awhile%28condition%20%3D%3D%20true%29%3B%20%7B%0Afoo%2B%2B%0A%7D%0A%0Afoo%3B&amp;filterrange=68-68" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-slowmo.jpg" alt="slowmo" style="vertical-align: middle;" height="30" width="160"></a>.&nbsp;</p>
+<h3 dir="ltr">The for statement</h3>
+<p dir="ltr">This statement adds some things to the while and do-while 
+statements: an initialization expression and an incrementing expression.
+ Its syntax is:</p>
+<p dir="ltr">for (initialization; condition; incrementation) statement</p>
+<p dir="ltr">The three expressions within the parentheses are optional. If the condition is omitted, it is replaced by true (infinite loop).</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">for statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">for (var i = 1, j = 1; i &lt; &nbsp;4; i++) {
+&nbsp; &nbsp; j *= i;
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">In this example, two variables are defined and assigned 
+within the initialization expression. Before each execution of the block
+ statement, the condition is checked; here we need "i" to be lower than 
+4. After each execution of the block statement, the incrementation 
+expression is executed to increment the variable "i".</p>
+<h3 dir="ltr">The for-in statement</h3>
+<p dir="ltr">The for-in statement is used to iterate through an object (or an array, which is also an object). <br>Its syntax is:</p>
+<p dir="ltr">for ( variable in expression ) statement</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">for-in statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">for(var property in myObject) {
+&nbsp; &nbsp; console.log(myObject[property]); 
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Before each execution of the block statement, the variable 
+property is assigned with the name of one of the properties (the keys) 
+of the object.</p>
+<p dir="ltr">We will see further examples of this statement within the object section.</p>
+<p dir="ltr"><span><br class="Apple-interchange-newline"><span style="text-decoration: underline;">Exercise:</span></span></p>
+<p dir="ltr">In this exercise, we want to display some public pictures 
+retrieved from the Flickr API. We already develop the functions to 
+retrieve pictures and the CSS3 rules to display them. Now, we need a 
+function that loops over the pictures to create each HTML element.<br>Add one of the loops we have just seen within the function parseItems of the the following JSBin:</p>
+<p dir="ltr"><a href="http://jsbin.com/aXUvipE/1/edit?js,output" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px" height="30" width="160"></a><a href="http://jsbin.com/aXUvipE/2/edit?js,output" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-solution.jpg" alt="jsbin" style="margin-left: 20px" height="30" width="160"></a></p>
+<h2 dir="ltr">Other statements</h2>
+<h3 dir="ltr">Continue statement</h3>
+<p dir="ltr">The continue statement is used&nbsp;to stop the execution 
+of a block and start the next iteration of the loop. The difference from
+ the "break" statement is that the loop continues.</p>
+<p dir="ltr">Syntax:<br>continue [label]</p>
+<p dir="ltr">The label is optional.</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">continue statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">for(var i = 1, k = 0; i &lt; 5; i++) {
+&nbsp; &nbsp; if (i == 3) {
+&nbsp; &nbsp; &nbsp; &nbsp; continue;
+&nbsp; &nbsp; }
+&nbsp;
+&nbsp; &nbsp; k += 2*i;
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<h3>Break statement</h3>
+<p dir="ltr">The break statement is used to stop an iteration, a switch or a labelled statement.</p>
+<p dir="ltr">Syntax:<br>break [label]</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">break statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">while(i &lt; 5) {
+&nbsp; &nbsp; j += 3 * i;
+&nbsp; &nbsp; if (j &gt; 30) {
+&nbsp; &nbsp; &nbsp; &nbsp; break;
+&nbsp; &nbsp; }
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<h3 dir="ltr">Labelled statement</h3>
+<p dir="ltr">A label can be given to a statement. A labelled statement 
+cannot be enclosed by a labelled statement with the same name. Labels 
+work only in conjunction with the break and continue statements.</p>
+<p dir="ltr">Syntax:<br>label: statement</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">labelled statement</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var k = 0;
+for (var i = 0; i &lt;= 10; i++) {
+&nbsp; &nbsp; for (var j = 0; j &lt;= 10; j++) {
+&nbsp; &nbsp; &nbsp; &nbsp; if (i == j) continue;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; k++
+&nbsp; &nbsp; }
+}
+//k equals 110
+&nbsp;
+var k = 0;
+outer: for (var i = 0; i &lt;= 10; i++) {
+&nbsp; &nbsp; for (var j = 0; j &lt;= 10; j++) {
+&nbsp; &nbsp; &nbsp; &nbsp; if (i == j) continue outer;
+&nbsp; &nbsp; &nbsp; &nbsp; k++
+&nbsp; &nbsp; }
+}
+//k equals 55
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<h2 dir="ltr">Error handling</h2>
+<p dir="ltr">Because we know that each program has its errors and that 
+it will always have them, developers need tools to react automatically 
+when an error occurs. JavaScript provides a mechanism to catch errors 
+and to trigger your own errors. An error is called an exception.</p>
+<h3></h3>
+<h3>Exception handling</h3>
+<p>The try-catch statement is provided to deal with exceptions. This 
+statement is composed of three blocks of code. The first, named the <strong>try</strong>
+ block, will be executed while the engine checks if an error occurs 
+(that is, an exception). If an exception occurs, the second (<strong>catch</strong> block) is executed. The third block, named the <strong>finally </strong>block, is always executed just after the try or catch block.</p>
+<p><strong></strong>Syntax:<br><strong>try</strong> try-block <strong>catch</strong> (identifier) catch-block<br><strong>try</strong> try-block <strong>finally</strong> finally-block<br><strong>try</strong> try-block <strong>catch</strong> (identifier) catch-block <strong>finally</strong> finally-block</p>
+<p dir="ltr">The identifier is a variable name which will be assigned an
+ Error object. This Error object has some properties such as message 
+containing the description of the error detected. We will study objects 
+and their properties in more detail a few chapters from now.</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">var a = 10;
+try {
+&nbsp; &nbsp; a += z;
+} catch (exception) {
+&nbsp; &nbsp; console.log(exception.message);
+&nbsp; &nbsp; // Accessing object’s properties using the dot notation: object.property
+} finally {
+&nbsp; &nbsp; a /= 2;
+}
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>In this example, if z doesn’t exist in the scope, the value of exception in the catch-block will be a ReferenceError object.</p>
+<p><a href="http://jsbin.com/ahavot/10/edit" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<p dir="ltr">With the try-catch statement, it's easy to hide an error and let the program continue.<br class="kix-line-break">For example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">try {
+&nbsp; &nbsp; a+=z;
+} catch (exception) {
+// do nothing
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Our advice is to avoid this at all costs. Users of the program, or at
+ least developers, should always be able to understand and see an error.</p>
+<p dir="ltr">If many types of errors can occur within the try block, it 
+is possible to check the type of the error within the catch block using 
+conditional statements.<br class="kix-line-break">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">try {
+&nbsp; &nbsp; a += z;
+} catch(exception) {
+&nbsp; &nbsp; if(exception instanceof ReferenceError) {
+&nbsp; &nbsp; &nbsp; &nbsp; //do something 
+&nbsp; &nbsp; } else {
+&nbsp; &nbsp; &nbsp; &nbsp; //do something else
+&nbsp; &nbsp; }
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Spidermonkey (Firefox) offers the possibility of having 
+multiple catch-blocks checking the type of the exception. We will not 
+mention this functionality any more, because it is not defined in the 
+standard.</p>
+<h3 dir="ltr">Throwing errors</h3>
+<p dir="ltr">It is possible to throw your own errors. This functionality
+ allows you to enhance security and to avoid eyestrain after a long time
+ looking for the reason for a bug somewhere in a few thousand lines of 
+code. Used with the try catch statement, it offers you the possibility 
+of controlling the flow of the program, especially when users provide 
+data.</p>
+<p dir="ltr">We know that JavaScript doesn’t throw early errors in many 
+cases, for example type errors. If you are writing a JavaScript library,
+ your program can throw errors to indicate to developers when they do 
+something wrong with your library.</p>
+<p dir="ltr">Syntax:<br><strong style="line-height: 1.4;">throw</strong> expression;</p>
+<p dir="ltr">The expression could produce any value, which will be 
+returned by the throw statement. Of course, you may use an explicit 
+value. This value should be a simple string, or even better, an object.</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<div style="background: #dddddd; color: #054b6e; padding: 2px 0px; text-align: center; font: bold italic 12px Verdana, Geneva, Arial, Helvetica, sans-serif;">throw</div>
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px;">if (typeof myNumberData !== 'number') {
+&nbsp; &nbsp; throw 'bad params!';
+}</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><a href="http://jsbin.com/ahavot/6/edit" target="_blank"><img src="Week%201%20%20%20JavaScript%20Basics%20-%20Part%201_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<p dir="ltr"></p>
+<h3 dir="ltr">Built-in errors</h3>
+<p dir="ltr">Any value can be thrown as exception, and JavaScript 
+includes a few error objects that you can reuse. The first of them is 
+the object Error, which is the base of other runtime error objects. This
+ object contains the string properties "name" and "message", and a 
+method toString, which returns the concatenated string of name and 
+message.</p>
+<p dir="ltr">The native error types listed below inherit (have the same properties and methods) from the base error object Error:</p>
+<ul>
+<li>EvalError</li>
+</ul>
+<p>Indicates the eval method has not been used properly.</p>
+<ul>
+<li dir="ltr">
+<p dir="ltr">RangeError</p>
+</li>
+</ul>
+<p dir="ltr">Indicates a numeric value has exceeded the allowable range.
+ For example, a range exception will be thrown when an array is created 
+with a bad length.</p>
+<ul>
+<li dir="ltr">
+<p dir="ltr">ReferenceError</p>
+</li>
+</ul>
+<p dir="ltr">Indicates a bad reference. A variable references its value.
+ If the variable has not been declared, then a reference exception is 
+thrown.</p>
+<ul>
+<li dir="ltr">
+<p dir="ltr">SyntaxError</p>
+</li>
+</ul>
+<p dir="ltr">Indicates an error when parsing code. Something is not recognized by the language.</p>
+<ul>
+<li dir="ltr">
+<p dir="ltr">TypeError</p>
+</li>
+</ul>
+<p dir="ltr">Indicates the value of an operand is not of the expected 
+type. For example, when calling a string as a function ( ‘coucou’() ) , a
+ type error exception occurs.</p>
+<ul>
+<li dir="ltr">
+<p dir="ltr">URIError</p>
+</li>
+</ul>
+<p dir="ltr">Indicates an error when a URI is malformed.</p>
+<p dir="ltr"></p>
+<p dir="ltr">Each error type listed above (including Error) can be 
+inherited by your own exceptions. We can define error objects from them 
+(we'll see more about objects and inheritance in the following 
+chapters).</p></div> </body></html>

@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html><head>
+      <title>Week 3: JavaScript in the Browser</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="description" content="Week 3: JavaScript in the Browser">
+      <link rel="stylesheet" type="text/css" href="Week%203%20%20JavaScript%20in%20the%20Browser_files/print.css">
+    </head>
+    <body>
+    <a onclick="window.print();return false;" class="book_no_print" href="#"><img class="book_print_icon" alt="Print book" title="Print book" src="Week%203%20%20JavaScript%20in%20the%20Browser_files/book.svg">Print book</a>    <a name="top"></a>
+    <h1 class="book_title">Week 3: JavaScript in the Browser</h1>
+    <p class="book_summary"></p><p>Book 3 (Title TDB)</p><p></p>
+    <div class="book_info"><table>
+    <tbody><tr>
+    <td>Site:</td>
+    <td><a href="http://classroom.w3devcampus.com/">Classrooms - Online training for Web developers</a></td>
+    </tr><tr>
+    <td>Course:</td>
+    <td>JavaScript - March 2014</td>
+    </tr><tr>
+    <td>Book:</td>
+    <td>Week 3: JavaScript in the Browser</td>
+    </tr><tr>
+    <td>Printed by:</td>
+    <td>Timothy O'Hare</td>
+    </tr><tr>
+    <td>Date:</td>
+    <td>Monday, 14 April 2014, 12:41 PM</td>
+    </tr>
+    </tbody></table></div>
+
+    <div class="book_toc_numbered"><a name="toc"></a><h2 class="book_chapter_title">Table of contents</h2><ul><li><a title="1 Introduction" href="#ch1939">1 Introduction</a></li><li><a title="2 The BOM (Browser Object Model)" href="#ch1940">2 The BOM (Browser Object Model)</a></li><li><a title="3 The DOM (Document Object Model)" href="#ch1941">3 The DOM (Document Object Model)</a></li><li><a title="4 Event handling" href="#ch1942">4 Event handling</a></li><li><a title="5 AJAX and XMLHttpRequests" href="#ch1943">5 AJAX and XMLHttpRequests</a></li></ul></div><div class="book_chapter"><a name="ch1939"></a><h2 class="book_chapter_title">1 Introduction</h2><p></p>
+<p>At this point, you should be comfortable with the basics of the 
+language. Now let's see how we can use this knowledge to create websites
+ with &nbsp;real user interaction. Browsers provide our APIs on top of 
+JavaScript to interact with displayed elements and user actions. They 
+are generally very similar between browsers, but there are still some 
+differences. The main APIs are called the BOM (Browser Object Model) and
+ the DOM (Document Object Model). Thanks to the BOM we will be able to 
+interact with the browser, which can use some of the functionality of 
+the computer, for example the webcam (since HTML5). The DOM lets us act 
+on the document (i.e. the web page), for example by hiding or moving a 
+“div” when the cursor position changes.</p>
+<p>&nbsp;</p>
+<h3>Mixing HTML and JavaScript</h3>
+<p dir="ltr">JavaScript code can be embedded directly into an HTML page 
+by adding the script within the “script” tag. It can also be placed into
+ an external file, which will be downloaded with the HTML page. This 
+latter approach offers more separation between structure, content, 
+style, and scripts. So we prefer this for code readability and 
+maintainability. And finally, scripts can be written within HTML tag 
+attributes, but avoid doing this! Spaghetti is very good for dinner, but
+ hard to debug!</p>
+<p>&nbsp;</p>
+<p dir="ltr"><strong>Example of an embedded script</strong>&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html4strict" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html4strict" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&lt;<a href="http://december.com/html/4/element/html.html">html</a>&gt;
+&nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/body.html">body</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;nav class="topmenu"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/ul.html">ul</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/li.html">li</a>&gt;Home&lt;/<a href="http://december.com/html/4/element/li.html">li</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/li.html">li</a>&gt;My account&lt;/<a href="http://december.com/html/4/element/li.html">li</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/<a href="http://december.com/html/4/element/ul.html">ul</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/script.html">script</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var items = document.querySelector('li');
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/<a href="http://december.com/html/4/element/script.html">script</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/nav&gt;
+&nbsp; &nbsp; &lt;/<a href="http://december.com/html/4/element/body.html">body</a>&gt;
+&lt;/<a href="http://december.com/html/4/element/html.html">html</a>&gt;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr"><strong>Example of a script as an attribute value</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html4strict" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html4strict" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&lt;<a href="http://december.com/html/4/element/html.html">html</a>&gt;
+&nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/body.html">body</a> onload="window.alert('document loaded')"&gt; &lt;!-- BAD --&gt;
+&nbsp; &nbsp; &lt;/<a href="http://december.com/html/4/element/body.html">body</a>&gt;
+&lt;/<a href="http://december.com/html/4/element/html.html">html</a>&gt;</pre>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><strong>Example of an external file</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html4strict" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html4strict" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&lt;<a href="http://december.com/html/4/element/html.html">html</a>&gt;
+&nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/body.html">body</a>&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- html code --&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- ... --&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/script.html">script</a> src=”scripts/main.js” /&gt;
+&nbsp; &nbsp; &lt;/<a href="http://december.com/html/4/element/body.html">body</a>&gt;
+&lt;/<a href="http://december.com/html/4/element/html.html">html</a>&gt;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">The “<em>src</em>” attribute of the script tag must contain an absolute or relative path to the JavaScript file.</p>
+<p><strong>&nbsp;</strong></p>
+<p dir="ltr">The script tag can be placed anywhere within the HTML tag's head or body. <strong>So how do we choose? </strong></p>
+<p dir="ltr">The first thing to know is that the browser will download 
+and execute elements sequentially. So if you have a large JavaScript 
+file within the head tag, the rest of the page will be downloaded only 
+afterwards. The rest of the document contains the content of the website
+ including images, and so on. It might be better to display the page 
+first, then execute scripts (in order to keep your visitors). So we 
+should <strong>put the script tags at the end of our web pages</strong> 
+(just before the body end tag). Another reason for this is that if you 
+use html elements within your scripts, they must exist before they are 
+referred to. Of course, putting scripts within the head tag will still 
+be better in some cases.</p>
+<p>&nbsp;</p>
+<p><strong>Exercise</strong></p>
+<p dir="ltr">We will start a little project JSBegin. First download the <a href="http://53js.org/w3devcampus/week3/JSBegin-0.1.zip" target="_blank">zip file</a>, then unzip the archive. You should now have a folder named <em>JSBegin</em> which is already composed of files and folders. <br>The folder <em>app</em> contains our application.</p>
+<p>Open <a href="http://www.sublimetext.com/2" target="_blank">Sublime Text</a>, and on the Project menu, select Open project and open the file <em>jsbegin.sublime-project</em>. You are able to edit the app directory with Sublime Text.</p>
+<p>The file<em> server.js</em> is a small web server based on node.js and one of its modules, <em>express</em>. Before starting the server, we must install the module <em>express</em> by typing the following command into a shell inside the folder JSbegin:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_bash" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="bash" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">npm install express</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Once express is installed, you can start server easily by typing the following:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_bash" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="bash" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">node server.js</pre>
+</div>
+</div>
+</div>
+<p><br>Open your browser and take a look at our application here: <a href="http://localhost:2013/">http://localhost:2013</a></p>
+<p dir="ltr"></p>
+<p dir="ltr">If your browser displays a web page with the title "JSBegin", everything is OK, and we can start to develop our app.</p>
+<p dir="ltr">Now let's add a bit of JavaScript to our page JSBegin: add a file named <em>main.js</em> inside the folder <em>scripts</em>.
+ Then add a “reference” to this file within the html page in order to 
+allow the downloading of our script along with the html page.</p>
+<p>For our first try, we''ll start to use the BOM by displaying a message when the page is loaded. Just add this line to&nbsp;<em>main.js</em>:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">window.alert('JSBegin loaded');</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Reload the page, and the browser should now display a small popup with the text: “JSBegin loaded”.</p>
+<p>The structure of our project should be like this:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_text" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="text" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">|-- JSBegin/
+&nbsp; &nbsp; |-- app/
+&nbsp; &nbsp; &nbsp; &nbsp; |-- index.html
+&nbsp; &nbsp; &nbsp; &nbsp; |-- scripts/
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |-- main.js 
+&nbsp; &nbsp; &nbsp; &nbsp; |-- styles/
+&nbsp; &nbsp; &nbsp; &nbsp; |-- images/
+&nbsp; &nbsp; |-- server.js
+&nbsp; &nbsp; |-- node_modules/
+&nbsp; &nbsp; &nbsp; &nbsp; |-- express/</pre>
+</div>
+</div>
+</div>
+<p></p>
+<h3>Developer tools</h3>
+<p dir="ltr">In the following, we will see more complex examples and 
+exercises. And we will probably have errors, so we need tools to debug 
+our scripts. Fortunately, recent browsers provide powerful tools and 
+relevant information. We are going to see some functionality of the 
+developer tools provided by the Google Chrome browser.</p>
+<p><br>The Chrome developer tools display a few tabs providing interesting functionality for our future development.</p>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/chrome_console.png" alt="Chrome DevTools window" height="341" width="828"></p>
+<p><em>Source: <a href="https://developers.google.com/chrome-developer-tools/?hl=fr" target="_blank">https://developers.google.com/chrome-developer-tools/?hl=fr</a></em></p>
+<p></p>
+<p>Open the Chrome DevTools on any web page with the shortcuts <strong>cmd</strong>+<strong>opt</strong>+<strong>i</strong> on Mac or <strong>ctrl</strong>+<strong>shift</strong>+<strong>i</strong> on Windows or Linux.</p>
+<p>The panel elements can display the nodes of the document and their 
+associated styles. It also lets us modify elements and styles 
+directly.&nbsp;</p>
+<p></p>
+<p dir="ltr">The console panel&nbsp;lets you see errors, including 
+JavaScript errors. The console can log any information thanks to the 
+JavaScript object <em>console</em>.</p>
+<p></p>
+<p dir="ltr">A JavaScript debugger is available under the tab sources. 
+Just select a JavaScript file, add breakpoints, then reload the page. 
+You will be able to see the call stack and the variables in the scope on
+ the right side of the panel.</p>
+<p>Under the Resources tab, loaded resources are listed, including images, JavaScript files, and also HTML5 databases or cookies.</p>
+<p></p>
+<p dir="ltr">The panel network&nbsp;lets us inspect requests. So, the 
+resources files downloaded with the web page will be listed here, too. 
+And this panel will be useful for checking our AJAX requests that we 
+will study later this week.</p>
+<p>Finally, the panels <em>timeline </em>and <em>profiling</em> are very
+ powerful tools to optimize our applications. They let us find where 
+scripts take too much time or too much memory. Those tools really 
+simplify audits of our JavaScript development!</p>
+<p>We invite you to read more documentation on those tools here: <a href="https://developers.google.com/chrome-developer-tools/?hl=fr">https://developers.google.com/chrome-developer-tools/?hl=fr</a></p>
+<p dir="ltr"></p>
+<p>Safari provides good developer tools, as well. On Firefox, you should
+ use its plugin Firebug. Internet Explorer, though, is actually a bad 
+candidate for debugging.<br><br>Firefox tools :&nbsp;<br><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector" target="_blank">https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector</a>&nbsp;(section debugging)</p>
+<h3>Debugging a mobile web app</h3>
+<p dir="ltr">Unfortunately, mobile devices and their browsers do not 
+provide good debugging tools. Having powerful tools such the Chrome 
+DevTools is not easy, but we have two solutions. The first one is device
+ emulators.</p>
+<p>Chrome DevTools makes it easy to emulate a device. Click on the gear <img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/chrome_gear.png" alt="chrom gear button " style="vertical-align: top;" height="19" width="18">&nbsp;at
+ the bottom right corner of the DevTools. You can override the user 
+agent (i.e. the browser and the OS) as well as the device metrics, and 
+emulate touch events.</p>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/chrome_overrides.png" alt="chrome overrides menu devtools" height="418" width="1182"></p>
+<p>&nbsp;</p>
+<p dir="ltr"><em>Source: <a href="source:%20https://developers.google.com/chrome-developer-tools/docs/mobile-emulation" target="_blank">https://developers.google.com/chrome-developer-tools/docs/mobile-emulation</a></em></p>
+<p dir="ltr">The other solution is remote debugging through USB or the 
+network. But depending on the operating system and browser, multiple 
+solutions must usually be used:</p>
+<p dir="ltr"><em>&nbsp;</em></p>
+<p dir="ltr">Android and Chrome have their own remote debugging system with the ADB extension:<br><a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging?hl=fr">https://developers.google.com/chrome-developer-tools/docs/remote-debugging</a></p>
+<p dir="ltr"></p>
+<p dir="ltr">On iOS it is also possible to inspect the web page through the Safari developer tools:<br><a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/DebuggingSafarioniPhoneContent/DebuggingSafarioniPhoneContent.html">https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/DebuggingSafarioniPhoneContent/DebuggingSafarioniPhoneContent.html</a></p>
+<p dir="ltr"></p>
+<p dir="ltr">Opera provides a remote debugging system with Dragonfly:<br><a href="http://www.opera.com/dragonfly/documentation/remote/">http://www.opera.com/dragonfly/documentation/remote/</a></p>
+<p dir="ltr"></p>
+<p dir="ltr">And for Firefox on Android:<br><a href="https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging">https://developer.mozilla.org/en-US/docs/Tools/Remote_Debugging</a></p>
+<p dir="ltr">&nbsp;</p>
+<p dir="ltr">&nbsp;</p>
+<h2 dir="ltr">Reminder, tips, good practices:&nbsp;</h2>
+<p>&nbsp;</p>
+<h3>Console or devTools always open !&nbsp;</h3>
+<p dir="ltr">During your dev, you should keep the console open 99,99% of the time !&nbsp;<br>Firstly,
+ by this way you will be able to see errors while the execution of your 
+code directly on the console (JavaScript errors, file not found ... )<br>Secondly, because there is an useful option on chrome (maybe on firefox too) <br><strong>Disable cache (while devTools is open)&nbsp;<br><br></strong>There is a gear in the bottom right hand corner of the developer tools named settings that allows you to disable the cache.<br><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/setting.png" alt="disable cache" height="177" width="330"></p>
+<p dir="ltr"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/disableCache.png" alt="disableCache" style="border: 1px solid black;" height="134" width="481"></p>
+<p dir="ltr"><br>This option invalidates the disk cache but only while devtools are visible.<strong><br></strong>So this is really useful for developing (even more when you work with a server)<br><br><br></p>
+<h3>Use and abuse of console.log</h3>
+<p dir="ltr">Print variables, return values, functions, intermediate results ...&nbsp;<br>And especially when your code fails! You may put console.log to see where is the mistake and then how to correct it.&nbsp;<br><br>(the alert function can do the trick but console is more efficient)&nbsp;</p>
+<p dir="ltr"></p>
+<h3 dir="ltr">JS / CSS / HTML = 3 differents files</h3>
+<p>By this way, your projects, exercices, webapps will be&nbsp;much&nbsp;clearer, more readable ...&nbsp;<br><br></p>
+<h3>Jsbin</h3>
+<p>Jsbin is a good tool but it is not perfect, (especially the console)&nbsp;<br>There are a lot of exercises/example on jsbin, and when there are a lot of console.log it is hard to read.</p>
+<p>A couple of tips:</p>
+<p>1) CTRL + L &nbsp;clear the console panel&nbsp;</p>
+<p>2) you can use the browser console:&nbsp;<br><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/jsbin-livepreview.gif" alt="jsbin-livepreview" style="border: 1px solid black;" height="464" width="970"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Livereload&nbsp;</h3>
+<p>How many times, you do not understand why your code does not work? 
+And the answer is, something is still in the browser cache or i did not 
+refresh the page?</p>
+<p>Bored to press F5 thousands of times? The LiveReload tool allows to 
+have the web page already reloaded when you come back from your code 
+editor.&nbsp;</p>
+<p>Look how it works:&nbsp;</p>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/livereload-example.gif" alt="livereload " style="border: 1px solid black;" height="516" width="1345"></p>
+<p><br>Ressources:</p>
+<ul>
+<li><a href="http://livereload.com/" target="_blank">http://livereload.com/</a></li>
+<li><a href="http://itprozesse.wordpress.com/2013/07/20/using-livereload-with-chrome-and-sublime-text-2/" rel="bookmark">Using LiveReload with Chrome and Sublime Text&nbsp;2</a></li>
+</ul>
+<p class="entry-title"><a href="http://itprozesse.wordpress.com/2013/07/20/using-livereload-with-chrome-and-sublime-text-2/" rel="bookmark">&nbsp;</a></p></div><div class="book_chapter"><a name="ch1940"></a><h2 class="book_chapter_title">2 The BOM (Browser Object Model)</h2><h1><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/browser_api.jpg" alt="browsers api illustration" style="font-size: 14px; line-height: 20px;" height="200" width="550"></h1>
+<p></p>
+<h1 dir="ltr">The browser environment&nbsp;</h1>
+<h2>Global structure and definitions</h2>
+<p dir="ltr">To introduce the browser object model, we first have to talk a little about the browser environment:&nbsp;</p>
+<p dir="ltr">There is always a global object which corresponds to the 
+runtime environment. In the case of the browser, it is the 
+well-known&nbsp;<strong>window</strong>&nbsp;object.&nbsp;All browsers support <strong>window&nbsp;</strong>and everything that you have in the browser is a property or method of that object.</p>
+<p dir="ltr">The window object is a global object, and these properties are specified in numerous web standards. The "<strong>core</strong>" specification of the window object is now specified in the HTML standard.</p>
+<p dir="ltr"></p>
+<p id="the-global-structure">The global structure:</p>
+<p dir="ltr"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/browser_environment.png" alt="browser environment schema" height="342" width="500"></p>
+<p dir="ltr"></p>
+<p dir="ltr"><strong>Definitions:</strong></p>
+<p dir="ltr">The <strong>BOM:&nbsp;</strong>the <strong>Browser&nbsp;</strong>Object
+ Model is&nbsp;a browser-specific convention; it is a larger 
+representation of "everything" provided by the browser, including the 
+current document, location, history, frames, and any other functionality
+ which can be directly manipulated by 
+JavaScript.&nbsp;The&nbsp;BOM&nbsp;deals with browser components other 
+than the document, 
+like&nbsp;history,&nbsp;location,&nbsp;navigator&nbsp;and&nbsp;screen&nbsp;(as
+ well as some others that vary by browser). All these components and 
+functionality which can be directly manipulated by JavaScript.&nbsp;</p>
+<p dir="ltr">There is no strict definition for the&nbsp;Browser Object Model.&nbsp;<br><br></p>
+<p>The <strong>DOM</strong>&nbsp;<em>"is a platform- and 
+language-neutral interface that will allow programs and scripts to 
+dynamically access and update the content, structure and style of 
+documents."</em>&nbsp;<em><a href="http://www.w3.org/DOM/" target="_blank">www.w3.org/DOM/</a>&nbsp;<br></em>The DOM will be described in the next&nbsp;chapter.</p>
+<p></p>
+<p dir="ltr"><strong>To understand the difference between BOM &amp; DOM:</strong><br>The JavaScript code within an HTML file has access to various object which can be:</p>
+<ul>
+<li dir="ltr">Related to the page (the document, the HTML elements themselves)&nbsp;<strong>=&gt;</strong> DOM</li>
+<li dir="ltr">Unrelated to the page: browser's window, history, URL, screen... <strong>=&gt;</strong> BOM</li>
+</ul>
+<p>The objects in the first group make up the DOM (Document Object 
+Model). Those in the second group are the BOM (Browser Object Model).</p>
+<p>As we said before, the BOM is <strong>not completely standardized. </strong>But&nbsp;fortunately,
+ a large portion of the no standardized part is common to all browsers. 
+We will present and describe what the BOM is and will study the part 
+which is the most important and implemented by the major browsers.</p>
+<p>&nbsp;</p>
+<h2>window object</h2>
+<p dir="ltr">Let’s focus on the browser’s global object: <em>window</em>.<br>Window is the global object, meaning that every global variable is a property of the window object.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #006600; font-style: italic;">//variable defined without var climbs up to the global object</span>
+foo <span style="color: #339933;">=</span> <span style="color: #cc0000;">15</span><span style="color: #339933;">;</span>
+foo<span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//15</span>
+window.<span style="color: #660066;">foo</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//15</span>
+window<span style="color: #009900;">[</span><span style="color: #3366cc;">'foo'</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//15</span>
+&nbsp; 
+<span style="color: #006600; font-style: italic;">//the previous example is equivalent to:</span>
+window.<span style="color: #660066;">bar</span> <span style="color: #339933;">=</span> <span style="color: #cc0000;">16</span><span style="color: #339933;">;</span>
+window.<span style="color: #660066;">bar</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//16</span>
+window<span style="color: #009900;">[</span><span style="color: #3366cc;">'bar'</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//16</span>
+bar<span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//16</span>
+&nbsp;
+<span style="color: #006600; font-style: italic;">//variable defined in the global scoope</span>
+<span style="color: #006600; font-style: italic;">//(not inside a function)</span>
+<span style="color: #000066; font-weight: bold;">var</span> qux <span style="color: #339933;">=</span> <span style="color: #cc0000;">17</span><span style="color: #339933;">;</span>
+window.<span style="color: #660066;">qux</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//17</span>
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>It is the same for functions defined in global scope:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;" data-mce-mark="1">function</span> returnHello<span style="color: #009900;" data-mce-mark="1">(</span><span style="color: #009900;" data-mce-mark="1">)</span> <span style="color: #009900;" data-mce-mark="1">{</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;" data-mce-mark="1">return</span> <span style="color: #3366cc;" data-mce-mark="1">'hello'</span><span style="color: #339933;" data-mce-mark="1">;</span>
+<span style="color: #009900;" data-mce-mark="1">}</span>
+&nbsp;
+returnHello<span style="color: #009900;" data-mce-mark="1">(</span><span style="color: #009900;" data-mce-mark="1">)</span><span style="color: #339933;" data-mce-mark="1">;</span> <span style="color: #006600; font-style: italic;" data-mce-mark="1">//'hello'</span>
+&nbsp;
+window.<span style="color: #660066;" data-mce-mark="1">returnHello</span><span style="color: #009900;" data-mce-mark="1">(</span><span style="color: #009900;" data-mce-mark="1">)</span><span style="color: #339933;" data-mce-mark="1">;</span> <span style="color: #006600; font-style: italic;" data-mce-mark="1">//'hello'</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">And all predefined JavaScript functions are methods of this window object:</p>
+<p>&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">parseInt<span style="color: #009900;">(</span><span style="color: #3366cc;">'123a545'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//123</span>
+<span style="color: #006600; font-style: italic;">/* &lt;=&gt; */</span>
+window.<span style="color: #660066;">parseInt</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'123aa545'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// 123</span>
+&nbsp;
+alert<span style="color: #009900;">(</span><span style="color: #3366cc;">'hello'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">/* &lt;=&gt; */</span>
+window.<span style="color: #660066;">alert</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'hello'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>It also means that in the global context “this” refers to the window:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">this</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// returns window</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Window is common to all browsers, this is the global object so we can<strong>&nbsp;omit it</strong> from the front of the reference.</p>
+<p dir="ltr">In addition, to be the container of predefined functions 
+and global variables, window also provides data on the browser 
+environment. There is a window object frame, iframe, popup or open tab.</p>
+<p dir="ltr">Let’s have a look at the methods and properties of window object, so open the console:</p>
+<p><strong>Chrome:</strong></p>
+<p dir="ltr">To open the Web Console select “Web Console” from Tools submenu in the Chrome menu.<br>Shortcut Command:<br><em>(Windows/Linux) </em>Control&nbsp;+&nbsp;Shift&nbsp;+&nbsp;J,<br><em>(Mac) </em>Command + Option + J</p>
+<p dir="ltr"><strong>Firefox:</strong></p>
+<p dir="ltr">To open the Web Console, select "Web Console" from the Web 
+Developer submenu in the Firefox Menu (or Tools menu if you display the 
+menu bar or are on Mac OS X)<br>Shortcut Command:<br><em>(Windows/Linux)</em> Control-Shift-K,<br><em>(Mac)</em> Command - Option - K</p>
+<p>And simply type:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">window<span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//or this</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Then if you click on the small arrow <img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/small_arrow.png" alt="small_arrow" height="14" width="14">&nbsp;to&nbsp;“expand” the view, you will see all the properties / functions &nbsp;of the object:<br><br></p>
+<p dir="ltr"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/window_object_console.png" alt="window view on chrome console" height="304" width="699"></p>
+<p>&nbsp;</p>
+<p dir="ltr">As expected, the window object is huge and contains a lot 
+of properties and functions, but of course there is a hierarchical 
+arrangement. In this chapter we will see the BOM part.</p>
+<p dir="ltr">&nbsp;</p>
+<h1 dir="ltr">The Browser Model Object</h1>
+<p>When a web page is loaded, the browser creates some predefined 
+objects and methods corresponding to the page, and to the state of the 
+browser. &nbsp;</p>
+<p>The most important and most common objects are:&nbsp;</p>
+<p></p>
+<p>&nbsp;<img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/BOM_Objects.png" alt="Bom objects" height="475" width="527"></p>
+<p></p>
+<p></p>
+<h2>window.navigator</h2>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/window_navigator.png" alt="window navigator illustration" height="200" width="500"></p>
+<p></p>
+<p>Navigator object provides information about the browser used by the client.</p>
+<p><strong>Specifications:</strong><br><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#navigator" target="_blank">http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#navigator</a></p>
+<p><strong>Properties of navigator object:<br><br></strong></p>
+<table style="height: 457px; width: 522px; border: 0px solid #e1e0df;" cellpadding="10" border="0">
+<tbody>
+<tr>
+<td>&nbsp;<strong>Properties</strong></td>
+<td style="text-align: center;">&nbsp; <strong>Description</strong></td>
+<td>&nbsp; <strong>Example&nbsp;<br></strong></td>
+</tr>
+<tr>
+<td><i><i>appVersion</i></i></td>
+<td>
+<p>Returns the version of the browser and some other information (platform, OS, etc.)</p>
+</td>
+<td>"Mozilla"</td>
+</tr>
+<tr>
+<td><i>language</i></td>
+<td>Returns the language used by the client browser</td>
+<td>"en" or "fr" ...</td>
+</tr>
+<tr>
+<td>
+<p><i style="background-color: transparent; line-height: 20px;">mimeTypes</i></p>
+</td>
+<td>Returns a&nbsp;object called MimeTypeArray (Array like properties) 
+which contains a list of MimeType&nbsp;objects representing 
+MimeType&nbsp;supported by the browser</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p><i>platform</i></p>
+<p></p>
+</td>
+<td>Returns a string representing the platform of the browser.</td>
+<td>"Win32"</td>
+</tr>
+<tr>
+<td>
+<p><i>plugins</i></p>
+</td>
+<td>Returns a object called pluginArray containing&nbsp;the plugins installed in the browser.</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p><i>userAgent</i></p>
+</td>
+<td>The user agent string for the current browser</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p></p>
+<h3>window.navigator.userAgent</h3>
+<p>&nbsp;</p>
+<p dir="ltr">Maybe you have already noticed that certain features of 
+JavaScript do not work in certain browsers. This is one of reasons that,
+ as a developer, it is sometimes helpful to know which browser the 
+client is using.<br><br>For example, imagine you have a bug or a piece 
+of code incompatible only in Internet Explorer (and this is a common 
+problem). So one solution is to detect &nbsp;a user with IE and load 
+alternative code. <br>There are many other situations like that:</p>
+<ul>
+<li>A new feature which works only on Chrome and you want to test it,</li>
+<li>Detect if a user is using a mobile device, etc.</li>
+</ul>
+<p><br>Nevertheless be careful, most of the time you should use object 
+detection to see if the browser supports the object (method, array or 
+property, features, etc.) that you &nbsp;want to use. We will talk about
+ object detection just after this userAgent section.</p>
+<p dir="ltr"><strong>So, let's see what userAgent is:</strong></p>
+<p dir="ltr">navigator.userAgent returns a string that represents the 
+user-agent header, and of course it is a property of the navigation 
+object.</p>
+<p dir="ltr">open your console and type:&nbsp;navigator.userAgent<br>or<br>type console.log(navigator.userAgent); on jsbin</p>
+<p dir="ltr">According to your browser you will retrieve a string similar to this:</p>
+<p>&nbsp;<img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/userAgent.png" alt="userAgent in console" height="353" width="800"></p>
+<p><em>&nbsp;navigator.userAgent results on chrome / firefox / IE</em></p>
+<p>We retrieve some useful information:</p>
+<p dir="ltr">In this example, (the picture) in addition of the browser used we have some other information:</p>
+<ul>
+<li dir="ltr">version of chrome is: 30.0.1599.37</li>
+<li dir="ltr">version of firefox is 23.0</li>
+<li dir="ltr">version of internet explorer is 9.0</li>
+<li dir="ltr">os is windows 7</li>
+<li dir="ltr">os type: 64-bit</li>
+</ul>
+<p dir="ltr">As you can see, the string format is not really the same according to the browser.<br>Anyway,
+ using string manipulation techniques and analysis of the specific 
+keyword we are able to detect which browser is used by a client.</p>
+<p dir="ltr"><strong>Example:&nbsp;Internet Explorer detection</strong></p>
+<p dir="ltr">If the client is using IE, the userAgent string must contain 'MSIE' (for MicroSoft Internet Explorer)</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">toLowerCase</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">indexOf</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'msie'</span><span style="color: #009900;">)</span> <span style="color: #339933;">!==</span> <span style="color: #339933;">-</span><span style="color: #cc0000;">1</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">// this is IE</span>
+<span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">// not IE</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Each browser has a “characteristic” word (like MSIE for IE) :</p>
+<p dir="ltr"><strong>Detecting Chrome:</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span>navigator.<span style="color: #660066;">userAgent</span>.<span style="color: #660066;">toLowerCase</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">indexOf</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'chrome'</span><span style="color: #009900;">)</span> <span style="color: #339933;">!=</span> <span style="color: #339933;">-</span><span style="color: #cc0000;">1</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//this is chrome &nbsp;</span>
+<span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">// not chrome</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p dir="ltr">Unfortunately, there is no “standard” and the userAgent 
+string is not so simple: for example in Chrome the userAgent has the 
+keyword “safari” ... <br>So, for Safari the rule is: userAgent must contain ‘safari’ but must not contain ‘chrome’ word:</p>
+<p dir="ltr"><strong>detecting Safari or Chrome:</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">var ua = navigator.userAgent.toLowerCase(); 
+if (ua.indexOf('safari')!=-1) { 
+&nbsp; &nbsp; if(ua.indexOf('chrome') &gt; -1) {
+&nbsp; &nbsp; &nbsp; &nbsp; // chrome
+&nbsp; &nbsp; }else{
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//safari
+&nbsp; &nbsp; }
+}</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p><strong>Exercise:&nbsp;</strong>Write the name of the client browser. (if you run the code on chrome, we want to see "Hello Chrome" for example).&nbsp;</p>
+<p><a href="http://jsbin.com/oRamIjUr/2/edit?html,css,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_002.jpg" alt="try it " height="30" width="160"></a>&nbsp; &nbsp;<a href="http://jsbin.com/iBuKUZe/3/edit?html,css,js,output" target="_blank" style="color: #005580; outline: #000000;"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution.jpg" alt="solution" height="30" width="160"><br></a></p>
+<p dir="ltr"></p>
+<p dir="ltr">If you have analyzed the userAgent on multiple browser, you
+ are probably wondering why do Chrome,Firefox,IE and so on put “Mozilla 
+5.0” in the User-Agent ?</p>
+<p>The answer is in this interesting article named&nbsp;“History of the browser user-agent string”:&nbsp;<a href="http://webaim.org/blog/user-agent-string-history/" target="_blank">http://webaim.org/blog/user-agent-string-history/</a></p>
+<p dir="ltr"><strong>userAgent conclusion:</strong></p>
+<p dir="ltr">If you want to identify a particular browser: browser 
+detection by using the userAgent is viable. But testing and checking 
+many browsers by sniffing the userAgent is long, hard, and not 
+reliable!&nbsp;<br>However, there are&nbsp;there are other ways to detect the browser, for example:</p>
+<p dir="ltr">Since Chrome v1, in Chrome’s browser the window object has an object called chrome.</p>
+<p dir="ltr">So another way to check if the user is using chrome is like this:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span>window.<span style="color: #660066;">chrome</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span> 
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//this is chrome</span>
+<span style="color: #009900;">}</span> 
+<span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//this is not chrome</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>We have a similar hack for opera:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;" data-mce-mark="1">if</span><span style="color: #009900;" data-mce-mark="1">(</span>window.<span style="color: #660066;" data-mce-mark="1">opera</span><span style="color: #009900;" data-mce-mark="1">)</span> <span style="color: #009900;" data-mce-mark="1">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;" data-mce-mark="1">//opera</span>
+<span style="color: #009900;" data-mce-mark="1">}</span>
+<span style="color: #000066; font-weight: bold;" data-mce-mark="1">else</span> <span style="color: #009900;" data-mce-mark="1">{</span>
+&nbsp; &nbsp;<span style="color: #006600; font-style: italic;" data-mce-mark="1">//not opera</span>
+<span style="color: #009900;" data-mce-mark="1">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>There are a lot of other tricks, hacks on web to detect only some 
+browsers or versions of browser, example to caught IE7 or lower:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>document.<span style="color: #660066;">all</span> <span style="color: #339933;">&amp;&amp;</span> <span style="color: #339933;">!</span>document.<span style="color: #660066;">querySelector</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp;<span style="color: #006600; font-style: italic;">//'IE7 or lower'</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p dir="ltr"><strong>A better way to test the user’s browser: </strong></p>
+<p dir="ltr">Like we said before, most of the time we just want to know 
+if a certain feature is supported by the user’s browser or not. 
+Especially since the arrival of HTML5 and all the new and modern 
+features it provides (geolocation, canvas, audio &amp; video tags etc.).
+ &nbsp;</p>
+<p dir="ltr">There are a lot of different browsers and versions, and 
+checking all of them is really boring. This is why instead of 
+using&nbsp;<strong>browser detection</strong>, in 90% of cases you want to use <strong>object detection</strong>.</p>
+<p dir="ltr"><strong>Principle:</strong><br><em>“Feature detection is 
+where you don't try to figure out which browser is rendering your page, 
+but instead you check to see if the specific feature you need is 
+available. If it's not, you use a fallback. However, never use feature 
+detection in the rare cases when you actually want browser detection, 
+since other browsers may implement the feature in the future, but 
+differently. Bugs caused by this can be insidiously hard to find and 
+fix.”<br></em><em><a href="https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent" target="_blank">https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent</a></em></p>
+<p dir="ltr"></p>
+<p>Let’s see a concrete example with the next interesting property of the navigator object: &nbsp;</p>
+<p>&nbsp;</p>
+<h3>window.navigator.geolocation</h3>
+<p>Geolocation object provides methods of informing a website of the user's geographical location.<br>Specifications:<br><a href="http://www.w3.org/TR/geolocation-API/" target="_blank">http://www.w3.org/TR/geolocation-API/<br></a><strong>Complete example from Michel Buffa:</strong><br><a href="http://jsbin.com/ovehuj/3/edit" target="_blank">http://jsbin.com/ovehuj/3/edit</a></p>
+<p>This API appears with HTML5, and obviously all version of browser are not compatible !</p>
+<p dir="ltr">Here’s the compatibility:<br><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/geolocation_compatibility.png" alt="geolocation compatibility" height="394" width="941"></p>
+<p><em><a href="http://caniuse.com/#search=geolocation" target="_blank">http://caniuse.com/#search=geolocation</a></em></p>
+<p dir="ltr">With browser detection you have to check if users are not 
+under IE8 or Opera Mini or Firefox &gt;22 etc., but in this case, we can
+ check it much more easily with the object detection method:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #006600; font-style: italic;">//checking if the browser "knows" navigator.geolocation</span>
+<span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>navigator.<span style="color: #660066;">geolocation</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//supported</span>
+&nbsp;<span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//no native support; put a fallback:</span>
+&nbsp; &nbsp; alert<span style="color: #009900;">(</span><span style="color: #3366cc;">'geolocation not supported by your browser'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>That's all that object detection is - we're just checking if the browser implements the desired object (or method).</p>
+<p><br>Now, how does geolocation work?&nbsp;</p>
+<p>It's pretty simple: there is one method:</p>
+<p>geolocation.<strong>getCurrentPosition</strong>(successCallback, optional errorCallbacks, optional positionOption)</p>
+<p>This function accepts three parameters (two are optional).The 
+required parameter is the function successCallback, called in case of 
+success of geolocation, which retrieves the object position returned. 
+This object contains the coordinates of the position: latitude, 
+longitude and accuracy (accuracy in meters), all accessible via the 
+coords attribute.</p>
+<p><strong>Simple example from Michel Buffa:</strong><br><a href="http://jsbin.com/ezivih/2/edit">http://jsbin.com/ezivih/2/edit</a><br>&nbsp;</p>
+<h2>window.location</h2>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/location.png" alt="window location illustration" height="200" width="500"></p>
+<p dir="ltr"><br>Object <em>location</em> provides some information and methods about the current URL.&nbsp;</p>
+<p dir="ltr"><strong>Specifications:</strong><br><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-location-interface" target="_blank">http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html#the-location-interface</a></p>
+<p dir="ltr"></p>
+<p><strong>Location properties:</strong></p>
+<p>All properties of <em>location</em> return a String; the example column is the results for the imaginary URL:<br><em>http://www.myjsblog.com:8000/DOM/tag?location#prop</em></p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<div dir="ltr">
+<table style="border: 1px solid #dedede;"><colgroup><col width="210"><col width="283"><col width="155"></colgroup>
+<tbody>
+<tr>
+<td>
+<p dir="ltr"><strong>Property </strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Description</strong></p>
+</td>
+<td>
+<p dir="ltr"><strong>Exemple</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_hash.asp">hash</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the anchor portion of a URL</p>
+</td>
+<td>
+<p dir="ltr">prop</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_host.asp">host</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the hostname and port of a URL</p>
+</td>
+<td>
+<p dir="ltr">www.myjsblog.com:8000</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_hostname.asp">hostname</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the hostname of a URL</p>
+</td>
+<td>
+<p dir="ltr">www.myjsblog.com</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_href.asp">href</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the entire URL</p>
+</td>
+<td>
+<p dir="ltr">http://www.myjsblog.com:8000/DOM/tag?location#<em>prop</em></p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_pathname.asp">pathname</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the path relative to the host</p>
+</td>
+<td>
+<p dir="ltr">/DOM/tag</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_port.asp">port</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the port number (the empty string "" if the port is 80)</p>
+</td>
+<td>
+<p dir="ltr">8080</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_protocol.asp">protocol</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the protocol of a URL</p>
+</td>
+<td>
+<p dir="ltr">http:</p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr">window.location<strong>.<a href="http://www.w3schools.com/jsref/prop_loc_search.asp">search</a></strong></p>
+</td>
+<td>
+<p dir="ltr">the query portion: the part of the URL after the "?"</p>
+</td>
+<td>
+<p dir="ltr">?location</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+<p dir="ltr">Try it on jsbin, or simply open the console of your browser
+ and type in one of the previous properties (for example 
+window.location.href) to see the result.</p>
+<p></p>
+<p dir="ltr"><strong>Methods of the Location object</strong></p>
+<ul>
+<li dir="ltr">location.<strong>assign</strong>('url'): Navigates to the given url. Syntax:</li>
+</ul>
+<p dir="ltr"><strong>Example:</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">location.<span style="color: #660066;">assign</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'http://google.com'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> &nbsp;</pre>
+</div>
+</div>
+</div>
+<p>Don't forget the protocol (http:// or https:// etc.)</p>
+<p dir="ltr">To redirect to another page, you have a shortcut to do the same thing:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">location <span style="color: #339933;">=</span> <span style="color: #3366cc;">'http://google.com'</span><span style="color: #339933;">;</span> &nbsp;
+<span style="color: #006600; font-style: italic;">//which is the same as: </span>
+location.<span style="color: #660066;">href</span> <span style="color: #339933;">=</span> <span style="color: #3366cc;">'http://google.com'</span><span style="color: #339933;">;</span> &nbsp;</pre>
+</div>
+</div>
+</div>
+<p>In fact, the browser watches the location object value and when it changes the page will be loaded with the given value.</p>
+<p><br>Relative URLs works too:<br>If you are on this page www.example.com/1 and you call this:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">location.<span style="color: #660066;">assign</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'2'</span><span style="color: #009900;">)</span></pre>
+</div>
+</div>
+</div>
+<p>you will be redirect to&nbsp;www.example.com/2</p>
+<p>&nbsp;</p>
+<ul>
+<li dir="ltr">location<strong>.replace</strong>('url')</li>
+</ul>
+<p></p>
+<p dir="ltr">Redirect like location.assign, but removes the current page from the session history.</p>
+<p>The page that was calling the function won't be included in the 
+browser history. Therefore, in the new location, clicking the back 
+button in your browser would make you go back to the page you were 
+viewing <strong>before</strong> you visited the document containing the redirecting JavaScript.</p>
+<p></p>
+<ul>
+<li><strong>location.reload</strong>(optional forceget)</li>
+</ul>
+<p dir="ltr">Reloads the current page.<br>Forceget is an optional boolean.</p>
+<p dir="ltr">If forceget is true, the page is reloaded from the server. 
+If it is false or not specified, the browser may reload the page from 
+its cache.</p>
+<p>location.reload() is equivalent to location.reload(false)&nbsp;</p>
+<p>Examples of the previous methods and properties:</p>
+<p><a href="http://jsbin.com/eJUHUHu/3/" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_002.jpg" alt="try it " height="30" width="160"></a></p>
+<p></p>
+<p>&nbsp;</p>
+<h2>window.history</h2>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/window_history.png" alt="window.history illustration " height="200" width="500"></p>
+<p>The history object contains properties and methods for manipulating the browser session history.</p>
+<p><strong>Specifications:</strong><br><a href="http://www.w3.org/html/wg/drafts/html/master/browsers.html#the-history-interface" target="_blank">http://www.w3.org/html/wg/drafts/html/master/browsers.html#the-history-interface</a></p>
+<p><strong>Property:</strong></p>
+<ul>
+<li dir="ltr">history.<strong>length</strong>:&nbsp;Returns the number of entries in the session history.</li>
+</ul>
+<p><strong>Methods:</strong></p>
+<p dir="ltr">You have three methods to move through the user's history:</p>
+<ul>
+<li>&nbsp;history.<strong>back</strong>()</li>
+</ul>
+<p dir="ltr">Goes back one step in the session history.&nbsp;If there is no previous page, does nothing and returns undefined.</p>
+<ul>
+<li>&nbsp;history.<strong>forward</strong>()</li>
+</ul>
+<p>&nbsp;Goes forward one step in the session history. If there is no next page, does nothing and returns undefined.</p>
+<ul>
+<li dir="ltr">history.<strong>go</strong>(int pos)</li>
+</ul>
+<p dir="ltr">Goes back or forward the specified number (pos) of steps in the session history.</p>
+<p dir="ltr">A zero pos will reload the current page.&nbsp;If the pos is out of range, does nothing and returns undefined.&nbsp;</p>
+<p dir="ltr">You can not change history. For example, it is not possible to add a URL in the window.history object -<br>History is a read-only object !</p>
+<p dir="ltr">&nbsp;</p>
+<h2>window.screen and more</h2>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/screen.png" alt="window.screen illustration" height="220" width="500"></p>
+<p></p>
+<p>In this section, we will see how to get Information about the user's 
+screen through some properties and methods of the window and 
+window.screen objects.</p>
+<p>About the window:</p>
+<p><strong>window.screen object properties</strong></p>
+<ul>
+<li>screen.<strong>width: </strong>the total width of the screen, in pixels.</li>
+<li data-mce-mark="1">screen.<strong>height: </strong>the total width of the screen, in pixels.</li>
+<li data-mce-mark="1">screen.<strong>availWidth:&nbsp;</strong>the available width of the rendering surface of the output device</li>
+<li data-mce-mark="1">screen.<strong>availHeight:&nbsp;</strong>the 
+available height of the rendering surface of the output 
+device,&nbsp;minus user interface features displayed by the operating 
+system, such as the Taskbar on Windows.</li>
+<li data-mce-mark="1">screen.<strong>pixelDepth</strong>:&nbsp;the bit depth of the screen</li>
+<li data-mce-mark="1">screen.<strong>colorDepth:&nbsp;&nbsp;</strong>the color depth of the screen</li>
+</ul>
+<p data-mce-mark="1"><strong>window object properties</strong></p>
+<ul>
+<li data-mce-mark="1">window.<strong>screenX</strong>:&nbsp;&nbsp;the horizontal distance of the left border of the user's browser from the left side of the screen.</li>
+<li data-mce-mark="1">window.<strong>screenY</strong>:&nbsp;&nbsp;the vertical distance of the top border of the user's browser from the top side of the screen.</li>
+</ul>
+<p></p>
+<p><strong>Example:&nbsp;</strong><br>The size of a div depending on the total size of the screen :&nbsp;<br><a href="http://jsbin.com/IYAwUqOM/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_002.jpg" alt="try it " height="30" width="160"></a></p>
+<p></p>
+<p>&nbsp;</p>
+<p><strong>window object methods:</strong></p>
+<p>window.<strong>open</strong>(url, windowName, options);</p>
+<p>Opens a window to show a URL (defaults to about:blank), and returns 
+it. All the parameters&nbsp;are optional, an the last parameter: 
+'options' is a string of properties (size, position, scrollbars, status 
+bar etc.) of the new window.</p>
+<p><strong>Example:</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> win <span style="color: #339933;">=</span> window.<span style="color: #660066;">open</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'http://www.google.com'</span><span style="color: #339933;">,</span> <span style="color: #3366cc;">'google Popup'</span><span style="color: #339933;">,</span> <span style="color: #3366cc;">'width=300,height=300,resizable=yes'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>We really discourage you from using window.open: first, because the 
+result for the user is essentially a popup, and we think that 99% of 
+users hate popups! Second, it is very probable that the browser will 
+block the new window.</p>
+<p>window.<strong>close</strong>(): close the current page.&nbsp;</p>
+<p>window.<strong>moveTo</strong>, window.<strong>moveBy</strong> window.<strong>resizeTo&nbsp;</strong>must be avoided because it can be confusing for the users.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">window.<span style="color: #660066;">moveTo</span><span style="color: #009900;">(</span><span style="color: #cc0000;">100</span><span style="color: #339933;">,</span> <span style="color: #cc0000;">100</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+window.<span style="color: #660066;">moveBy</span><span style="color: #009900;">(</span><span style="color: #cc0000;">10</span><span style="color: #339933;">,</span> <span style="color: #339933;">-</span><span style="color: #cc0000;">10</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> &nbsp; <span style="color: #006600; font-style: italic;">// relatif </span>
+window.<span style="color: #660066;">resizeTo</span><span style="color: #009900;">(</span><span style="color: #cc0000;">800</span><span style="color: #339933;">,</span> <span style="color: #cc0000;">800</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>All modern browsers apply<strong> the following rules to prevent abusive moving/resizing of the window</strong>:</p>
+<ul>
+<li>You can not resize a window that has not been created by window.open.</li>
+<li>You can not resize a window if the window contains more than one tab.</li>
+</ul>
+<p></p>
+<p><strong>About the viewport:</strong><br><br></p>
+<ul>
+<li>window.<strong>innerWidth </strong> and window.<strong>innerHeight</strong>:</li>
+</ul>
+<p>The viewport width / height including all interface elements: the 
+size of a rendered scroll bar,&nbsp;window borders, toolbars, status 
+bars, and so on.&nbsp;</p>
+<ul>
+<li>window.<strong>outerWidth </strong>and window.<strong>outerHeight</strong>:</li>
+</ul>
+<p>The viewport width / height&nbsp;&nbsp;including all interface elements (scroll bar,&nbsp;window borders, toolbars, etc.).</p>
+<ul>
+<li>window.<strong>pageXOffset</strong>:&nbsp;An alias for window.scrollX (see below).</li>
+<li>window.<strong>pageYOffset</strong>:&nbsp;An alias for window.scrollY&nbsp;(see below).</li>
+</ul>
+<p></p>
+<p>&nbsp;</p>
+<h2 class="title">User interaction: alert, prompt and confirm</h2>
+<h3></h3>
+<p>window.alert; window.prompt and window.confirm are the basic UI operations and they are also a part of the BOM!&nbsp;<br>Important: these three methods&nbsp;stop execution!&nbsp;</p>
+<ul>
+<li>The classic and&nbsp;indestructible window.<strong>alert</strong>("message") which outputs a message.</li>
+<li>window.confirm('message') asks to the user to choose between 'ok' or
+ 'cancel' and return true if the user clicks on "ok", false otherwise. 
+Useful to test an important confirmation:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span> confirmation<span style="color: #009900;">(</span><span style="color: #3366cc;">'are you sure you want to delete your account?'</span><span style="color: #009900;">)</span> <span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//ok delete</span>
+<span style="color: #009900;">}</span>
+<span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//cancel</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<ul>
+<li>window.prompt('message', optional defaultValue): &nbsp;asks for a 
+input, returns null if cancel is clicked&nbsp;or Escape is pressed on 
+the keyboard. If ok is clicked it returns the user text or the 
+defaultValue. Example:</li>
+</ul>
+<p>&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> answer <span style="color: #339933;">=</span> prompt<span style="color: #009900;">(</span><span style="color: #3366cc;">'what is your name?'</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>answer<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #000066; font-weight: bold;">var</span> answer2<span style="color: #339933;">=</span> prompt<span style="color: #009900;">(</span><span style="color: #3366cc;">'what is your favorite browser ?'</span><span style="color: #339933;">,</span> <span style="color: #3366cc;">'I don<span style="color: #000099; font-weight: bold;">\'</span>t know'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>answer2<span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><strong>Exercice: DETONATE THE BOMB:&nbsp;<br><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/detonateTheBombExo.jpg" alt="exo screenshot: detonate the bomb" height="298" width="755"><br></strong></p>
+<p>Generate 2 random number then display a prompt window with the question : number1 + number2 ? <br>Then,
+ handle the answer and display different&nbsp;message (if answer is 
+correct or not, if the user clicks on cancel ... )&nbsp;&nbsp;&nbsp;</p>
+<p><strong>Advanced 1</strong> : create and display a counter.<br><strong>Advanced 2</strong> : simulate an explosion with a div.</p>
+<p>Maybe for the advanced parts, you will need to read the next chapter before (the DOM)&nbsp;</p>
+<p>Complete instruction:<br><a href="http://jsbin.com/aGuJuSa/2/edit?html,css,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_002.jpg" alt="try it " height="30" width="160"><br><br></a>Solution:<br><a href="http://jsbin.com/IpusINu/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution.jpg" alt="solution" height="30" width="160"></a></p>
+<p>Advanced solution:<br><a href="http://jsbin.com/IpusINu/3/" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution.jpg" alt="solution" height="30" width="160"></a></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p></div><div class="book_chapter"><a name="ch1941"></a><h2 class="book_chapter_title">3 The DOM (Document Object Model)</h2><p dir="ltr">Unlike
+ the BOM, which is more an informal term to describe the global 
+interface of the browser, DOM has its standard. The document object 
+model standard describes how a document must be manipulated, it defines a
+ “language- and platform neutral interface”. So, <strong>every browser offers the same JavaScript DOM API</strong>, normally.</p>
+<p dir="ltr">The DOM is a programming interface which provides the 
+document as a structured object, a group of nodes represented as a tree.
+ It also exposes a large set of methods to access and manipulate the 
+structured document. Through the DOM, we can read or write nodes, and 
+also handle their associated events.</p>
+<p dir="ltr">In JavaScript, the DOM is accessible through the property 
+document of the global object window. So, by using this object, we can 
+access and manipulate our page as a structured document.</p>
+<p>Our document is composed of nodes presented as a tree. The root node 
+is the document and each other are childs of the document node. There 
+are different types of nodes:</p>
+<ul>
+<li dir="ltr">
+<p dir="ltr">Document</p>
+</li>
+<li dir="ltr">
+<p dir="ltr">DocumentFragment</p>
+</li>
+<li dir="ltr">
+<p dir="ltr">DocumentType (example: &lt;!doctype html&gt; for html5)</p>
+</li>
+<li dir="ltr">
+<p dir="ltr">Element (example: &lt;ul&gt;&lt;/ul&gt;)</p>
+</li>
+<li dir="ltr">
+<p dir="ltr">Text (example: &lt;p&gt;the text within the element p is a node of type text&lt;/p&gt;)</p>
+</li>
+<li dir="ltr">
+<p dir="ltr">Comment (example: &lt;!-- left column --&gt;)</p>
+</li>
+<li dir="ltr">ProcessingInstruction (example: &lt;?php echo $name ?&gt;)</li>
+</ul>
+<h2 dir="ltr">Accessing elements</h2>
+<p>From the document we can access elements composing our web page in a few ways:</p>
+<ul>
+<li dir="ltr">
+<p dir="ltr">document.<strong>getElementById</strong>(identifier) returns the element which has the id “identifier”.</p>
+</li>
+<li dir="ltr">document.<strong>getElementsByTagName</strong>(tagName) returns a list of elements which are named “tagName”</li>
+</ul>
+<ul>
+<li dir="ltr">
+<p dir="ltr">document.<strong>getElementsByClassName</strong>(className) returns a list of elements which have the class “className”</p>
+</li>
+</ul>
+<p><em>identifier</em>, <em>tagName</em> and <em>className</em> must be of type String.&nbsp;</p>
+<p dir="ltr">An element also has the methods getElementsByTagName and getElementsByClassName, so you can do something like this:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.getElementById('topmenu').getElementsByTagName('li');</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>From any node, you access its children using its properties <strong>childNodes</strong>, <strong>firstChild</strong>, <strong>lastChild</strong>. and also you can access its parent with <strong>parentNode</strong>.</p>
+<p></p>
+<p>Now, W3C has introduced a new API called Selectors API (<a href="http://www.w3.org/TR/selectors-api/">http://www.w3.org/TR/selectors-api/</a>)
+ which lets us find elements easily. There are two methods which have 
+been added to Document, DocumentFragment and Element objects:</p>
+<ul>
+<li dir="ltr">document.<strong>querySelector</strong>(selectors)</li>
+<li dir="ltr">document.<strong>querySelectorAll</strong>(selectors)</li>
+</ul>
+<p>They let us get one element or a list of elements that match a 
+selector string. This selector string can be a selector or a group of 
+selectors. Each selector is like a CSS selector.</p>
+<p dir="ltr">Examples:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelector('.side-left');
+document.querySelector('#header .menu &gt; li.active');</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>&nbsp;</p>
+<p dir="ltr">Let's see some kind of selectors:</p>
+<ul>
+<li>universal selector:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelectorAll('*'); // Not useful and load too many objects</pre>
+</div>
+</div>
+</div>
+<p></p>
+<ul>
+<li>type selectors:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelectorAll('td');</pre>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li>id selector:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelector('#avatar');</pre>
+</div>
+</div>
+</div>
+<p></p>
+<ul>
+<li>&nbsp;class selector:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_4cs" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="_4cs" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelectorAll('.result');</pre>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li dir="ltr">attribute selectors:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelector('input[name=lastname]');
+document.querySelectorAll('img[alt^=w3c]');</pre>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li dir="ltr">pseudo-class selectors</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelectorAll('a:visited');
+document.querySelector('input[type=radio]:checked');
+document.querySelectorAll('ul:first-child');</pre>
+</div>
+</div>
+</div>
+<p></p>
+<ul>
+<li>Hierarchical selectors</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelector('header nav'); // nav is a descendant of header
+document.querySelectorAll('section &gt; article'); // article is a child of section
+document.querySelector('h1+p'); // p directly follows h1
+document.querySelectorAll('canvas ~ meter'); // meter preceded by canvas</pre>
+</div>
+</div>
+</div>
+<p></p>
+<ul>
+<li>Negation selector:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelector('a:not(.enabled)'); 
+// a which have not the class enabled </pre>
+</div>
+</div>
+</div>
+<p>Within the negation selector, we can only use the following simple 
+selectors: id, type, class, universal, pseudo-class, attribute.</p>
+<ul>
+<li>Selectors group:</li>
+</ul>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.querySelectorAll('a, input[type=submit], button');</pre>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><strong>Exercises:</strong></p>
+<p><a href="http://jsbin.com/OMUFice/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/OMUFice/1/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<h2>Attributes</h2>
+<p>Each element has a list of attributes which are accessible through the property attributes of the element.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_4cs" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="_4cs" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&lt;img id=”avatar” src=”avatar.jpg” alt=”No avatar” /&gt;
+&lt;script&gt; 
+document.querySelector('#avatar').attributes.length === 3; // true
+&lt;/script&gt;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr">Element attributes are handled by the following methods:</p>
+<ul>
+<li>element.getAttribute(attributeName) returns the value of the attribute</li>
+<li>element.setAttribute(attributeName, attributeValue) sets the value 
+attributeValue to the attribute attributeName. If the attribute does not
+ exist, it is created.</li>
+<li>element.removeAttribute(attributeName)</li>
+<li>element.hasAttribute(attributeName)</li>
+</ul>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&lt;img id="avatar" src="avatar.jpg" alt="No avatar" /&gt;
+&lt;script&gt; 
+var avatar = document.querySelector('#avatar')
+if (!avatar.getAttribute('src') {
+&nbsp; &nbsp; avatar.setAttribute('src', 'no_avatar.jpg');
+}
+&lt;/script&gt;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><strong>Exercise:</strong></p>
+<p><a href="http://jsbin.com/ORaSuWAm/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/ORaSuWAm/1/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<h2 dir="ltr">Modifying the document</h2>
+<p dir="ltr">The DOM API lets you&nbsp;<strong>create</strong>, <strong>modify</strong> or <strong>remove</strong> nodes from the document.</p>
+<p>To create an element, the object document provides a method <strong>createElement</strong>
+ which takes as parameter the name of the element to create. It returns 
+the created element. Another way to create an element is to clone an 
+existing element using the method <strong>cloneNode</strong> of the object Node.</p>
+<p dir="ltr">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.createElement('video');</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>This method will return an object HTMLVideoElement which inherits from Element which inherits from Node.</p>
+<p>Once created, the element can be inserted within another node using the following methods of the object Node:</p>
+<ul>
+<li>node.<strong>insertBefore</strong>(element) inserts the node “element” before the node “node”</li>
+<li>node.<strong>appendChild</strong>(element) inserts the node “element” as the last child of the node “node”</li>
+<li>node.<strong>replaceChild</strong>(element, child) replaces the node “child” with the node “element”</li>
+</ul>
+<p>To add multiple elements at the same time, you can use the DocumentFragment object. <br>The
+ DocumentFragment is a lightweight Document object having zero or more 
+child nodes. When inserting a DocumentFragment into a node, its children
+ are inserted into the node. Modifying the nodes tree takes a long time 
+because of recalculations. You should append children as seldom as 
+possible.</p>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html4strict" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html4strict" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&lt;<a href="http://december.com/html/4/element/ul.html">ul</a> class="results"&gt;&lt;/<a href="http://december.com/html/4/element/ul.html">ul</a>&gt;
+&lt;<a href="http://december.com/html/4/element/script.html">script</a>&gt;
+&nbsp; &nbsp; var list = document.querySelector('ul.results');
+&nbsp; &nbsp; var df = document.createDocumentFragment()
+&nbsp; &nbsp; for (var i = 0; i &lt; 10000; i++) {
+&nbsp; &nbsp; &nbsp; &nbsp; var li = document.createElement('li');
+&nbsp; &nbsp; &nbsp; &nbsp; var text = document.createTextNode('Result ' + i);
+&nbsp; &nbsp; &nbsp; &nbsp; li.appendChild(text);
+&nbsp; &nbsp; &nbsp; &nbsp; df.appendChild(li);
+&nbsp; &nbsp; }
+&nbsp; &nbsp; list.appendChild('df');
+&lt;/<a href="http://december.com/html/4/element/script.html">script</a>&gt;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>This tool can help you to optimize the DOM: <a href="http://mir.aculo.us/dom-monster/" target="_blank">http://mir.aculo.us/dom-monster/</a></p>
+<p dir="ltr">To remove a node just call the method node.<strong>removeChild</strong>(child).</p>
+<p><strong>Exercise:</strong></p>
+<p><a href="http://jsbin.com/EPAjADeZ/4/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/EPAjADeZ/1/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<p dir="ltr"></p>
+<p>The new attribute <strong>classList</strong> of elements simplify 
+managing classes of the element. This property returns a list of 
+className which is editable thanks to the following methods:</p>
+<ul>
+<li>classList.item(index) returns the className at the specified index</li>
+<li>classList.contains(className)</li>
+<li>classList.add(className)</li>
+<li>classList.remove(className)</li>
+<li>classList.toggle(className) adds or removes a className</li>
+</ul>
+<p></p>
+<h2 dir="ltr">Element style</h2>
+<p>The DOM API also lets us modify the style of each element using its 
+style property. This property is related to the inline style of the 
+element. Setting a CSS value will create an attribute style in the 
+element if it does not already exist.</p>
+<p>Each CSS style has its JavaScript equivalent. Some examples:</p>
+<ul>
+<li dir="ltr">element.style.borderColor is related the style border-color. You can also use element.style['border-color']</li>
+<li dir="ltr">element.style.fontFamily</li>
+<li dir="ltr">element.style.height</li>
+<li dir="ltr">element.style.transform</li>
+</ul>
+<p dir="ltr">Example:</p>
+<p dir="ltr"><a href="http://jsbin.com/uvUDOtE/1/edit" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<p><strong>Exercises:</strong></p>
+<p><a href="http://jsbin.com/ODeCEYu/2/edit?html,css,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/ODeCEYu/1/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<h2 dir="ltr">Some elements</h2>
+<p dir="ltr">The object Element is the base object for other html elements such as video, img, p, etc.</p>
+<p>Each of those elements has its related object with its proper 
+properties and methods. For example the HTMLVideoElement lets you play /
+ pause a video but it cannot convert the video to a data URL like the 
+HTMLCanvasElement can.<br class="kix-line-break">We are going to see some elements, including new elements introduced in HTML5.</p>
+<h3>HTML elements</h3>
+<p>Each HTML element you use within your web page has its related DOM 
+interface. For example, the DOM interface of an element “a” is 
+HTMLAnchorElement.</p>
+<p><strong>HTMLAnchorElement</strong></p>
+<p dir="ltr">In JavaScript you can access the URL within the attribute href of the element a with the property <em>myElementA</em>.href. Because HTMLAnchorElement implements the interface URLUtils you could have more information about the URL such as:</p>
+<ul>
+<li dir="ltr">myElementA.<strong>host</strong> returns a string containing the hostname and port</li>
+<li>myElementA.<strong>pathname</strong> returns the path part of the URL</li>
+</ul>
+<p></p>
+<p><strong>HTMLFormElement</strong></p>
+<p>This object is related to the element &lt;form&gt;. It is often used 
+in scripts, for example for user input validation before submitting.</p>
+<p dir="ltr">Some properties of an HTMLFormElement object:</p>
+<p dir="ltr"></p>
+<p dir="ltr"></p>
+<ul>
+<li dir="ltr">form.<strong>action</strong></li>
+<li dir="ltr">form.<strong>elements</strong> is a read-only accessor which returns a collection of the form controls (example: inputs, textareas …)</li>
+<li dir="ltr">form.<strong>enctype</strong></li>
+<li dir="ltr">form.<strong>method</strong></li>
+<li dir="ltr">form.<strong>name</strong></li>
+</ul>
+<p></p>
+<p dir="ltr">Some methods:</p>
+<p dir="ltr"></p>
+<p dir="ltr"></p>
+<p dir="ltr"></p>
+<ul>
+<li dir="ltr">form.<strong>submit</strong>()</li>
+<li>form.<strong>reset</strong>()</li>
+</ul>
+<p></p>
+<p></p>
+<p dir="ltr"></p>
+<p dir="ltr">&nbsp;</p>
+<p dir="ltr">Forms are accessible via the document object and its property forms.<br class="kix-line-break">Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">document.forms['register'].submit();</pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p></p>
+<p><strong>HTMLInputElement</strong></p>
+<p>Input elements have many properties and methods to manipulate them. A
+ user filling out a form may have information, for example during 
+registration. It is important to provide the simplest way to a visitor 
+to become a customer. With JavaScript you can control values of the form
+ controls in real time.</p>
+<p>Some HTMLInputElement properties:</p>
+<p dir="ltr"></p>
+<ul>
+<li dir="ltr">input.<strong>autocomplete</strong> allows or disallows the browser to complete the entered value from history</li>
+<li dir="ltr">input.<strong>autofocus</strong>&nbsp;automatically focuses the input. Of course only one input with the autofocus “on” can be present in a document.</li>
+<li dir="ltr">input.<strong>checked</strong> gets or sets the state of input type radio or checkbox</li>
+<li dir="ltr">input.<strong>disabled</strong> disables the input, which will not be submitted with the form</li>
+<li dir="ltr">input.<strong>required</strong></li>
+<li dir="ltr">input.<strong>type</strong></li>
+</ul>
+<p></p>
+<p dir="ltr"></p>
+<p dir="ltr">Some methods:</p>
+<p dir="ltr"></p>
+<ul>
+<li dir="ltr">input.<strong>focus</strong>()</li>
+<li>input.<strong>checkValidity</strong>() returns true or false if the input is valid</li>
+</ul>
+<p></p>
+<p dir="ltr">Example:</p>
+<p dir="ltr"><a href="http://jsbin.com/UrIJimo/1/edit" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left:20px;" height="30" width="160"></a></p>
+<p></p>
+<p><strong>HTMLProgressElement</strong></p>
+<p></p>
+<p dir="ltr">The HTML5 element &lt;progress&gt; can be manipulated with the following properties:</p>
+<p dir="ltr"></p>
+<ul>
+<li dir="ltr">progress.max</li>
+<li dir="ltr">progress.value</li>
+<li>progress.position returns the position as a percentage (value / max)</li>
+</ul>
+<p></p>
+<p></p>
+<p dir="ltr">Example:</p>
+<p dir="ltr"><a href="http://jsbin.com/uhUyOPI/1/edit" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left:20px;" height="30" width="160"></a></p>
+<p></p>
+<p dir="ltr"><strong>HTMLAudioElement</strong></p>
+<p>&nbsp;</p>
+<p dir="ltr">The interface of an element &lt;audio&gt; inherits from the
+ interface HTMLMediaElement. Because HTMLVideoElement does this, too, 
+many of their properties and methods are the same.</p>
+<p>You can control an HTMLAudioElement with the following properties:</p>
+<p></p>
+<p dir="ltr">autoplay determines whether the audio element should play automatically when the track is loaded</p>
+<ul>
+<li dir="ltr">controls adds a user interface to control the media</li>
+<li dir="ltr">currentTime represents the current playback time in seconds. Override it to seek the media to a new time</li>
+<li dir="ltr">duration</li>
+<li dir="ltr">loop</li>
+<li dir="ltr">muted</li>
+<li dir="ltr">src</li>
+<li dir="ltr">volume</li>
+</ul>
+<p dir="ltr">Some methods:</p>
+<ul>
+<li>&nbsp;play()</li>
+<li>pause()</li>
+<li>load()&nbsp;to start loading the media</li>
+</ul>
+<p>Specification of HTML5 elements: <a href="http://www.w3.org/TR/html5">http://www.w3.org/TR/html5</a></p>
+<p><strong>Exercise:</strong></p>
+<p><a href="http://jsbin.com/AVACeDO/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/AVACeDO/1/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<p></p>
+<p>&nbsp;</p>
+<p></p>
+<p></p>
+<p></p>
+<p dir="ltr"></p></div><div class="book_chapter"><a name="ch1942"></a><h2 class="book_chapter_title">4 Event handling</h2><p dir="ltr"><span>In
+ the last part we discovered how to manipulate our document using the 
+JavaScript DOM API. But the latter also offers the possibility to manage
+ events in our application. Events may be detected when the user does 
+something such as clicking somewhere or moving his mouse or dragging an 
+image over the document, etc.</span></p>
+<p dir="ltr"><span>Events can also come from the browser, for example when an image is loaded. And we can define our own events.</span></p>
+<p dir="ltr"><span>The events are fired automatically when something 
+happens. And their attached functions are executed when the event is 
+detected. But we can also fire an event manually.</span></p>
+<p dir="ltr"><span>Finally, each event can be attached to any interface 
+that can receive events, such as node, including the root node (the 
+document).</span></p>
+<p dir="ltr"><span>Working with events is quite easy but we will see at 
+the end of this part that some optimizations and rigor are necessary to 
+enhance speed and avoid memory leaks.</span></p>
+<p><span>&nbsp;</span></p>
+<h3 dir="ltr"><span>Listen to events</span></h3>
+<p>In order to react when an event appears, it is necessary to listen 
+for its specified event (i.e. attach an event listener). The DOM 
+standard defines the following function:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">element.<span>addEventListener</span><span>(</span>eventName<span>,</span> eventListener<span>,</span> useCapture<span>)</span></pre>
+</div>
+</div>
+</div>
+<p><span><span>where:</span></span></p>
+<ul>
+<li dir="ltr"><span><strong>element</strong> is something where an event occurs</span></li>
+<li dir="ltr"><strong>eventName</strong> is the identifier name of the event</li>
+<li dir="ltr"><strong>eventListener</strong> is a function or an object with method handleEvent which will be executed once the event detected</li>
+<li dir="ltr">and <strong>useCapture</strong> is a flag determining the 
+event dispatching phase when the event will be detected. We will explain
+ this flag in more detail in the following part “Optimizations and 
+dangers”</li>
+</ul>
+<p><span><span>Example:</span></span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>var</span> button <span>=</span> document.<span>querySelector</span><span>(</span><span>'#next'</span><span>)</span><span>;</span>
+<span>var</span> next <span>=</span> <span>function</span> next<span>(</span><span>)</span> <span>{</span>
+&nbsp; &nbsp; <span>//...</span>
+<span>}</span>
+button.<span>addEventListener</span><span>(</span><span>'click'</span><span>,</span> next<span>,</span> <span>true</span><span>)</span><span>;</span>
+<span>// Or</span>
+<span>var</span> myEventListener <span>=</span> <span>{</span>
+&nbsp; &nbsp; handleEvent<span>:</span> next
+<span>}</span>
+button.<span>addEventListener</span><span>(</span><span>'click'</span><span>,</span> myEventListener<span>,</span> <span>true</span><span>)</span><span>;</span>
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><span><span>Within an HTML element, another way to attach an event 
+listener is to add a callback into the corresponding attribute. The name
+ of the corresponding attribute of an event is the event identifier 
+prefixed with “on”.</span></span></p>
+<p dir="ltr"><span>Examples:</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>&lt;</span>body onload<span>=</span><span>"(function init() { … })();"</span><span>&gt;</span>
+<span>&lt;</span>p onmouseover<span>=</span><span>"highlight();"</span><span>&gt;&lt;/</span>p<span>&gt;</span>
+<span>&lt;</span>video onpause<span>=</span><span>"(function statePause() { ... }();"</span><span>&gt;&lt;/</span>video<span>&gt;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr"><span>We recommend<strong>&nbsp;not using</strong>&nbsp;this last approach, because it prevents optimizations and weighs down the HTML code.</span></p>
+<p>Within the callback function, the value of the keyword <em>this</em> is the element where the event occurred.<br>See it in action in the following jsbin: <a href="http://jsbin.com/uqaMIJa/1/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_004.jpg" alt="jsbin" height="30" width="160"></a></p>
+<p>In the old versions of Internet Explorer (&lt; IE9), the function 
+addEventListener does not exist. The corresponding method is 
+attachEvent:</p>
+<p dir="ltr"><span>element.attachEvent(eventName, callback)</span></p>
+<p dir="ltr"><span>Within the callback function, the keyword <em>this</em> references <em>window</em> in versions of Internet Explorer prior to 9.</span></p>
+<p>As you can see, you can't use the capture flag, but you can do something like that to use the same function everywhere:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>var</span> setAddEventListener <span>=</span> <span>function</span> setAddEventListener<span>(</span><span>)</span> <span>{</span>
+&nbsp; &nbsp; <span>var</span> extend <span>=</span> <span>function</span> extend<span>(</span>object<span>)</span> <span>{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; object.<span>prototype</span>.<span>addEventListener</span> <span>=</span> <span>function</span><span>(</span>eventName<span>,</span> eventListener<span>)</span> <span>{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>return</span> <span>this</span>.<span>attachEvent</span><span>(</span><span>'on'</span> <span>+</span> eventName<span>,</span> eventListener<span>)</span><span>;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>}</span><span>;</span>
+&nbsp; &nbsp; <span>}</span><span>;</span>
+&nbsp; &nbsp; <span>for</span> <span>(</span><span>var</span> o <span>in</span> arguments<span>)</span> <span>{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span>var</span> object <span>=</span> arguments<span>[</span>o<span>]</span><span>;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span>if</span> <span>(</span><span>!</span>object.<span>prototype</span> <span>||</span> object.<span>prototype</span>.<span>addEventListener</span> <span>||</span> <span>!</span>object.<span>prototype</span>.<span>attachEvent</span><span>)</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>continue</span><span>;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; extend<span>(</span>object<span>)</span><span>;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span>}</span>
+&nbsp; &nbsp; <span>}</span><span>;</span>
+&nbsp;
+setAddEventListener<span>(</span>HTMLDocument<span>,</span> Element<span>,</span> Window<span>)</span><span>;</span>
+document.<span>addEventListener</span><span>(</span><span>'click'</span><span>,</span> <span>function</span><span>(</span><span>)</span> <span>{</span> alert<span>(</span><span>'click'</span><span>)</span><span>;</span> <span>}</span><span>)</span><span>;</span></pre>
+</div>
+</div>
+</div>
+<table style="position: absolute; right: 150px; margin-top: 60px; width: 400px; height: 234px; background-color: rgba(150, 207, 242, 0.8); border-width: 1px; border-style: dashed;" align="right" border="0">
+<tbody>
+<tr>
+<td>
+<p dir="ltr" style="text-align: center;"><strong>Shims, fallbacks and polyfills</strong></p>
+<p style="text-align: left;"><span>Shims, fallbacks and polyfills are 
+pieces of code which provide missing or incomplete APIs of web browsers.
+ You can find an updated list of them here: </span><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills" style="background-color: transparent; line-height: 20px;"><span>https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills</span></a></p>
+<p dir="ltr"><span>*<strong>Shim</strong>: standardizes an API in order use it in the same way in different platforms&nbsp;</span><br><strong>Polyfill</strong>: is a "shim" which implements the missing or faulty functionality of the needed API<br><strong style="background-color: transparent; line-height: 20px;">Fallback</strong>: degrade functionality according to available interfaces*</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: left;"></p>
+<p style="text-align: left;"><span><span><a href="http://jsbin.com/iNEWIvI/1/edit" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></span></span></p>
+<p style="text-align: left;"><span><span>This little shim* is incomplete - you can find easily better ones</span></span></p>
+<p dir="ltr" style="text-align: left;"><span>on search engines or on github.</span></p>
+<p style="text-align: left;"><strong><span>Exercises:</span></strong></p>
+<p style="text-align: left;"><span><a href="http://jsbin.com/eCUrEhON/3/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/eCUrEhON/2/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_003.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a>&nbsp;</span></p>
+<h3 dir="ltr"><span>The Event object</span></h3>
+<p dir="ltr"><span>The function which will be executed if you add an 
+event listener to an element will be called with a parameter. This 
+parameter is an instance of the Event object.</span></p>
+<p><span><span>This object has some properties that you will probably use:</span></span></p>
+<ul>
+<li dir="ltr"><span>event.<strong>type</strong> is the name of the event (example: 'click')</span></li>
+<li dir="ltr">event.<strong>currentTarget</strong> is the target where 
+the listener has been added: the target or one of its parents (see “How 
+events work” in the following for more informations)</li>
+<li dir="ltr">event.<strong>target</strong></li>
+</ul>
+<p><strong>Exercise:</strong></p>
+<p><a href="http://jsbin.com/ApIJuHak/3/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit%25201.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/ApIJuHak/2/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_003.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<p dir="ltr"><span>And also some methods:</span></p>
+<ul>
+<li dir="ltr"><span>event.<strong>preventDefault</strong>() cancels the default action attached to this listener</span></li>
+<li dir="ltr">event.<strong>stopPropagation</strong>() stops the 
+propagation of the event in the tree. This means that listeners attached
+ to other elements which will be traversed by the event will be 
+cancelled.</li>
+<li dir="ltr">event.<strong>stopImmediatePropagation</strong>() stops 
+the propagation of the event in the tree and prevents other listeners of
+ the element to be called. Its means that listeners attached to this 
+elements and other elements which will be traversed by the event will be
+ cancelled.</li>
+</ul>
+<p dir="ltr"><span>Example:</span></p>
+<p dir="ltr"><span><a href="http://jsbin.com/ACEqAdU/2/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit%25201.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></span></p>
+<p><span><span>&nbsp;(important to understand the effects of the methods listed above)</span></span></p>
+<p dir="ltr"><span>In old versions of Internet Explorer (&lt; IE9), those methods do not exist:</span></p>
+<ul>
+<li dir="ltr"><span><strong>preventDefault</strong>() must be replaced by event.returnValue = false;</span></li>
+<li><span><strong>stopPropagation</strong>() must be replaced by event.cancelBubble = true;</span></li>
+</ul>
+<h3 dir="ltr"><span>Triggering an event</span></h3>
+<p><span><span><span>If events are fired by the browser when something 
+happen (click, load, etc.), they can also be fired by a script. And it 
+is possible to define and fire custom events.</span></span></span></p>
+<p dir="ltr"><span>The new way to create an event is:</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>new</span> Event<span>(</span>type<span>,</span> options<span>)</span><span>;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr"><span>where <strong>type</strong> is the type of the event such as 'click' or 'scroll', and <strong>options</strong> is an object with to configure the event.</span></p>
+<p dir="ltr"><span>Event is the generic object, you can also create 
+event objects which inherit from the Event object such as MouseEvent, 
+KeyboardEvent, TouchEvent, etc.</span></p>
+<p dir="ltr"><span><span>Example:</span></span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>var</span> clickEvent <span>=</span> <span>new</span> MouseEvent<span>(</span><span>'click'</span><span>)</span><span>;</span></pre>
+</div>
+</div>
+</div>
+<p dir="ltr"></p>
+<p>The old interface for creating an event is:</p>
+<p dir="ltr"><span>document.createEvent(eventInterface);</span></p>
+<p dir="ltr"><span>eventInterface must be one of the following strings: “<em>Events</em>” / “<em>Event</em>”, “<em>HTMLEvents</em>”, “<em>UIEvents</em>” / “<em>UIEvent</em>”, “<em>MouseEvents</em>” / “<em>MouseEvent</em>”, “<em>MutationEvents</em>”, “<em>WheelEvent</em>”, “<em>FocusEvent</em>”, “<em>CompositionEvent</em>”, “<em>KeyboardEvent</em>”, “<em>CustomEvent</em>”</span></p>
+<p><span><span><span>After an event is created, its attributes must be 
+initialized before dispatching the event. You have to call the 
+initialization method which depends on the type of the event interface.</span></span></span></p>
+<p dir="ltr"><span>Example:</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>var</span> clickEvent <span>=</span> document.<span>createEvent</span><span>(</span><span>'MouseEvents'</span><span>)</span><span>;</span>
+clickEvent.<span>initMouseEvent</span><span>(</span><span>'click'</span><span>)</span><span>;</span></pre>
+</div>
+</div>
+</div>
+<p><br>To create a custom event:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>var</span> customEvent <span>=</span> <span>new</span> CustomEvent<span>(</span><span>'myevent'</span><span>)</span><span>;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p></p>
+<p dir="ltr"><span>Once you have created the event, you may dispatch it 
+in order to execute listeners. To fire the event call the method 
+dispatchEvent on the target.</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">target.<span>dispatchEvent</span><span>(</span>event<span>)</span><span>;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><span><span>Complete example as a summary:</span><br></span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span>var</span> button <span>=</span> document.<span>querySelector</span><span>(</span><span>'button.help'</span><span>)</span><span>,</span>
+clickEvent <span>=</span> <span>new</span> MouseEvent<span>(</span><span>'click'</span><span>)</span><span>;</span>
+button.<span>dispatchEvent</span><span>(</span>clickEvent<span>)</span><span>;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><strong>Exercises:</strong></p>
+<p><a href="http://jsbin.com/EcUtoNI/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_004.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a><a href="http://jsbin.com/EcUtoNI/4/edit?js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_003.jpg" alt="jsbin" style="margin-left: 20px;" height="30" width="160"></a></p>
+<h3 dir="ltr"><span>How events work</span></h3>
+<p dir="ltr"><span>This part is important to understand the event 
+mechanism of the browser. This mechanism is also standardized and should
+ be the same in any recent browser.</span></p>
+<p dir="ltr"><span>The first thing is that an event is dispatched through the DOM tree. There are two phases of this dispatch called<strong> the capture</strong> and<strong> bubbling phases</strong>.</span></p>
+<p dir="ltr"><span><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/event_mechanism.jpg" alt="event mechanism " height="546" width="467"></span></p>
+<p><em>&nbsp;<span>Source: <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-flow">http://www.w3.org/TR/DOM-Level-3-Events/#event-flow</a></span></em></p>
+<p dir="ltr"><span>In this illustration, the dispatching phase are represente<span>d in red, green and blue.</span> <br>The first phase (red) is called <span><span>the capture phas</span>e.</span> When an event is fired, it is dispatched through the DOM tree from top (Window then document until the target). <br>Then we have<span> the Target phase</span>, the event occurs on the target. </span></p>
+<p dir="ltr"><span>And finally, the event <span>bubbles</span> from the target to the root of the document and the window.</span></p>
+<p dir="ltr"><span>In old versions of Internet Explorer the capture phase does not exist.</span></p>
+<p><span>&nbsp;</span></p>
+<p dir="ltr"><span>Consider this example:</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_4cs" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="_4cs" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">…
+<span>&lt;</span>body<span>&gt;</span>
+&nbsp; &nbsp; <span>&lt;</span>header<span>&gt;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span>&lt;</span>nav<span>&gt;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>&lt;</span>ul<span>&gt;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>&lt;</span>li<span>&gt;&lt;</span>a href<span>=</span><span>"/"</span><span>&gt;</span>home<span>&lt;</span>/a<span>&gt;&lt;</span>/li<span>&gt;</span>
+&nbsp; &nbsp; …
+&nbsp; &nbsp; <span>&lt;</span>section class<span>=</span><span>"main"</span><span>&gt;</span>
+&nbsp; &nbsp; <span>&lt;</span>/section<span>&gt;</span>
+…
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p><span>&nbsp;</span></p>
+<p dir="ltr">If the user clicks on the link "home":<br>The event <em>click</em> will occur 2 times (in the capture and bubbling phases) in these elements: <em>window</em>, <em>document</em>, <em>body</em>, <em>header</em>, <em>nav</em>, <em>ul</em>, <em>li</em>. The event will also occur on the target element: &lt;a href="/"&gt;home&lt;/a&gt;</p>
+<p dir="ltr"><span id="docs-internal-guid-19d6b0a6-4f18-25f4-8e05-c7e16e7f2ede"><span>Of course, the element &lt;section class="main"&gt; will not receive the event because it is not an ancestor of the target.</span></span></p>
+<p dir="ltr"></p>
+<p dir="ltr"><span>When you add an event listener, you can choose in which phase the listener will be executed:</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">node.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">(</span>eventName<span style="color: #339933;">,</span> eventListener<span style="color: #339933;">,</span> useCapture<span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr"><span>If useCapture equals true, the eventListener will be 
+executed in the capture phase. Conversely, it will be executed in the 
+bubbling phase if useCapture equals false (default value).</span></p>
+<p dir="ltr"><strong>Exercise:<br></strong><span><span>Consider the following code:</span></span></p>
+<p dir="ltr"><em>HTML:</em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html4strict" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html4strict" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/p.html"><span style="color: #000000; font-weight: bold;">p</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"parent"</span>&gt;</span>x <span style="color: #009900;">&lt;<a href="http://december.com/html/4/element/span.html"><span style="color: #000000; font-weight: bold;">span</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">"child"</span>&gt;</span>+ 1<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/span.html"><span style="color: #000000; font-weight: bold;">span</span></a>&gt;&lt;<span style="color: #66cc66;">/</span><a href="http://december.com/html/4/element/p.html"><span style="color: #000000; font-weight: bold;">p</span></a>&gt;</span></pre>
+</div>
+</div>
+</div>
+<p><br><em>JavaScript:<br></em></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> x <span style="color: #339933;">=</span> <span style="color: #cc0000;">0</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> parent <span style="color: #339933;">=</span> document.<span style="color: #660066;">querySelector</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'p.parent'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> child <span style="color: #339933;">=</span> document.<span style="color: #660066;">querySelector</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'p.parent span.child'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+parent.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'click'</span><span style="color: #339933;">,</span> 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span> 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; arguments<span style="color: #009900;">[</span><span style="color: #cc0000;">0</span><span style="color: #009900;">]</span>.<span style="color: #660066;">stopPropagation</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">}</span><span style="color: #339933;">,</span> 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+child.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'click'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span> x<span style="color: #339933;">++;</span><span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>After clicking 3 times on "+1", what will be the value of x?</p>
+<p><em><span id="docs-internal-guid-19d6b0a6-4f1d-3745-e3c9-76914f3b7974"><span>Advanced: In Internet Explorer 8 (with a shim for the interface addEventListener), what will be the value of x?</span></span></em></p>
+<p><em><span><span><a href="http://jsbin.com/OTOgiVa/6/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_003.jpg" alt="jsbin" style="margin-left:20px;" height="30" width="160"></a><br></span></span></em></p>
+<p></p>
+<h3 dir="ltr"><span>Optimizations and dangers (advanced)</span></h3>
+<p dir="ltr"><span style="text-decoration: underline;">Lightweight listeners</span></p>
+<p dir="ltr"><span>First of all, you should write what are called 
+lightweight listeners for events. Event listeners are executed 
+sequentially in a single thread. So, if one of them takes a long time (a
+ few seconds), other listeners will wait for their execution and maybe 
+some of them will be ignored.</span></p>
+<p><em><span><span><span><span><br><span></span></span></span></span></span></em></p>
+<p dir="ltr"><span style="text-decoration: underline;">Removing events</span></p>
+<p dir="ltr"><span>Unused event listeners should be removed, first because we want to release the memory that they hold.</span></p>
+<p dir="ltr">If you have a variable which references a node in your 
+script, maybe later you will remove this node in the tree. In your 
+script, you will remove the element in the DOM tree then set the 
+variable to null. And normally, the node will be collected by the 
+garbage collector and the used memory released. All good! But if you 
+added an event listener to the node earlier, this listener still 
+references the node: the garbage collector will not collect the node, 
+the memory is not released… &nbsp;Not good.</p>
+<p dir="ltr"></p>
+<p dir="ltr"><span style="text-decoration: underline;">Delegating events</span></p>
+<p dir="ltr"><span>Event delegation is a trick which allows you to: </span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr"><span>reduce the number of event listeners</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr"><span>avoid adding/removing event listeners when adding/removing nodes in the tree.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>The principle is to add the event listener on a 
+parent of the target. In this event listener, it is just necessary to 
+check the property target of the event argument.</span></p>
+<p dir="ltr"><span>Consider the following piece of html:</span></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_4cs" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="_4cs" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000080;">&lt;</span>ul<span style="color: #000080;">&gt;&lt;</span>/ul<span style="color: #000080;">&gt;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">function</span> delegate<span style="color: #009900;">(</span>event<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>event.<span style="color: #660066;">target</span> <span style="color: #000066; font-weight: bold;">instanceof</span> HTMLLIElement<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #006600; font-style: italic;">// do something</span>
+&nbsp; &nbsp; <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+document.<span style="color: #660066;">querySelector</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'ul'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'mouseup'</span><span style="color: #339933;">,</span> delegate<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p dir="ltr"><span>Now, we can add an element "li" within the element "ul" without having to add a new event listener.</span></p>
+<p dir="ltr"><span>Example:</span></p>
+<p dir="ltr"><span><em><a href="http://jsbin.com/elezOqe/1/edit" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_003.jpg" alt="jsbin" style="margin-left:20px;" height="30" width="160"></a></em></span></p>
+<p></p>
+<p><span>&nbsp;</span></p></div><div class="book_chapter"><a name="ch1943"></a><h2 class="book_chapter_title">5 AJAX and XMLHttpRequests</h2><h1>XMLHttpRequest&nbsp;(XHR for short)</h1>
+<p>Specifications: <br><em>"The XMLHttpRequest specification defines an 
+API that provides scripted client functionality for transferring data 
+between a client and a server."<br></em><em><a href="http://www.w3.org/TR/XMLHttpRequest/">http://www.w3.org/TR/XMLHttpRequest/</a></em></p>
+<p></p>
+<ul>
+<li>This is an object which that lets you send HTTP requests in the background from the JavaScript code.</li>
+<li>It's a native object in the browser, all modern browsers implement and support it. (It has been made a standard)</li>
+<li>Along with the DOM API, it is the other fundamental concept of AJAX.&nbsp;</li>
+<li>AJAX means <strong>A</strong>synchronous <strong>Ja</strong>vaScript <strong>X</strong>ML</li>
+<li>The most important keyword is "Asynchronous"! The JavaScript of the 
+page can continue executing and do other stuff inside the page while the
+ server is processing the request. In other words: you can send and 
+receive data in the background.</li>
+</ul>
+<p>&nbsp;</p>
+<h2><strong>Principle of Ajax: </strong></h2>
+<p>First, it sends the request with a listener for the response (a callback)<br>Second, the callback handles the response and can - for example - modify the DOM to update the page.</p>
+<p>Let's see a complete illustration:</p>
+<h5><em style="color: inherit; font-family: inherit;">The XMLHttpRequest object making asynchronous requests&nbsp;</em></h5>
+<p id="fig1"><em><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/XMLHttpRequest%2520_making_request.gif" alt="XMLHttpRequest making request (flowchart)" height="331" width="549"><br></em></p>
+<p><em>source:<a href="http://newindialaw.blogspot.fr/2013/05/precautionary-principle-of.html">http://newindialaw.blogspot.fr/2013/05/precautionary-principle-of.html</a></em></p>
+<p>The flow is as follows:</p>
+<ol>
+<li>A page invokes some JavaScript.</li>
+<li>The JavaScript function creates an XMLHttpRequest object. This includes setting up a URL to invoke and HTTP request parameters.</li>
+<li>The JavaScript function registers a callback handler. The HTTP response invokes this callback handler.</li>
+<li>The JavaScript function invokes the <strong>send&nbsp;</strong>method on the&nbsp;<strong>XMLHttpRequest&nbsp;</strong>object, which in turn sends an HTTP request to a server.</li>
+<li>The XMLHttpRequest&nbsp;object<strong> immediately returns</strong> control to the JavaScript method. At this point the<strong> user can continue working with the page</strong>.</li>
+<li><strong>Sometime later,</strong> the HTTP server returns an HTTP response, invoking the callback handler.</li>
+<li>The callback handler has access to the HTML DOM object. It can 
+update the page elements on the fly without interrupting the user 
+(unless you happen to update the DOM object the user is working on).</li>
+</ol>
+<p>Asynchronous requests can also be made locally, updating the DOM of the page asynchronously.</p>
+<p>&nbsp;</p>
+<h2><strong>Sending an XHR request:</strong></h2>
+<p><strong>Using GET method</strong></p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #006600; font-style: italic;">// create an XMLHTTPRequest object</span>
+<span style="color: #000066; font-weight: bold;">var</span> xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> XMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// add a callback for the response </span>
+xhr.<span style="color: #660066;">onreadystatechange</span> <span style="color: #339933;">=</span> handleRequest<span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// specify the method, the Url, the async</span>
+xhr.<span style="color: #660066;">open</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'GET'</span><span style="color: #339933;">,</span> url<span style="color: #339933;">+</span><span style="color: #3366cc;">'?'</span><span style="color: #339933;">+</span>params<span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// Sending the request</span>
+xhr.<span style="color: #660066;">send</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The <strong>open</strong> method defines the mode and the properties of the request.</p>
+<p>xhr.<strong>open</strong>(<i>method,url,async</i>):&nbsp;</p>
+<ul>
+<li>method: The HTTP method to use: 'GET', 'POST', 'PUT', etc.</li>
+<li>url: The URL to which to send the request with the possible string params (?search=red&amp;type=car).</li>
+<li>async: is an optional boolean (default true) which indicates if we 
+perform&nbsp;an&nbsp;asynchronous (true) request or an&nbsp;synchronous 
+(false) request.</li>
+</ul>
+<p></p>
+<p>The <strong>send</strong> method initiates the request and returns 
+immediately if the request is asynchronous. If the request is 
+synchronous, this method returns only when the response has arrived.</p>
+<p>xhr.<strong>send</strong>(data):&nbsp;</p>
+<ul>
+<li>data must be a String</li>
+<li>Throws an "<em>InvalidStateError</em>"&nbsp;exception if the state is not opened</li>
+<li>The data is ignored if request method is GET (the data must be in the url: www.test.com?param1=foo&amp;params2=bar ... )</li>
+<li>Must be "the last step" of sending a request (event&nbsp;listeners and xhr.open&nbsp;must be set before calling)</li>
+</ul>
+<p>&nbsp;</p>
+<h2><strong>Handling the response</strong></h2>
+<p><strong></strong>In the previous example, we attach the callback (<em>handleRequest</em>) to the&nbsp;onreadystatechange event:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">xhr.<span style="color: #660066;">onreadystatechange</span> <span style="color: #339933;">=</span> handleRequest<span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The XHR request has a property: <strong>readyState</strong> which holds the status of the request<strong><br></strong>The
+ readystatechange event is triggered every time the readyState changes 
+and the callback (here handleRequest) is called. We catch it with 
+onreadystatechange (like onclick for click event).<br>In addition, we have <strong>status: </strong>&nbsp;another property of XHR which represents the <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">HTTP status code</a>&nbsp;returned by the request (404 ,200, 403 ...)&nbsp;</p>
+<p>Summary:&nbsp;</p>
+<ul>
+<li><strong>readystatechange</strong>: is an event which fires when the readyState&nbsp;attribute changes.</li>
+<li><strong>readyState</strong>: returns&nbsp;the current state of the XMLHttpRequest, a number between 0 and 4:</li>
+<ul>
+<li>0:&nbsp;<em>UNSENT (open&nbsp;has not been called yet)</em></li>
+<li>1:&nbsp;<em>OPENED (send has not been called yet)</em></li>
+<li>2:&nbsp;<em>HEADERS_RECEIVED (send has been called, and headers and status are available.</em></li>
+<li>3:&nbsp;<em>LOADING (the received data are&nbsp;partially accessible.)</em></li>
+<li>4:&nbsp;<em>DONE (the operation is complete, the data are&nbsp;&nbsp;available) &nbsp;</em></li>
+</ul>
+</ul>
+<ul>
+<li><strong>status</strong>:&nbsp;Returns the HTTP status code&nbsp;</li>
+<ul>
+<li>200: "OK"</li>
+<li>404: Page not found</li>
+<li>403:&nbsp;Forbidden (etc.)&nbsp;</li>
+</ul>
+</ul>
+<p>Example:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">function</span> handleRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>xhr.<span style="color: #660066;">readyState</span> <span style="color: #339933;">&lt;</span> <span style="color: #cc0000;">4</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">return</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// The response is not available yet , we do nothing</span>
+&nbsp; &nbsp; <span style="color: #009900;">}</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>xhr.<span style="color: #660066;">status</span> <span style="color: #339933;">!==</span> <span style="color: #cc0000;">200</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span style="color: #009900;">(</span><span style="color: #3366cc;">'Error!'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// erreur HTTP</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">return</span><span style="color: #339933;">;</span>
+&nbsp; &nbsp; <span style="color: #009900;">}</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">// Here, we have readyState = 4 &amp; status = 200 </span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">// The response is available !</span>
+&nbsp; &nbsp; alert<span style="color: #009900;">(</span>xhr.<span style="color: #660066;">responseText</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Here, we just print the response with an alert, but most of the time 
+the goal is to modify / update the page width methods of the DOM 
+(innerHTML for example) or with the help of higher-level library such 
+Jquery (we will see this in the next chapter).</p>
+<p><strong>Live example:</strong></p>
+<p>Here we have a json exposed:&nbsp;<a href="http://jsbin.com/IbisIHa/1/" target="_blank">http://jsbin.com/IbisIHa/1/</a></p>
+<p>and here is the request (if it doesn't work, click on "run with js" then on the button "send the request") :<a href="http://classroom.w3devcampus.com/%20http:/jsbin.com/okIsOcE/1/edit?html,js,output">&nbsp;<br></a><a href="http://jsbin.com/okIsOcE/1/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_003.jpg" alt="Try it " height="30" width="160"></a></p>
+<p>Here's the same example with a few little modifications:&nbsp;to 
+"see" that handleRequest function is called each time 
+the&nbsp;readyState changes/</p>
+<p><a href="http://jsbin.com/ULasoM/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_003.jpg" alt="Try it " height="30" width="160"></a></p>
+<p></p>
+<p><strong>XMLHttpRequest Level 2</strong> (XMLHttpRequest2 or 
+XHR2)&nbsp;enhances XMLHttpRequest&nbsp;with new features, such as 
+cross-site requests, progress events, and the handling of byte streams 
+for both sending and receiving.</p>
+<p>One of the new features and the most commonly implemented by the browsers is the&nbsp;<strong>onload</strong> event:<br><strong>onload works like onreadystatechange</strong> except that the event is raised when readyState == 4 (when the data are loaded)&nbsp;</p>
+<p>So the previous example becomes shorter and more efficient: onload is
+ raised only once, so consequently the handleRequest is called only one 
+time.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> XMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// add a callback for the response </span>
+xhr.<span style="color: #660066;">onload</span> <span style="color: #339933;">=</span> handleRequest<span style="color: #339933;">;</span>
+xhr.<span style="color: #660066;">open</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'GET'</span><span style="color: #339933;">,</span> url<span style="color: #339933;">+</span><span style="color: #3366cc;">'?'</span><span style="color: #339933;">+</span>params<span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+xhr.<span style="color: #660066;">send</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #000066; font-weight: bold;">function</span> handleRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span>xhr.<span style="color: #660066;">status</span> <span style="color: #339933;">==</span> <span style="color: #cc0000;">200</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; alert<span style="color: #009900;">(</span>xhr.<span style="color: #660066;">responseText</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp; &nbsp; <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Another, more concrete example with the Google Map API: From a 
+address, we call a webservice to get the longitude &amp; latitude 
+(reverse geocoding).&nbsp;</p>
+<p><a href="http://jsbin.com/EduCUSI/2/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_003.jpg" alt="Try it " height="30" width="160"></a></p>
+<p>&nbsp;</p>
+<h2><strong>The browser developer tools are your friend!</strong></h2>
+<p>If you code a request (asynchronous or not), in Chrome you have a 
+&nbsp;"Network" tab in the devTools&nbsp;which provides useful tools for
+ improving or debugging your code.&nbsp;</p>
+<p>When a request is done, if the devTool is already open, the Nework 
+tab shows you the requests (name path) with their HTTP status code (200 
+,403 ... ), their type, their content size, and so on.</p>
+<p>In the following picture, I open the last example (reverse geocoding&nbsp;<a href="http://jsbin.com/EduCUSI/2">http://jsbin.com/EduCUSI/2</a>)
+ &nbsp;then I open the devTools, clicked on network and finaly make a 
+request (I type london in the input ). Here's the result:&nbsp;</p>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/chrome_devTools_network_1.png" alt="chrome devTools network tab" height="399" width="726"></p>
+<p>By clicking on it, you have&nbsp;You can view HTTP headers,&nbsp;the 
+HTTP response, the request headers and their values, and any query 
+string parameters:</p>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/chrome_devTools_network_2.png" alt="Network chrome devTools 2 " height="431" width="1010"></p>
+<p>It's one of the best way to quickly debug a request or simply have a 
+look at the response and It must be one of your first reactions when a 
+request goes wrong.</p>
+<p></p>
+<h3>Using POST Method</h3>
+<p>Here's an interesting article to read: <a href="http://www.diffen.com/difference/Get_vs_Post" target="_blank">GET vs POST</a>&nbsp;-&nbsp;it is a reminder about the difference between the POST and GET methods.&nbsp;</p>
+<p>So, to make a XMLHttpRequest with the post method is 
+not&nbsp;fundamentally different, in fact you just have to specify the 
+Content-type in the header and of course the post data!&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> XMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+xhr.<span style="color: #660066;">onreadystatechange</span> <span style="color: #339933;">=</span> handleRequest<span style="color: #339933;">;</span>
+xhr.<span style="color: #660066;">open</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'POST'</span><span style="color: #339933;">,</span> url<span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">//set the content type</span>
+xhr.<span style="color: #660066;">setRequestHeader</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'Content-type'</span><span style="color: #339933;">,</span><span style="color: #3366cc;">'application/x-www-form-urlencoded'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// Sending the request with your data</span>
+xhr.<span style="color: #660066;">send</span><span style="color: #009900;">(</span>postData<span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>When you use the POST method, you have to specify the<a href="http://en.wikipedia.org/wiki/MIME_type" target="_blank"> MIME type</a>
+ of the request using the method&nbsp;setRequestHeader, otherwise the 
+server will ignore the request. For example: if we want to send XML 
+data, we have to use: 
+xhr.setRequestHeader('Content-type','application/xml').</p>
+<p>This line:<em> xhr.setRequestHeader('Content-type', '...')</em> must be after the <em>xhr.open</em> method !&nbsp;</p>
+<ul>
+<li><strong>setRequestHeader</strong>( headerName, headerValue):</li>
+<ul>
+<li>headerName:&nbsp;the name of the request header to send. (check this list: &nbsp;<a href="http://en.wikipedia.org/wiki/List_of_HTTP_headers#Requests">http://en.wikipedia.org/wiki/List_of_HTTP_headers#Requests</a>)</li>
+<li>headerValue:&nbsp;the value of the HTTP request header.</li>
+</ul>
+</ul>
+<p>&nbsp;</p>
+<h3>FormData</h3>
+<p><em>An easy way to send POST data</em></p>
+<p>The XHR2 API also provides a new Interface: FormData. This is an object that represents an ordered list of&nbsp;<dfn id="concept-formdata-entry" title="concept-FormData-entry">entries</dfn>. Each&nbsp;entry consists of a&nbsp;key/value pair. FormData can also manipulate HTML forms.</p>
+<p><strong>Specs:</strong><br><a href="http://www.w3.org/TR/XMLHttpRequest2/#interface-formdata" target="_blank">http://www.w3.org/TR/XMLHttpRequest2/#interface-formdata</a><br><a href="http://xhr.spec.whatwg.org/#interface-formdata" target="_blank">http://xhr.spec.whatwg.org/#interface-formdata</a></p>
+<p><strong>Browser compatibility:&nbsp;</strong><br>(The formData object is not supported by IE9 or lower)&nbsp;<br><a href="http://caniuse.com/#feat=xhr2" target="_blank">http://caniuse.com/#feat=xhr2</a></p>
+<p>To test if the client browser supports FormData, it is quiet simple with the object detection method:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span>window.<span style="color: #660066;">FormData</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//supported by the browser</span>
+<span style="color: #009900;">}</span>
+<span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//not supported</span>
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p><strong>Syntax:</strong><br>The constructor:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">new</span> FormData <span style="color: #009900;">(</span>optional HTMLFormElement form<span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>The optional HTMLFormElement is an HTML &lt;form&gt;&lt;/form&gt; element</p>
+<ul>
+<li>new FormData() returns the new&nbsp;FormData object&nbsp;</li>
+<li>new FormData(form) returns the new FormData object, containing as 
+entries the result of&nbsp;constructing the form data set&nbsp;for&nbsp;<var>form</var>.</li>
+</ul>
+<p>The <strong>append</strong> method:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">formData.<span style="color: #660066;">append</span><span style="color: #009900;">(</span><span style="color: #3366cc;">"name"</span><span style="color: #339933;">,</span> value<span style="color: #339933;">,</span> optional filename<span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>There are two ways to use FormData:</p>
+<p>1) Create and set the FormData</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> fd <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> FormData<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+fd.<span style="color: #660066;">append</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'name'</span><span style="color: #339933;">,</span>Roger<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+fd.<span style="color: #660066;">append</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'age'</span><span style="color: #339933;">,</span><span style="color: #cc0000;">18</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>2) Retrieving a FormData object from an&nbsp;HTML&nbsp;form</p>
+<p>Consider the following HTML:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_html4strict" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="html4strict" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">&lt;<a href="http://december.com/html/4/element/form.html">form</a> id='myForm'&gt;
+&nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/input.html">input</a> type="text" name="name"/&gt;
+&nbsp; &nbsp; &lt;<a href="http://december.com/html/4/element/input.html">input</a> type="number" name="age"/&gt;
+&lt;/<a href="http://december.com/html/4/element/form.html">form</a>&gt;</pre>
+</div>
+</div>
+</div>
+<p><br>and the JavaScript:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> fd <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> FormData<span style="color: #009900;">(</span>document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'#myForm'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Then you can send the data by passing the formData object to the XMLHttpRequest.send method:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #006600; font-style: italic;">//fd is the FormData object</span>
+xhr.<span style="color: #660066;">send</span><span style="color: #009900;">(</span>fd<span style="color: #009900;">)</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Resources about the new features of XHR2:</p>
+<ul>
+<li>
+<p><a href="http://www.html5rocks.com/en/tutorials/file/xhr2/" target="_blank">New Tricks in XMLHttpRequest2</a> (html5rocks)&nbsp;</p>
+</li>
+<li>
+<p><a href="http://dev.opera.com/articles/view/xhr2/" target="_blank">Introduction to XMLHttpRequest Level 2</a>&nbsp;(dev.opera.com)</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h2>The CORS: Cross Origin Resource Sharing</h2>
+<p><strong>Definition of "The CORS":&nbsp;</strong></p>
+<p><em><b>"Cross-origin resource sharing</b>&nbsp;(<b>CORS</b>) is a 
+mechanism that allows JavaScript on a&nbsp;web page&nbsp;to 
+make&nbsp;XMLHttpRequests&nbsp;to another&nbsp;domain, not the domain 
+the JavaScript originated from."<br>Source:&nbsp;<a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">http://en.wikipedia.org/wiki/Cross-origin_resource_sharing</a></em></p>
+<p>By default, you can't make a request via JavaScript from a domain to 
+another domain: a "cross-domain" request. This is forbidden by the 
+browser, for security reasons.</p>
+<p><strong>Example:&nbsp;</strong></p>
+<p>Your script runs on <span style="color: #99cc00;">http://domainA.com</span>,<br>so you can not make a request to:&nbsp;</p>
+<p>http://domainA.com:8080 <em>// different port&nbsp;</em><br>http<strong>s</strong>://domainA.com <em>// different protocol (http &amp; https)</em><br>http://domainB.com <em>// different host</em></p>
+<p>If you try to do this, the browser will send you the following "message":<br><br><em>"XMLHttpRequest cannot load&nbsp;http://domainB.com&nbsp;. Origin http://domainA.com&nbsp;is not allowed by <strong>Access-Control-Allow-Origin</strong>."</em></p>
+<p>This forbidding message can be really awkward when you develop a website, typically:</p>
+<p>your front end is on <em>localhost</em> and your server with some web services for example is already deployed on <em>http://myJSblog.com:8080</em>&nbsp;</p>
+<p>Fortunately you can change that, but of course you have to have access to the server.&nbsp;<br>For PHP for example you have to add this line on your webservice:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_php" style="overflow: auto; width: 100%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="php" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #666666; font-style: italic;">//allow localhost: </span>
+<a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'Access-Control-Allow-Origin'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">"http://localhost"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'Access-Control-Allow-Methods'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'GET,PUT,POST,DELETE'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'Access-Control-Allow-Headers'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Content-Type'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #666666; font-style: italic;">//If you want allow requests from any origin</span>
+<span style="color: #666666; font-style: italic;">// replace the first line by </span>
+<a href="http://www.php.net/header"><span style="color: #990000;">header</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">'Access-Control-Allow-Origin'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">"*"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p><br>For the other server (apache, IIS7 ...) check out this link:<br><a href="http://enable-cors.org/server.html" target="_blank">http://enable-cors.org/server.html</a></p>
+<p></p>
+<p></p>
+<div style="background: #dedede;">
+<h3><strong>A short comment about Browser compatibility</strong></h3>
+<p>We have seen how to create an XMLHttpRequest object :</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> XMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>But in older versions of Internet Explorer ( &gt;= 7 ) this doesn't 
+work because initially XMLHttpRequest was created by Microsoft and was 
+implemented as an ActiveX control.</p>
+<p>However, you will surely say: "Nowadays who cares about IE (&gt;= 7 
+)" - and you will be right because even Google has dropped compatibility
+ of its products with older versions of IE!&nbsp;But as long as there 
+will be users who continue to use IE 7, you may need to ensure 
+compatibility.</p>
+<p>Anyway, the following code is still good to know because it uses 
+object detection and there are many situations where you will find or 
+will write this kind of code.</p>
+<p>So, in IE (&gt;=7),&nbsp;XMLHttpRequest does not exist - instead you 
+have ActiveXObject: but depending on the version there are two ways to 
+instantiate ActiveXObject. We are going to make a try/catch with the 
+most recent version in the try:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> xhr<span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>window.<span style="color: #660066;">ActiveXObject</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">try</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> ActiveXObject<span style="color: #009900;">(</span><span style="color: #3366cc;">"Msxml2.XMLHTTP"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">catch</span><span style="color: #009900;">(</span>e<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> ActiveXObject<span style="color: #009900;">(</span><span style="color: #3366cc;">"Microsoft.XMLHTTP"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> XMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> 
+<span style="color: #009900;">}</span>
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>OK, now we need to encapsulate this into a function, because we don't want write this each time we want to make a request:</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">function</span> getXMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; 
+&nbsp; <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>window.<span style="color: #660066;">XMLHttpRequest</span> <span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #000066; font-weight: bold;">new</span> XMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> 
+&nbsp; <span style="color: #009900;">}</span>
+&nbsp; 
+&nbsp; <span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span>window.<span style="color: #660066;">ActiveXObject</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">var</span> xhr<span style="color: #339933;">;</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">try</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> ActiveXObject<span style="color: #009900;">(</span><span style="color: #3366cc;">"Msxml2.XMLHTTP"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp; &nbsp; <span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">catch</span><span style="color: #009900;">(</span>e<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; xhr <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> ActiveXObject<span style="color: #009900;">(</span><span style="color: #3366cc;">"Microsoft.XMLHTTP"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp; &nbsp; <span style="color: #009900;">}</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">return</span> xhr<span style="color: #339933;">;</span>
+&nbsp; <span style="color: #009900;">}</span>
+&nbsp; 
+&nbsp; alert<span style="color: #009900;">(</span><span style="color: #3366cc;">"Your browser does not support XMLHTTPRequest object..."</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp; <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span>
+&nbsp;</pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>Finally we have a proper and complete version encapsulated in a 
+function, so it's reusable and can be put into a separate file. If you 
+want to create a XMLHTTPRequest, just call the function:&nbsp;</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 50%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #000066; font-weight: bold;">var</span> xhr <span style="color: #339933;">=</span> getXMLHttpRequest<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p>That's just as short as var xhr = new&nbsp;XMLHTTPRequest() but now it works on old browsers, too!&nbsp;</p>
+<p></p>
+</div>
+<h3>&nbsp;</h3>
+<h2>Exercise: Build&nbsp;an autoSuggest&nbsp;search&nbsp;component</h2>
+<p><strong>Descriptions</strong>: <br>There is a Database with a tag table (popular tags on instagram and flickr) .<br>There is a PHP file with a webservice (the url is :&nbsp;http://www.53js.org/w3devcampus/autosuggest.php).</p>
+<ul>
+<li>this webservice accepts a POST parameter with the name "qValue"</li>
+It returns a json array with the tags which begin by the qValue word example:
+<ul>
+<li>If you send {value: 'a'} the server returns something like this:&nbsp;<br>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #009900;">[</span><span style="color: #009900;">{</span><span style="color: #3366cc;">"tag"</span><span style="color: #339933;">:</span><span style="color: #3366cc;">"art"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><span style="color: #009900;">{</span><span style="color: #3366cc;">"tag"</span><span style="color: #339933;">:</span><span style="color: #3366cc;">"amazing"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><span style="color: #009900;">{</span><span style="color: #3366cc;">"tag"</span><span style="color: #339933;">:</span><span style="color: #3366cc;">"awesome"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span> ... <span style="color: #009900;">]</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+</li>
+<li>If you send {value: 'ar'} the response will be <br>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #009900;">[</span><span style="color: #009900;">{</span><span style="color: #3366cc;">"tag"</span><span style="color: #339933;">:</span><span style="color: #3366cc;">"art"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><span style="color: #009900;">{</span><span style="color: #3366cc;">"tag"</span><span style="color: #339933;">:</span><span style="color: #3366cc;">"armor"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><span style="color: #009900;">{</span><span style="color: #3366cc;">"tag"</span><span style="color: #339933;">:</span><span style="color: #3366cc;">"arsenal"</span><span style="color: #009900;">}</span> <span style="color: #009900;">]</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+</li>
+<li>if there are no matching tags the response will be:<br>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;"><span style="color: #009900;">[</span><span style="color: #009900;">]</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+</li>
+</ul>
+</ul>
+<p><strong>You have to develop the client side:</strong> There is a 
+search box (input text), and when the user starts typing, suggestions 
+appear (exactly like when you search on Google).</p>
+<p>You can do the exercise by your own, or you can follow the steps and 
+check the solution if you are lost. Before checking the solution try to 
+start from the try it link.&nbsp;</p>
+<p></p>
+<h3><strong>STEP 1</strong>: Build and test the request</h3>
+<p>Use XHR to send post Data (the name of the parameter is <em>qValue</em>)<br>You have to send parameter as string with this format : "param=value".&nbsp;<br>Test the request by send the value 'm' for example</p>
+<ul>
+<li>handle the&nbsp;response (check the&nbsp;readyState and the status)</li>
+<li>parse the response with JSON.parse to get an array of objects</li>
+</ul>
+<p><a href="http://jsbin.com/iHaxufO/12/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_003.jpg" alt="Try it " height="30" width="160"></a>&nbsp; &nbsp;<a href="http://jsbin.com/iHaxufO/1/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_002.jpg" alt="solution" height="30" width="160"></a><br><strong></strong></p>
+<p><strong>Advanced</strong>: check if the browser supports formdata then use it (with FormData do not specify the setRequestHeader)&nbsp;</p>
+<p><a href="http://jsbin.com/iHaxufO/2/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_002.jpg" alt="solution" height="30" width="160"></a><br><br></p>
+<p>&nbsp;</p>
+<h3><strong>STEP 2:</strong> Send the request on the keyup event on an input text&nbsp;</h3>
+<p>1) Add an input text HTML element.<br>2) Catch the keyup event <br>3) Print the value of the input on keyup event<br>4) Send request with the value input when you start typing&nbsp;<br>5) Print the server response with console.log</p>
+<p><a href="http://jsbin.com/iHaxufO/13/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-tryit_003.jpg" alt="Try it " height="30" width="160"></a>&nbsp; &nbsp;<a href="http://jsbin.com/iHaxufO/15/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_002.jpg" alt="solution" height="30" width="160"></a></p>
+<p></p>
+<p>&nbsp;</p>
+<h3><strong style="color: inherit; font-family: inherit; font-size: 17.5px;">STEP 3:</strong><span style="color: inherit; font-family: inherit; font-size: 17.5px; font-weight: bold;"> Add the response to the DOM&nbsp;</span></h3>
+<p>The response is displayed in the DOM, but we want to see the words in a list (&lt;li&gt;&lt;/li&gt;).&nbsp;<br>The DOM changes each time you enter a new value into the input text. &nbsp;<br>If
+ the server has no tag corresponding to the qValue it returns [], and 
+then you need to remove the previous responses. (tip: check the the 
+response array length)&nbsp;</p>
+<p><a href="http://jsbin.com/iHaxufO/16/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_002.jpg" alt="solution" height="30" width="160"></a></p>
+<h4><strong>&nbsp;</strong></h4>
+<h3><strong><br>STEP 4</strong>: Replace&nbsp;<strong>onreadystatechange by onload</strong></h3>
+<p>The code becomes to be long, we will gain some lines by replacing 
+onreadystatechange by onload (with this change we can delete some lines)<br><a href="http://jsbin.com/iHaxufO/17/edit?html,js,console,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_002.jpg" alt="solution" height="30" width="160"></a></p>
+<p></p>
+<p>&nbsp;</p>
+<h3><strong>STEP 5</strong>: Add some style, and ergonomics (advanced)</h3>
+<p>1)&nbsp;Add some css: the suggestions must be stuck just below the 
+div, like google. You can add the bold with &lt;b&gt; element to the 
+rest of each word (but this "feature"&nbsp;<span data-mce-mark="1">will have consequences for the 2) &nbsp;)&nbsp;</span></p>
+<p><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/google_suggest.png" alt="suggestion as dropdown" height="151" width="207"></p>
+<p>2)&nbsp;When you click on one element of the suggest list, it fills the input. <br>Be
+ careful because you can not attach the click event to the &lt;li&gt; 
+element because they &nbsp;are dynamically added. So, we have to attach 
+the click event to the &lt;ul&gt; element. Then use event.target 
+&nbsp;to get the &lt;li&gt; !&nbsp;<br>(if you have added the bold 
+feature: you have to check the instance of event.target because 
+event.target can be the b element (in this case take the parent with 
+parentNode) or the li element.</p>
+<div class="rj_insertcode">
+<div class="rj_insertcode_javascript" style="overflow: auto; width: 75%; height: auto; border: 1px solid #054b6e; background: #f8f8f8;">
+<div class="javascript" style="border-collapse: collapse; width: 100%;">
+<pre style="margin: 0; background: none; vertical-align: top; padding: 0px 4px; font-size: 12px; word-break: normal;">theULelement.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">(</span><span style="color: #3366cc;">'click'</span><span style="color: #339933;">,</span>clickedTag<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #000066; font-weight: bold;">function</span> clickedTag<span style="color: #009900;">(</span>event<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; <span style="color: #006600; font-style: italic;">/*hint: 
+&nbsp; &nbsp; var target = &nbsp;event.target || event.srcElement*/</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>target <span style="color: #000066; font-weight: bold;">instanceof</span> HTMLLIElement<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; &nbsp; &nbsp; ...
+&nbsp; &nbsp; <span style="color: #009900;">}</span>
+&nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">(</span>target <span style="color: #000066; font-weight: bold;">instanceof</span> ...<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+&nbsp; &nbsp; <span style="color: #009900;">}</span>
+&nbsp; &nbsp;
+&nbsp; 
+<span style="color: #009900;">}</span></pre>
+</div>
+</div>
+</div>
+<p></p>
+<p></p>
+<p><a href="http://jsbin.com/iHaxufO/18/edit?html,js,output" target="_blank"><img src="Week%203%20%20JavaScript%20in%20the%20Browser_files/btn-solution_002.jpg" alt="solution" height="30" width="160"></a></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p></div> </body></html>
