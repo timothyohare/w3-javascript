@@ -1,0 +1,220 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'express' ]
+2 info using npm@1.3.14
+3 info using node@v0.10.22
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'express@3.x', null ]
+6 verbose cache add name=undefined spec="express@3.x" args=["express@3.x",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'express@3.x',
+7 verbose parsed url   path: 'express@3.x',
+7 verbose parsed url   href: 'express@3.x' }
+8 verbose cache add name="express" spec="3.x" args=["express","3.x"]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: '3.x',
+9 verbose parsed url   path: '3.x',
+9 verbose parsed url   href: '3.x' }
+10 verbose addNamed [ 'express', '3.x' ]
+11 verbose addNamed [ null, '>=3.0.0-0 <4.0.0-0' ]
+12 silly lockFile 3a341b85-express-3-x express@3.x
+13 verbose lock express@3.x C:\Users\timothy.ohare\AppData\Roaming\npm-cache\3a341b85-express-3-x.lock
+14 silly addNameRange { name: 'express', range: '>=3.0.0-0 <4.0.0-0', hasData: false }
+15 verbose url raw express
+16 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+17 verbose url resolved https://registry.npmjs.org/express
+18 info trying registry request attempt 1 at 16:20:28
+19 verbose etag "DOHZ2SGJVWOGNW2YMLTZORH1I"
+20 http GET https://registry.npmjs.org/express
+21 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=Parse Error
+22 info trying registry request attempt 2 at 16:20:38
+23 verbose etag "DOHZ2SGJVWOGNW2YMLTZORH1I"
+24 http GET https://registry.npmjs.org/express
+25 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=Parse Error
+26 info trying registry request attempt 3 at 16:21:38
+27 verbose etag "DOHZ2SGJVWOGNW2YMLTZORH1I"
+28 http GET https://registry.npmjs.org/express
+29 silly registry.get cb [ 304, undefined ]
+30 verbose etag express from cache
+31 silly addNameRange number 2 { name: 'express', range: '>=3.0.0-0 <4.0.0-0', hasData: true }
+32 silly addNameRange versions [ 'express',
+32 silly addNameRange   [ '0.14.0',
+32 silly addNameRange     '0.14.1',
+32 silly addNameRange     '1.0.0',
+32 silly addNameRange     '1.0.1',
+32 silly addNameRange     '1.0.2',
+32 silly addNameRange     '1.0.3',
+32 silly addNameRange     '1.0.4',
+32 silly addNameRange     '1.0.5',
+32 silly addNameRange     '1.0.6',
+32 silly addNameRange     '1.0.7',
+32 silly addNameRange     '1.0.8',
+32 silly addNameRange     '2.0.0',
+32 silly addNameRange     '2.1.0',
+32 silly addNameRange     '2.1.1',
+32 silly addNameRange     '2.2.0',
+32 silly addNameRange     '2.2.1',
+32 silly addNameRange     '2.2.2',
+32 silly addNameRange     '2.3.0',
+32 silly addNameRange     '2.3.1',
+32 silly addNameRange     '2.3.2',
+32 silly addNameRange     '2.3.3',
+32 silly addNameRange     '2.3.4',
+32 silly addNameRange     '2.3.5',
+32 silly addNameRange     '2.3.6',
+32 silly addNameRange     '2.3.7',
+32 silly addNameRange     '2.3.8',
+32 silly addNameRange     '2.3.9',
+32 silly addNameRange     '2.3.10',
+32 silly addNameRange     '2.3.11',
+32 silly addNameRange     '2.3.12',
+32 silly addNameRange     '2.4.0',
+32 silly addNameRange     '2.4.1',
+32 silly addNameRange     '2.4.2',
+32 silly addNameRange     '2.4.3',
+32 silly addNameRange     '2.4.4',
+32 silly addNameRange     '2.4.5',
+32 silly addNameRange     '2.4.6',
+32 silly addNameRange     '2.4.7',
+32 silly addNameRange     '2.5.0',
+32 silly addNameRange     '2.5.1',
+32 silly addNameRange     '2.5.2',
+32 silly addNameRange     '2.5.3',
+32 silly addNameRange     '2.5.4',
+32 silly addNameRange     '2.5.5',
+32 silly addNameRange     '2.5.6',
+32 silly addNameRange     '2.5.7',
+32 silly addNameRange     '2.5.8',
+32 silly addNameRange     '2.5.9',
+32 silly addNameRange     '2.5.10',
+32 silly addNameRange     '2.5.11',
+32 silly addNameRange     '3.0.0',
+32 silly addNameRange     '3.0.1',
+32 silly addNameRange     '3.0.2',
+32 silly addNameRange     '3.0.3',
+32 silly addNameRange     '3.0.4',
+32 silly addNameRange     '3.0.5',
+32 silly addNameRange     '3.0.6',
+32 silly addNameRange     '3.1.0',
+32 silly addNameRange     '3.1.1',
+32 silly addNameRange     '3.1.2',
+32 silly addNameRange     '3.2.0',
+32 silly addNameRange     '3.2.1',
+32 silly addNameRange     '3.2.2',
+32 silly addNameRange     '3.2.3',
+32 silly addNameRange     '3.2.4',
+32 silly addNameRange     '3.2.5',
+32 silly addNameRange     '3.2.6',
+32 silly addNameRange     '3.3.0',
+32 silly addNameRange     '3.3.1',
+32 silly addNameRange     '3.3.2',
+32 silly addNameRange     '3.3.3',
+32 silly addNameRange     '3.3.4',
+32 silly addNameRange     '3.3.5',
+32 silly addNameRange     '3.3.6',
+32 silly addNameRange     '1.0.0-beta',
+32 silly addNameRange     '1.0.0-beta2',
+32 silly addNameRange     '1.0.0-rc',
+32 silly addNameRange     '1.0.0-rc2',
+32 silly addNameRange     '1.0.0-rc3',
+32 silly addNameRange     '1.0.0-rc4',
+32 silly addNameRange     '2.0.0-beta',
+32 silly addNameRange     '2.0.0-beta2',
+32 silly addNameRange     '2.0.0-beta3',
+32 silly addNameRange     '2.0.0-rc',
+32 silly addNameRange     '2.0.0-rc2',
+32 silly addNameRange     '2.0.0-rc3',
+32 silly addNameRange     '3.0.0-alpha1',
+32 silly addNameRange     '3.0.0-alpha2',
+32 silly addNameRange     '3.0.0-alpha3',
+32 silly addNameRange     '3.0.0-alpha4',
+32 silly addNameRange     '3.0.0-alpha5',
+32 silly addNameRange     '3.0.0-beta1',
+32 silly addNameRange     '3.0.0-beta2',
+32 silly addNameRange     '3.0.0-beta3',
+32 silly addNameRange     '3.0.0-beta4',
+32 silly addNameRange     '3.0.0-beta6',
+32 silly addNameRange     '3.0.0-beta7',
+32 silly addNameRange     '3.0.0-rc1',
+32 silly addNameRange     '3.0.0-rc2',
+32 silly addNameRange     '3.0.0-rc3',
+32 silly addNameRange     '3.0.0-rc4',
+32 silly addNameRange     '3.0.0-rc5',
+32 silly addNameRange     '3.3.7',
+32 silly addNameRange     '3.3.8',
+32 silly addNameRange     '3.4.0',
+32 silly addNameRange     '3.4.1',
+32 silly addNameRange     '3.4.2',
+32 silly addNameRange     '3.4.3',
+32 silly addNameRange     '3.4.4',
+32 silly addNameRange     '3.4.5',
+32 silly addNameRange     '3.4.6',
+32 silly addNameRange     '3.4.7',
+32 silly addNameRange     '3.4.8',
+32 silly addNameRange     '4.0.0-rc1',
+32 silly addNameRange     '4.0.0-rc2',
+32 silly addNameRange     '3.5.0',
+32 silly addNameRange     '4.0.0-rc3',
+32 silly addNameRange     '4.0.0-rc4',
+32 silly addNameRange     '3.5.1',
+32 silly addNameRange     '4.0.0' ] ]
+33 verbose addNamed [ 'express', '3.5.1' ]
+34 verbose addNamed [ '3.5.1', '3.5.1' ]
+35 silly lockFile d983726f-express-3-5-1 express@3.5.1
+36 verbose lock express@3.5.1 C:\Users\timothy.ohare\AppData\Roaming\npm-cache\d983726f-express-3-5-1.lock
+37 silly lockFile bba2d745-js-org-express-express-3-5-1-tgz https://registry.npmjs.org/express/-/express-3.5.1.tgz
+38 verbose lock https://registry.npmjs.org/express/-/express-3.5.1.tgz C:\Users\timothy.ohare\AppData\Roaming\npm-cache\bba2d745-js-org-express-express-3-5-1-tgz.lock
+39 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-3.5.1.tgz',
+39 verbose addRemoteTarball   '4b333e1117faca336a538f4c724140b9ce1a87e7' ]
+40 info retry fetch attempt 1 at 16:21:39
+41 verbose fetch to= C:\Users\TIMOTH~1.OHA\AppData\Local\Temp\npm-7464-4BGF-3qy\1397110899394-0.2227099952287972\tmp.tgz
+42 http GET https://registry.npmjs.org/express/-/express-3.5.1.tgz
+43 error fetch failed https://registry.npmjs.org/express/-/express-3.5.1.tgz
+44 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=Parse Error
+45 info retry fetch attempt 2 at 16:21:49
+46 verbose fetch to= C:\Users\TIMOTH~1.OHA\AppData\Local\Temp\npm-7464-4BGF-3qy\1397110899394-0.2227099952287972\tmp.tgz
+47 http GET https://registry.npmjs.org/express/-/express-3.5.1.tgz
+48 error fetch failed https://registry.npmjs.org/express/-/express-3.5.1.tgz
+49 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=Parse Error
+50 info retry fetch attempt 3 at 16:22:49
+51 verbose fetch to= C:\Users\TIMOTH~1.OHA\AppData\Local\Temp\npm-7464-4BGF-3qy\1397110899394-0.2227099952287972\tmp.tgz
+52 http GET https://registry.npmjs.org/express/-/express-3.5.1.tgz
+53 error fetch failed https://registry.npmjs.org/express/-/express-3.5.1.tgz
+54 silly lockFile bba2d745-js-org-express-express-3-5-1-tgz https://registry.npmjs.org/express/-/express-3.5.1.tgz
+55 silly lockFile bba2d745-js-org-express-express-3-5-1-tgz https://registry.npmjs.org/express/-/express-3.5.1.tgz
+56 silly lockFile d983726f-express-3-5-1 express@3.5.1
+57 silly lockFile d983726f-express-3-5-1 express@3.5.1
+58 silly lockFile 3a341b85-express-3-x express@3.x
+59 silly lockFile 3a341b85-express-3-x express@3.x
+60 error network tunneling socket could not be established, cause=Parse Error
+60 error network This is most likely not a problem with npm itself
+60 error network and is related to network connectivity.
+60 error network In most cases you are behind a proxy or have bad network settings.
+60 error network
+60 error network If you are behind a proxy, please make sure that the
+60 error network 'proxy' config is set properly.  See: 'npm help config'
+61 error System Windows_NT 6.1.7601
+62 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "express"
+63 error cwd c:\mylocaldata\timothy.ohare\dev\github\JS_14_assignment_2\assignment2
+64 error node -v v0.10.22
+65 error npm -v 1.3.14
+66 error code ECONNRESET
+67 verbose exit [ 1, true ]
